@@ -1,0 +1,55 @@
+.nav {
+    .active--exact {
+        transition: all .4s ease;
+        @extend .link-bar;
+        padding: 2px 15px;
+    }
+}
+.el-menu-item {
+    width: 100%;
+    .active--exact {
+        @extend .header-bar;
+        color: $c-secondary;
+    }
+}
+.absolute-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+//Gradient Border
+.header-bar {
+    border-bottom: 3px solid;
+    border-image-source: linear-gradient(45deg, $c-secondary, $c-primary);
+    border-image-slice: 1;
+}
+.footer-bar {
+    border-top: 3px solid;
+    border-image-source: linear-gradient(45deg, $c-primary, $c-secondary);
+    border-image-slice: 1;
+}
+.link-bar {
+    border: 3px solid;
+    border-image-source: linear-gradient(45deg, $c-primary, $c-secondary);
+    border-image-slice: 1;
+}
+.title-bar {
+    background: -webkit-linear-gradient(right,$c-secondary, $c-primary );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.btn-menu {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: rgba(0, 0, 0, 0);
+    .icon {
+        font-size: 1.8rem;
+        color: $c-primary;
+        transition: all .4s ease;
+        &:hover {
+            color: $c-secondary;
+        }
+    }
+}
