@@ -15,6 +15,7 @@
 .absolute-bottom {
     position: absolute;
     left: 0;
+    right: 0;
     bottom: 0;
 }
 //Gradient Border
@@ -39,6 +40,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+//Buton menu
 .btn-menu {
     border: none;
     cursor: pointer;
@@ -53,3 +55,4 @@
         }
     }
 }
+//Helpers Comunes

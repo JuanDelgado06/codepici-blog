@@ -24,7 +24,7 @@
       custom-class="drawer-mobile" size="60%"
       >
         <el-menu background-color="#080808" class="menu-nav-mobile">
-            <el-menu-item index="1" class="prueba">
+            <el-menu-item index="1">
               <g-link  to="/" class="nav-link-mobile">Home</g-link> 
             </el-menu-item>
             <el-menu-item index="2">
@@ -33,24 +33,8 @@
         </el-menu>
 
     </el-drawer>    
-    <footer class="MyFooter absolute-bottom footer-bar">
-      <h3 class="title-footer">Mi Repositorio</h3>
-      <social-sharing :url="url" inline-template 
-                    title="Cursos Baratos" class="nav__link"
-                    description="CodePici es el Mejor perros"
-                    quote="Cursos Baratos"
-                    hashtags="vuejs,codepici,juandelgado"
-                    twitter-user="vuejs"
-                  >
-                  <div>
-                    <network network="facebook" style="cursor: pointer;">
-                      <a class="nav-link-mobile">Facebook
-                      </a>
-                    </network>
-                  </div>
-        </social-sharing>       
-    </footer>
-    <slot/>
+    <slot />
+    <Footer />
   </div>
 </template>
 
@@ -61,24 +45,46 @@ query {
   }
 }
 </static-query>
+  }
 
 <script>
+import Footer from './Footer'
 export default {
+  metaInfo: {
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
+      }
+    ],
+    script: [
+      {
+        // body: false,
+        // src: 'https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.min.js'
+      }
+    ]
+  },
   data() {
     return {
       drawer: false,
-      direction: 'rtl',
-      url: 'https://github.com/JuanDelgado06'
+      direction: 'rtl'
     }
-  }
+  },
+  components: { Footer }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 @import '@/assets/style/index';
 .header-container {
   margin: 0 auto 20px auto;
+  width: 100%;
   max-width: 1500px;
+  background: $c-dark-alt;  
+  .navbar--hidden {
+    box-shadow: none;
+    transform: translate3d(0, -100%, 0);
+  }
 }
 .MyHeader {
   height: 60px;
@@ -110,15 +116,5 @@ export default {
 }
 .nav-link-mobile {
   color: $c-primary;
-}
-.MyFooter {
-    width: 100%;
-    position: fixed;
-    background: $c-dark-alt;
-    padding: .8rem;
-    .title-footer {
-      color: $c-primary;
-      margin: 0;
-    }
 }
 </style>

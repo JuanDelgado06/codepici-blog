@@ -11,11 +11,12 @@ import locale from 'element-ui/lib/locale/lang/es'
 import vMediaQuery from 'v-media-query'
 //Social Share
 import SocialSharing from 'vue-social-sharing'
-//Vue Scrroll Progress
-import VueScrollProgress from 'vue-scroll-progress'
 
-
-
+//Scroll Reveal
+import VueScrollReveal from 'vue-scroll-reveal';
+//Block Reveal
+import VueBlockReveal from 'vue-block-reveal';
+import VueExpandableImage from 'vue-expandable-image'
 
 
 export default function (Vue, { router, head, isClient }) {
@@ -25,5 +26,13 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(ElementUI, { locale })
   Vue.use(vMediaQuery)
   Vue.use(SocialSharing)
-  Vue.use(VueScrollProgress)
+  Vue.use(VueScrollReveal, {
+    class: 'v-scroll-reveal', // A CSS class applied to elements with the v-scroll-reveal directive; useful for animation overrides.
+    duration: 1000,
+    scale: 1,
+    distance: '10px',
+    // mobile: false
+  })
+  Vue.use(VueBlockReveal)
+  Vue.use(VueExpandableImage)
 }
