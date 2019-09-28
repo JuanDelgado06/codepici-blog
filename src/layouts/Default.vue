@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style lang="scss" scope>
-@import '@/assets/style/index';
+@import '@/style/index';
 .header-container {
   margin: 0 auto 20px auto;
   width: 100%;

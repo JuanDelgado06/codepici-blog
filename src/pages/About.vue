@@ -26,7 +26,7 @@
         Curabitur hendrerit enim felis, non ornare tortor accumsan vel. Suspendisse nulla tortor, ultricies pellentesque elit vel, fermentum hendrerit quam. Maecenas id arcu at dui pharetra eleifend. Nam suscipit accumsan elit, a lacinia dolor luctus nec. Suspendisse porttitor lacinia sapien, eu blandit nisi convallis scelerisque. Proin ut dui quis erat vulputate tempus sit amet sed dui. Nunc suscipit pharetra ligula, hendrerit euismod nisl mattis ut. Pellentesque interdum augue diam, quis viverra mi elementum vitae. Cras efficitur quam eu dolor vulputate, sed placerat quam efficitur. Vivamus vel sem eget nibh lobortis imperdiet id hendrerit dolor. Phasellus ac libero quis nulla eleifend molestie. Ut pulvinar ante sed ante lacinia aliquam.
         </p>
 
-      <btnTop />
+          <btnTop />
         
         </div>
   </Layout>
@@ -42,7 +42,3 @@ export default {
   components: { VueReadProgress, btnTop }
 }
 </script>
-
-<style lang="scss">
-
-</style>
