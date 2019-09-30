@@ -6,13 +6,13 @@
             <g-link to="/" class="title__link title-bar">{{ $static.metadata.siteName }}</g-link>
           </strong>
           <!-- BOTON PARA MENU DRAWER -->
-          <div class="nav" v-if="$mq.resize && $mq.below('600px')">
+          <div class="nav view-mobile">
             <button @click.prevent="drawer = true" class="btn-menu">
               <i class="el-icon-menu icon"></i>
             </button>
           </div>
           <!-- MENU DRAWER DESKTOP -->
-          <nav class="nav" v-if="$mq.resize && $mq.above('601px')">
+          <nav class="nav view-desktop">
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
           </nav>
@@ -45,7 +45,6 @@ query {
   }
 }
 </static-query>
-  }
 
 <script>
 import Footer from './Footer'
@@ -57,12 +56,12 @@ export default {
         href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
       }
     ],
-    script: [
-      {
+    // script: [
+      // {
         // body: false,
         // src: 'https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.min.js'
-      }
-    ]
+      // }
+    // ]
   },
   data() {
     return {
@@ -75,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scope>
-@import '@/style/index';
+@import '@/assets/style/index';
 .header-container {
   margin: 0 auto 20px auto;
   width: 100%;

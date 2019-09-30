@@ -1,6 +1,6 @@
 <template>
     <div>
-        <back-to-top v-if="$mq.resize && $mq.below('630px')" bottom="50px" right="38px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
+        <!-- <back-to-top v-if="$mq.resize && $mq.below('630px')" bottom="50px" right="38px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
             <button type="button" class="btn-scroll">
               <i class="el-icon-top"></i>
             </button>
@@ -9,15 +9,19 @@
             <button type="button" class="btn-scroll">
               <i class="el-icon-top"></i>
             </button>
+        </back-to-top> -->
+        <back-to-top bottom="60px" right="50px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
+            <button type="button" class="btn-scroll">
+              <i class="el-icon-top"></i>
+            </button>
         </back-to-top>
     </div>
 </template>
 
 <script>
-import BackToTop from 'vue-backtotop'
 export default {
     name: 'btn-top',
-    components: { BackToTop }
+    // components: { BackToTop }
 }
 </script>
 

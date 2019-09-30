@@ -54,5 +54,16 @@
             color: $c-secondary;
         }
     }
+    
 }
 //Helpers Comunes
+.view-mobile {
+    @media screen and(min-width: 600px){
+        display: none !important;
+    }
+}
+.view-desktop {
+    @media screen and(max-width: 599px){
+        display: none !important;
+    }
+}

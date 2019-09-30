@@ -1,6 +1,6 @@
 <template>
     <div>
-        <footer class="MyFooter footer-bar " reveal elevated>
+        <footer class="MyFooter footer-bar ">
             <h3 class="title-footer">Mi Repositorio</h3>
             <social-sharing :url="url" inline-template 
                 title="Cursos Baratos" class="nav__link"
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/style/index';
+@import '@/assets/style/index';
     .MyFooter {
         width: 100%;
         height: auto;

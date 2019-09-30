@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <ClientOnly>
     <div class="MyContainer home"  v-scroll-reveal.reset>
       <!-- <g-image alt="Example image" src="~/favicon.png" width="135" /> -->
       <h1>Hello, world!</h1>
@@ -13,6 +14,7 @@
         <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
       </p>
     </div>
+    </ClientOnly>
   </Layout>
 </template>
 
