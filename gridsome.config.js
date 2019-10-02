@@ -8,5 +8,21 @@ module.exports = {
   siteName: 'CodePici',
   siteUrl: "https://codepici-blog.site/",
   siteDescription: "Aprende desarrollo, diseño y programacion web",
-  plugins: []
+  plugins: [
+      {
+        use: 'gridsome-plugin-pwa',
+        options: {
+            title: 'Gridsome',
+            startUrl: '/',
+            display: 'standalone',
+            statusBarStyle: 'default',
+            manifestPath: 'manifest.json',
+            serviceWorkerPath: 'service-worker.js',
+            shortName: 'Gridsome',
+            themeColor: '#080808',
+            backgroundColor: '#080808',
+            icon: './src/favicon.png' // must be supplied!
+        }
+    }
+  ]
 }
