@@ -12,13 +12,13 @@ module.exports = {
       {
         use: 'gridsome-plugin-pwa',
         options: {
-            title: 'Gridsome',
+            title: 'CodePici',
             startUrl: '/',
             display: 'standalone',
             statusBarStyle: 'default',
             manifestPath: 'manifest.json',
             serviceWorkerPath: 'service-worker.js',
-            shortName: 'Gridsome',
+            shortName: 'CodePici',
             themeColor: '#080808',
             backgroundColor: '#080808',
             icon: './src/favicon.png' // must be supplied!

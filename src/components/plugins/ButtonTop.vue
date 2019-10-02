@@ -1,6 +1,6 @@
 <template>
     <div>
-        <back-to-top bottom="50px" right="40px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
+        <back-to-top bottom="50px" right="40px" text="Back to top" :visibleoffset="offset" class="btn-scroll-master">
             <button type="button" class="btn-scroll">
               <i class="el-icon-top"></i>
             </button>
@@ -11,7 +11,9 @@
 <script>
 export default {
     name: 'btn-top',
-    // components: { BackToTop }
+    props: {
+      offset: ''
+    }
 }
 </script>
 

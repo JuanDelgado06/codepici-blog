@@ -1,6 +1,7 @@
 <template>
   <div class="master">
-    <div class="header-container" :class="{headerBar : isActive, paddingHome: padding, paddingHeader : isActive}">
+    <div class="header-container" 
+      :class="{headerBar : isActive, paddingHome: padding, paddingHeader : isActive, navbarHidden : !showNavbar}">
       <header class="MyHeader MyContainer">
         <div class="title-header">
             <g-link to="/" class="logo-header">
@@ -38,7 +39,6 @@
               <g-link  to="/about/" class="nav-link-mobile">About</g-link> 
             </el-menu-item>           
         </el-menu>
-
     </el-drawer>    
     <slot />
     <Footer />
@@ -67,14 +67,31 @@ export default {
   props: {
     isActive: null
   },
+  components: { Footer },
   data() {
     return {
       drawer: false,
       direction: 'rtl',
-      padding: true
+      padding: true,
+      showNavbar: true
     }
   },
-  components: { Footer }
+  mounted () {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+  methods: {
+    onScroll () {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
+    }
+  }  
 }
 </script>
 
@@ -84,26 +101,32 @@ export default {
   z-index: 999;
 }
 .header-container {
-  margin: 0 auto 20px auto;
+  z-index: 999;
   width: 100%;
   background: $c-dark-alt; 
   padding: .1rem 0;
-  .navbar--hidden {
-    box-shadow: none;
-    transform: translate3d(0, -100%, 0);
-  }
 }
 .paddingHeader {
   padding: .1rem 0;
+  position: fixed;
+  top: 0;
+  transform: translate3d(0, 0, 0);
+  transition: 0.4s all ease-out;
   @include  respond-to(small) {
     padding: .2rem 0;
   }
+}
+.navbarHidden {
+transform: translate3d(0, -100%, 0);
 }
 .MyHeader {
   display: flex;
   justify-content: space-between;
   margin: .3rem auto;
-  padding: 0 1rem;
+  padding: 0 .4rem;
+  @include  respond-to(small) {
+    padding: 0 .1rem;
+  }
 }
 .title-header {
   display: flex;

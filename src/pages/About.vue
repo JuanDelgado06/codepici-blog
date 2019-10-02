@@ -1,7 +1,7 @@
 <template>
   <Layout isActive= 'true'>
       <ClientOnly >
-        <div class="MyContainer "  >
+        <div class="MyContainer header-content"  >
             <vue-scroll-progress-bar backgroundColor="linear-gradient(to right, rgba(44, 209, 176, 0.65), rgba(130, 78, 253, 0.65))" height=".4rem" />
               <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}">About us</h1>
               
@@ -36,8 +36,7 @@
         Curabitur hendrerit enim felis, non ornare tortor accumsan vel. Suspendisse nulla tortor, ultricies pellentesque elit vel, fermentum hendrerit quam. Maecenas id arcu at dui pharetra eleifend. Nam suscipit accumsan elit, a lacinia dolor luctus nec. Suspendisse porttitor lacinia sapien, eu blandit nisi convallis scelerisque. Proin ut dui quis erat vulputate tempus sit amet sed dui. Nunc suscipit pharetra ligula, hendrerit euismod nisl mattis ut. Pellentesque interdum augue diam, quis viverra mi elementum vitae. Cras efficitur quam eu dolor vulputate, sed placerat quam efficitur. Vivamus vel sem eget nibh lobortis imperdiet id hendrerit dolor. Phasellus ac libero quis nulla eleifend molestie. Ut pulvinar ante sed ante lacinia aliquam.
         </p>
 
-        
-          <btnTop />
+          <btnTop offset="300"/>
         </div>
       </ClientOnly>
   </Layout>
@@ -51,7 +50,6 @@ export default {
     title: 'About'
   },
   components: {  btnTop  },
-  // props: [isActive],
   data() {
     return {
       isActive : true
@@ -61,5 +59,11 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import '@/assets/style/index';
+  .header-content {
+    padding-top: 3.5rem;
+    @include  respond-to(small) {
+      padding-top: 5rem;
+    }
+  }
 </style>

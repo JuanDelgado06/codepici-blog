@@ -26,16 +26,21 @@
         <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
         <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
       </p>
+
+      <btnTop offset="600"/>
+   
     </div>
     </ClientOnly>
   </Layout>
 </template>
 
 <script>
+import btnTop from '~/components/plugins/ButtonTop'
 export default {
   metaInfo: {
     title: 'Home'
-  }
+  },
+  components: { btnTop }
 }
 </script>
 
