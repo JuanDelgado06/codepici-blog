@@ -14,7 +14,8 @@ import VueScrollProgressBar from '@guillaumebriday/vue-scroll-progress-bar'
 
 import VueImg from 'v-img';
 import BackToTop from 'vue-backtotop'
- 
+import VueParticles from 'vue-particles'
+import VueTypedJs from 'vue-typed-js'
 
 export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
@@ -32,4 +33,6 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(BackToTop)
   Vue.use(VueImg)
   Vue.use(VueScrollProgressBar)
-  }
+  Vue.use(VueParticles)
+  Vue.use(VueTypedJs)
+}

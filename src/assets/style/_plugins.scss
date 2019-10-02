@@ -1,12 +1,15 @@
-// // Estilos para la barra de progreso
-// #progress-container-el {
-//     background-color: transparent !important;
-//     // top: calc(100% - 4px) !important;
-//   }
-//   #progress-el {
-//     background-color: rgba(44, 209, 176, 0.63) !important;
-//   } 
-// // Fin Estilos para la barra de progreso
+//Estilos de el drawer mobile
+.el-menu {
+  border: none !important;
+}
+.drawer-mobile {
+  background: $c-dark-alt !important;
+}
+.el-drawer__close-btn {
+  color: $c-primary !important;
+  font-size: 1.5rem !important;
+}
+//Fin Estilos de el drawer mobile
 
 //Estilos de la revelacion por bloque
 .block-revealer {

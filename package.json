@@ -7,6 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@gridsome/source-filesystem": "^0.6.0",
     "@guillaumebriday/vue-scroll-progress-bar": "^0.2.0",
     "element-ui": "^2.12.0",
     "gridsome": "^0.7.0",
@@ -15,10 +16,12 @@
     "vue-backtotop": "^1.6.1",
     "vue-block-reveal": "^1.0.0",
     "vue-scroll-reveal": "^1.0.11",
-    "vue-social-sharing": "^2.4.6"
+    "vue-social-sharing": "^2.4.6",
+    "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {
     "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "vue-particles": "^1.0.9"
   }
 }

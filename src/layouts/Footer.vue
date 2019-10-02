@@ -1,6 +1,6 @@
 <template>
     <div>
-        <footer class="MyFooter footer-bar ">
+        <el-footer class="MyFooter footer-bar ">
             <h3 class="title-footer">Mi Repositorio</h3>
             <social-sharing :url="url" inline-template 
                 title="Cursos Baratos" class="nav__link"
@@ -16,7 +16,7 @@
                     </network>
                 </div>
             </social-sharing>       
-        </footer>        
+        </el-footer>        
     </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
 @import '@/assets/style/index';
     .MyFooter {
         width: 100%;
-        height: auto;
+        height: 5.2rem;
         margin-bottom: auto;
         background: $c-dark-alt;
         padding: .8rem;

@@ -1,16 +1,6 @@
 <template>
     <div>
-        <!-- <back-to-top v-if="$mq.resize && $mq.below('630px')" bottom="50px" right="38px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
-            <button type="button" class="btn-scroll">
-              <i class="el-icon-top"></i>
-            </button>
-        </back-to-top>
-        <back-to-top v-if="$mq.resize && $mq.above('631px')" bottom="60px" right="50px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
-            <button type="button" class="btn-scroll">
-              <i class="el-icon-top"></i>
-            </button>
-        </back-to-top> -->
-        <back-to-top bottom="60px" right="50px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
+        <back-to-top bottom="50px" right="40px" text="Back to top" visibleoffset="200" class="btn-scroll-master">
             <button type="button" class="btn-scroll">
               <i class="el-icon-top"></i>
             </button>
@@ -30,8 +20,6 @@ export default {
 .btn-scroll {
   width: 40px;
   height: 40px;
-  bottom: 30px;
-  right: 100px;
   background: $c-primary;
   border-radius: 50%;
   border: none;

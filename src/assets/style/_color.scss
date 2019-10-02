@@ -7,6 +7,29 @@ $c-secondary-alt: #6433d4;
 $c-accent: #ffa500;
 $c-accent-alt: #e07800;
 $c-negative: #fa4011;
-$c-dark: #1d1d1d;
+$c-dark: #161616;
 $c-dark-alt: #080808;
 $c-default: #e4e4e4;
+
+//Gradient Border
+.header-bar {
+    border-bottom: 3px solid;
+    border-image-source: linear-gradient(45deg, $c-secondary, $c-primary);
+    border-image-slice: 1;
+}
+.footer-bar {
+    border-top: 3px solid;
+    border-image-source: linear-gradient(45deg, $c-primary, $c-secondary);
+    border-image-slice: 1;
+}
+.link-bar {
+    border: 3px solid;
+    border-image-source: linear-gradient(45deg, $c-primary, $c-secondary);
+    border-image-slice: 1;
+}
+.title-bar {
+    background: -webkit-linear-gradient(right,$c-secondary, $c-primary );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

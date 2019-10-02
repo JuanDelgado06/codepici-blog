@@ -6,5 +6,7 @@
 
 module.exports = {
   siteName: 'CodePici',
+  siteUrl: "https://codepici-blog.site/",
+  siteDescription: "Aprende desarrollo, diseño y programacion web",
   plugins: []
 }

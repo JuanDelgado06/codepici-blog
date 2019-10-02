@@ -1,14 +1,27 @@
 <template>
-  <Layout>
+  <Layout class="home">
     <ClientOnly>
-    <div class="MyContainer home"  v-scroll-reveal.reset>
-      <!-- <g-image alt="Example image" src="~/favicon.png" width="135" /> -->
-      <h1>Hello, world!</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-      </p>
-      
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vel minus esse repellendus repudiandae vero. Maiores assumenda doloribus modi reiciendis at fuga deleniti maxime deserunt, repudiandae non saepe quas! Ut.</p>
+      <div class="wrap-banner">
+        <div class="main-title MyContainer">
+          <vue-typed-js :strings="['CodePici', 'el Futuro']" :loop="true">
+            <h1 class="title-hero">Desarrollando <span class="subtitle-hero typing"></span></h1>
+          </vue-typed-js>          
+          <!-- <h1 class="title-hero">Desarrollando el Futuro <span class="subtitle-hero">Reprográmate ahora</span></h1> -->
+        </div>
+        <div class="particle">
+          <vue-particles
+              color="#2cd1b0" linesColor="#834efd" class="particle-js"
+              :particleOpacity="0.8" :particlesNumber="80" shapeType="triangle" :particleSize="4"
+              :linesWidth="1.5" :lineOpacity="0.7" :linesDistance="180" :moveSpeed="5" >      
+          </vue-particles>
+        </div>
+      </div>
+    <div class="MyContainer"  v-scroll-reveal.rese t>             
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
+        </p>
+        
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vel minus esse repellendus repudiandae vero. Maiores assumenda doloribus modi reiciendis at fuga deleniti maxime deserunt, repudiandae non saepe quas! Ut.</p>
       <p class="home-links">
         <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
         <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
@@ -21,14 +34,51 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'  
+    title: 'Home'  
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '@/assets/style/index';
 .home {
-  min-height: 83vh;
+  background-image: url(../assets/img/bg-galaxia.png);
+  background-size: cover;
+}
+.wrap-banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin-top: -20px;
+}
+.main-title {
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+.particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+}
+.particle-js {
+width: 100%;
+height: 100%;
+}
+.title-hero {
+  font-size: 2.4rem;
+    text-align: center;
+  font-family: $font-default;
+  .subtitle-hero {
+    font-family: $font-default;
+  }
+  @include  respond-to(small) {
+    font-size: 4rem;
+  }
 }
 .home-links a {
   margin-right: 1rem;

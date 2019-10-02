@@ -1,10 +1,17 @@
 <template>
   <div class="master">
     <div class="header-container header-bar">
-      <el-header class="MyHeader MyContainer">
+      <header class="MyHeader MyContainer">
+        <div class="title-header">
+            <g-link to="/" class="logo-header">
+                <g-image alt="logo" src="../assets/img/logo.svg" ></g-image>
+            </g-link>
           <strong>
-            <g-link to="/" class="title__link title-bar">{{ $static.metadata.siteName }}</g-link>
+            <g-link to="/" class="title__link title-bar">
+            {{ $static.metadata.siteName }}
+            </g-link>
           </strong>
+        </div>
           <!-- BOTON PARA MENU DRAWER -->
           <div class="nav view-mobile">
             <button @click.prevent="drawer = true" class="btn-menu">
@@ -16,7 +23,7 @@
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
           </nav>
-      </el-header>
+      </header>
     </div>
     <el-drawer
       :visible.sync="drawer"
@@ -54,13 +61,13 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
-      }
+      },
     ],
     // script: [
-      // {
-        // body: false,
-        // src: 'https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.min.js'
-      // }
+    //   {
+    //     body: true,
+    //     src: 'https://unpkg.com/quasar-framework@^0.17.0/dist/umd/quasar.mat.umd.min.js'
+    //   }
     // ]
   },
   data() {
@@ -75,10 +82,13 @@ export default {
 
 <style lang="scss" scope>
 @import '@/assets/style/index';
+.master {
+  z-index: 999;
+}
 .header-container {
   margin: 0 auto 20px auto;
   width: 100%;
-  max-width: 1500px;
+  // max-width: 1500px;
   background: $c-dark-alt;  
   .navbar--hidden {
     box-shadow: none;
@@ -86,17 +96,36 @@ export default {
   }
 }
 .MyHeader {
-  height: 60px;
   display: flex;
   justify-content: space-between;
+  margin: .3rem auto;
+  padding: 0 1rem;
+}
+.title-header {
+  display: flex;
   align-items: center;
 }
 .title__link {
   border: none;
-  font-size: 2.2rem;
+  font-size: 2rem;
+  align-self: center;
+  @include  respond-to(small) {
+    font-size: 2.4rem;
+  }
   &:hover {
         color: $c-primary-alt;
-    }
+  }
+}
+.logo-header {
+  width: 2rem;
+  margin-top: .3rem;
+  margin-right: .6rem;
+  @include respond-to(small) {
+    width: 3rem;
+  }
+}
+.nav {
+  align-self: center;
 }
 .nav__link {
   margin-left: 1.2rem;

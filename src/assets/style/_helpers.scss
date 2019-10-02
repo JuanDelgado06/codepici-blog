@@ -18,28 +18,6 @@
     right: 0;
     bottom: 0;
 }
-//Gradient Border
-.header-bar {
-    border-bottom: 3px solid;
-    border-image-source: linear-gradient(45deg, $c-secondary, $c-primary);
-    border-image-slice: 1;
-}
-.footer-bar {
-    border-top: 3px solid;
-    border-image-source: linear-gradient(45deg, $c-primary, $c-secondary);
-    border-image-slice: 1;
-}
-.link-bar {
-    border: 3px solid;
-    border-image-source: linear-gradient(45deg, $c-primary, $c-secondary);
-    border-image-slice: 1;
-}
-.title-bar {
-    background: -webkit-linear-gradient(right,$c-secondary, $c-primary );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 //Buton menu
 .btn-menu {
     border: none;
@@ -65,5 +43,22 @@
 .view-desktop {
     @media screen and(max-width: 599px){
         display: none !important;
+    }
+}
+//Media Queries
+$mobile: 600px;
+$table: 768px;
+$desktop: 1224px;
+
+@mixin respond-to($media) {
+    @if $media == small {
+        @media only screen and (min-width: $mobile) { @content; }
+    }
+    @if $media == mid {
+        @media only screen and (min-width: $table) { @content; }
+    }
+
+    @else if $media == big {
+        @media only screen and (min-width: $desktop) { @content; }
     }
 }
