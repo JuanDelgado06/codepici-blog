@@ -118,7 +118,6 @@ export default {
 }
 .logo-header {
   width: 2rem;
-  margin-top: .3rem;
   margin-right: .6rem;
   @include respond-to(small) {
     width: 3rem;

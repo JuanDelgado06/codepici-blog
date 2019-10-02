@@ -3,7 +3,7 @@
     <ClientOnly>
       <div class="wrap-banner">
         <div class="main-title MyContainer">
-          <vue-typed-js :strings="['CodePici', 'el Futuro']" :loop="true">
+          <vue-typed-js :strings="['con CodePici', 'el Futuro']">
             <h1 class="title-hero">Desarrollando <span class="subtitle-hero typing"></span></h1>
           </vue-typed-js>          
           <!-- <h1 class="title-hero">Desarrollando el Futuro <span class="subtitle-hero">Reprográmate ahora</span></h1> -->
@@ -34,7 +34,7 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Home'  
+    title: 'Home'
   }
 }
 </script>
