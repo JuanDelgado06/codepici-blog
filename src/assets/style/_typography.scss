@@ -1,8 +1,10 @@
 @import url("https://use.typekit.net/jdh7noy.css");
 @import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css?family=Turret+Road:400,700,800&display=swap&subset=latin-ext');
 // font-family: 'Inter', sans-serif;
 $font-default: paralucent, sans-serif;
 $font-nice: 'Inter', sans-serif;
+$font-code:  'Turret Road', cursive;
 body {
     font-family: $font-default;
     font-size: 16px;

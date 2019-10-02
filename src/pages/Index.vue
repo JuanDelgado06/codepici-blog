@@ -1,7 +1,7 @@
 <template>
   <Layout class="home">
     <ClientOnly>
-      <div class="wrap-banner">
+      <div class="wrap-banner ">
         <div class="main-title MyContainer">
           <vue-typed-js :strings="['con CodePici', 'el Futuro']">
             <h1 class="title-hero">Desarrollando <span class="subtitle-hero typing"></span></h1>
@@ -50,7 +50,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 95vh;
   margin-top: -20px;
 }
 .main-title {
@@ -63,7 +63,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 .particle-js {
 width: 100%;
@@ -71,10 +71,10 @@ height: 100%;
 }
 .title-hero {
   font-size: 2.4rem;
-    text-align: center;
-  font-family: $font-default;
+  text-align: center;
+  font-family: $font-code;
   .subtitle-hero {
-    font-family: $font-default;
+    font-family: $font-code;
   }
   @include  respond-to(small) {
     font-size: 4rem;

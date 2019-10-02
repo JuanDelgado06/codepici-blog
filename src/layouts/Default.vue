@@ -1,6 +1,6 @@
 <template>
   <div class="master">
-    <div class="header-container header-bar">
+    <div class="header-container" :class="{headerBar : isActive, paddingHome: padding, paddingHeader : isActive}">
       <header class="MyHeader MyContainer">
         <div class="title-header">
             <g-link to="/" class="logo-header">
@@ -62,18 +62,16 @@ export default {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
       },
-    ],
-    // script: [
-    //   {
-    //     body: true,
-    //     src: 'https://unpkg.com/quasar-framework@^0.17.0/dist/umd/quasar.mat.umd.min.js'
-    //   }
-    // ]
+    ]
+  },
+  props: {
+    isActive: null
   },
   data() {
     return {
       drawer: false,
-      direction: 'rtl'
+      direction: 'rtl',
+      padding: true
     }
   },
   components: { Footer }
@@ -88,11 +86,17 @@ export default {
 .header-container {
   margin: 0 auto 20px auto;
   width: 100%;
-  // max-width: 1500px;
-  background: $c-dark-alt;  
+  background: $c-dark-alt; 
+  padding: .1rem 0;
   .navbar--hidden {
     box-shadow: none;
     transform: translate3d(0, -100%, 0);
+  }
+}
+.paddingHeader {
+  padding: .1rem 0;
+  @include  respond-to(small) {
+    padding: .2rem 0;
   }
 }
 .MyHeader {
@@ -107,18 +111,19 @@ export default {
 }
 .title__link {
   border: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   align-self: center;
+  font-family: $font-code;
   @include  respond-to(small) {
     font-size: 2.4rem;
   }
   &:hover {
-        color: $c-primary-alt;
+    color: $c-primary-alt;
   }
 }
 .logo-header {
   width: 2rem;
-  margin-right: .6rem;
+  margin-right: .5rem;
   @include respond-to(small) {
     width: 3rem;
   }
@@ -129,6 +134,9 @@ export default {
 .nav__link {
   margin-left: 1.2rem;
   color: $c-primary;
+  font-family: $font-code;
+  font-weight: bold;
+  font-size: 1.4rem;
   &:hover {
     color: $c-primary-alt;
     }
@@ -139,9 +147,12 @@ export default {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  height: 70vh;
+  height: 75vh;
 }
 .nav-link-mobile {
   color: $c-primary;
+  font-size: 1.5rem;
+  font-family: $font-code;
+  font-weight: bold;
 }
 </style>
