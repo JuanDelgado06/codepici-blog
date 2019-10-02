@@ -23,6 +23,7 @@ module.exports = {
             backgroundColor: '#080808',
             icon: './src/favicon.png' // must be supplied!
         }
-    }
+    },
+    
   ]
 }

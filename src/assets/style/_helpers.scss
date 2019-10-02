@@ -18,6 +18,32 @@
     right: 0;
     bottom: 0;
 }
+//Dropdown
+.dropdown {
+    margin-left: 1.2rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: $c-primary;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+        color: $c-primary-alt;
+    }
+    .el-dropdown-link {
+        font-family: $font-code;
+    }
+}
+.item-dropdown {
+    background: $c-dark;
+    border-color: $c-primary;
+    &-tag {
+        color: $c-secondary;
+        &:hover {
+            background: $c-dark-alt !important;
+            color: $c-primary !important;
+        }
+    }
+}
 //Buton menu
 .btn-menu {
     border: none;

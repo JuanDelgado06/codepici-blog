@@ -21,13 +21,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
   
   Vue.use(ElementUI, { locale })
-  Vue.use(VueScrollReveal, {
-    // class: 'v-scroll-reveal', 
-    // duration: 400,
-    // scale: 1,
-    // distance: '5px',
-    // // mobile: false
-  })
+  Vue.use(VueScrollReveal)
   Vue.use(VueBlockReveal)
   Vue.use(SocialSharing)
   Vue.use(BackToTop)
