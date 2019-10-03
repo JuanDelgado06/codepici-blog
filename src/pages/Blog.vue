@@ -1,39 +1,50 @@
 <template>
-  <Layout isActive= 'true' blog="true">
+  <Layout isActive= 'true'>
       <ClientOnly >
         <div class="MyContainer header-content"  >
-            <vue-scroll-progress-bar backgroundColor="linear-gradient(to right, rgba(44, 209, 176, 0.65), rgba(130, 78, 253, 0.65))" height=".4rem" />
             <div class="mw">
                  <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}">Blog</h1>
-                 
-                <!-- <div class="post-list">
-                    <div v-for="(edge, index) in $page.allPost.edges" :key="index">
-                        <h1 class="title" v-html="edge.node.title" />
-                        <p class="date" v-html="edge.node.date" />
-                        <p class="description" v-html="edge.node.description" />
-                        <p>{{edge.node.timeToRead}} min read</p>
-                        <g-link :to="edge.node.path" class="read">Read More...</g-link>
-                        <hr class="line" />
-                    </div>
-                </div>                  -->
-
+                <div class="posts">
+                  <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+                </div>                 
             </div>
-              
-              
-
         </div>
       </ClientOnly>
   </Layout>
 </template>
 
+<page-query>
+query {
+  posts: allPost(filter: { published: { eq: true }}) {
+    edges {
+      node {
+        id
+        title
+        date (format: "D. MMMM YYYY")
+        timeToRead
+        description
+        cover_image (width: 770, height: 380, blur: 10)
+        path
+        tags {
+          id
+          title
+          path
+        }
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
+import PostCard from '~/components/PostCard.vue'
 import btnTop from '~/components/plugins/ButtonTop'
 
 export default {
   metaInfo: {
     title: 'About'
   },
-  components: {  btnTop  },
+  components: {  btnTop, PostCard  },
   data() {
     return {
       isActive : true

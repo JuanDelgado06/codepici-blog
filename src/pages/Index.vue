@@ -56,7 +56,6 @@ export default {
   justify-content: center;
   align-items: center;
   height: 95vh;
-  margin-top: -20px;
 }
 .main-title {
   z-index: 999;

@@ -15,16 +15,6 @@
         </div>
           <!-- BOTON PARA MENU DRAWER -->
           <div class="nav view-mobile">
-            <el-dropdown class="dropdown" v-if="blog">
-                <span class="el-dropdown-link">
-                  Tags<i class="el-icon-arrow-down el-icon--right"></i>
-                </span>              
-                <el-dropdown-menu slot="dropdown" class="item-dropdown" > 
-                    <!-- <el-dropdown-item class="item-dropdown-tag" v-for="(tag, index) in $page.allTag.edges" :key="index">{{tag.node.id}}</el-dropdown-item> -->
-                    <el-dropdown-item  class="item-dropdown-tag">Action 2</el-dropdown-item>
-                    <el-dropdown-item  class="item-dropdown-tag">Action 3</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
             <button @click.prevent="drawer = true" class="btn-menu">
               <i class="el-icon-menu icon"></i>
             </button>
@@ -34,18 +24,6 @@
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
               <g-link class="nav__link" to="/blog/">Blog</g-link>
-
-              <el-dropdown class="dropdown" v-if="blog">
-                <span class="el-dropdown-link">
-                  Tags<i class="el-icon-arrow-down el-icon--right"></i>
-                </span>              
-                <el-dropdown-menu slot="dropdown" class="item-dropdown"> 
-                    <el-dropdown-item class="item-dropdown-tag">Action 1</el-dropdown-item>
-                    <el-dropdown-item  class="item-dropdown-tag">Action 2</el-dropdown-item>
-                    <el-dropdown-item  class="item-dropdown-tag">Action 3</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-
           </nav>
       </header>
     </div>
