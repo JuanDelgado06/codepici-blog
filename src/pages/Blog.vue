@@ -1,21 +1,25 @@
 <template>
-  <Layout isActive= 'true'>
-      <ClientOnly >
+  <Layout isActive= 'true' :showFooter="true">
         <div class="MyContainer header-content"  >
-            <div class="mw">
                  <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}">Blog</h1>
                 <div class="posts">
                   <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
                 </div>                 
+                <Pager :info="$page.posts.pageInfo"/>
             </div>
-        </div>
-      </ClientOnly>
   </Layout>
 </template>
 
 <page-query>
-query {
-  posts: allPost(filter: { published: { eq: true }}) {
+query Posts ($page: Int) {
+  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 3, page: $page ) @paginate {
+    totalCount
+    pageInfo {
+      totalPages
+      currentPage
+      isFirst
+      isLast
+    }
     edges {
       node {
         id
@@ -39,12 +43,13 @@ query {
 <script>
 import PostCard from '~/components/PostCard.vue'
 import btnTop from '~/components/plugins/ButtonTop'
+import { Pager } from "gridsome";
 
 export default {
   metaInfo: {
-    title: 'About'
+    title: 'Blog'
   },
-  components: {  btnTop, PostCard  },
+  components: {  btnTop, PostCard, Pager  },
   data() {
     return {
       isActive : true
@@ -55,11 +60,5 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/index';
-.mw {
-    height: 100vh;
-     padding-top: 3.5rem;
-    @include  respond-to(small) {
-      padding-top: 5rem;
-    }
-}
+
 </style>

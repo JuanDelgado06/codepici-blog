@@ -5,6 +5,8 @@ import DefaultLayout from '~/layouts/Default.vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/es'
+//Vue Fuse
+import VueFuse from 'vue-fuse'
 //Social Share
 import SocialSharing from 'vue-social-sharing'
 //Scroll 
@@ -16,6 +18,7 @@ import VueImg from 'v-img';
 import BackToTop from 'vue-backtotop'
 import VueParticles from 'vue-particles'
 import VueTypedJs from 'vue-typed-js'
+
 
 export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
@@ -29,4 +32,5 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(VueScrollProgressBar)
   Vue.use(VueParticles)
   Vue.use(VueTypedJs)
+  Vue.use(VueFuse)
 }

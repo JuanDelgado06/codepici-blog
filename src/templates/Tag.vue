@@ -1,11 +1,14 @@
 <template>
     <Layout :isActive="true">
-    <h1 class="tag-title text-center space-bottom">
-      Post con el Tag #{{ $page.tag.title }}
-    </h1>
+    <div class="MyContainer  header-content">
 
-    <div class="posts">
-      <PostCard v-for="edge in $page.tag.belongsTo.edges" :key="edge.node.id" :post="edge.node"/>
+        <h1 class="tag-title text-center space-bottom">
+          Post con el Tag #{{ $page.tag.title }}
+        </h1>
+        <div class="posts">
+          <PostCard v-for="edge in $page.tag.belongsTo.edges" :key="edge.node.id" :post="edge.node"/>
+        </div>
+        <FloatingButton />
     </div>
     </Layout>
 </template>
@@ -34,17 +37,16 @@ query Tag ($id: ID!) {
 
 <script>
 import PostCard from '~/components/PostCard.vue'
-
+import FloatingButton from '~/components/FloatingButton.vue'
 export default {
   components: {
-    PostCard
+    PostCard, FloatingButton
   },
-  metaInfo: {
-    title: 'Hello, world!'
+  metaInfo () {
+    return {
+      title: `#${this.$page.tag.title}`,
+    }
   }
 }
 </script>
 
-<style lang="scss">
-
-</style>

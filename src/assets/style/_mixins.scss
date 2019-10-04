@@ -1,0 +1,15 @@
+//Media Queries
+$mobile: 600px;
+$table: 768px;
+$desktop: 1224px;
+@mixin respond-to($media) {
+    @if $media == small {
+        @media only screen and (min-width: $mobile) { @content; }
+    }
+    @if $media == mid {
+        @media only screen and (min-width: $table) { @content; }
+    }
+    @else if $media == big {
+        @media only screen and (min-width: $desktop) { @content; }
+    }
+}

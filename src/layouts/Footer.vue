@@ -41,7 +41,7 @@ export default {
         padding: .8rem;
         .title-footer {
         color: $c-primary;
-        margin: 0;
+        margin: .6rem 0;
         }
     }
 </style>

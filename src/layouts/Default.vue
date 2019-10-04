@@ -45,7 +45,7 @@
         </el-menu>
     </el-drawer>    
     <slot />
-    <Footer />
+    <Footer v-if="showFooter"/>
   </div>
 </template>
 
@@ -58,6 +58,7 @@ query {
 </static-query>
 
 <script>
+import SearchInput from '../components/SearchInput'
 import Footer from './Footer'
 export default {
   metaInfo: {
@@ -70,9 +71,9 @@ export default {
   },
   props: {
     isActive: null,
-    blog: null
+    showFooter: true
   },
-  components: { Footer },
+  components: { Footer, SearchInput },
   data() {
     return {
       drawer: false,
@@ -90,7 +91,7 @@ export default {
   methods: {
     onScroll () {
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-      if (currentScrollPosition < 0) {
+      if (currentScrollPosition < 1) {
         return
       }
       this.showNavbar = currentScrollPosition < this.lastScrollPosition
