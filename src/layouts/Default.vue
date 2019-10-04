@@ -20,6 +20,7 @@
             </button>
           </div>
           <!-- MENU DRAWER DESKTOP -->
+            <SearchInput class="nav__link"/>
           <nav class="nav view-desktop">
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
