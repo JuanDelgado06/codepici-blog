@@ -1,6 +1,6 @@
 ---
 path: "/post-cover-image"
-title: Una imagen
+title: Post con Imagen
 date: 2019-01-07
 published: true
 tags: ['Markdown', 'Cover Image']

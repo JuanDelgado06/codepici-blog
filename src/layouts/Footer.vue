@@ -35,13 +35,11 @@ export default {
 @import '@/assets/style/index';
     .MyFooter {
         width: 100%;
-        height: 5.2rem;
-        margin-bottom: auto;
         background: $c-dark-alt;
         padding: .8rem;
         .title-footer {
         color: $c-primary;
-        margin: .6rem 0;
-        }
+        margin: 0;
+    }
     }
 </style>

@@ -1,12 +1,10 @@
 <template>
   <div class="relative">
-    <search-focus @keyup="focusSearch"></search-focus>
 
     <div class="relative w-80">
       <el-input
         type="text"
         placeholder="Busca algo increible" prefix-icon="el-icon-search" clearable
-        class="bg-background-form border border-gray-500 rounded-full px-4 pl-10 py-2 outline-none focus:border-green-500 w-80"
         v-model="query"
         @input="softReset"
         @keyup="performSearch"
@@ -29,12 +27,12 @@
             :key="index"
             :href="post.item.path"
             @click="reset"
-            class="bg-background-form border-b border-gray-400 text-xl cursor-pointer p-4 search-hover"
-            :class="{ 'search-highlighted' : index === highlightedIndex }"
           >
+            <!-- class="bg-background-form border-b border-gray-400 text-xl cursor-pointer p-4 search-hover"
+            :class="{ 'search-highlighted' : index === highlightedIndex }" -->
             {{ post.item.title }}
 
-            <span class="block font-normal text-copy-primary text-sm my-1">{{ post.item.description }}</span>
+            <span>{{ post.item.description }}</span>
           </a>
           <a href="#">Hola mundo
             <span>Soy un spam perro</span>
@@ -60,11 +58,9 @@
 
 <script>
 import axios from 'axios'
-import SearchFocus from './SearchFocus'
 
 export default {
   components: {
-    SearchFocus,
   },
   created() {
     axios(this.$static.metadata.pathPrefix + "/search.json").then(response => {

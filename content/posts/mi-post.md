@@ -3,11 +3,11 @@ path: "/mi-post"
 title: Mi primer Post
 date: 2019-10-03
 published: true
-tags: ['Markdown', 'Cover Image', 'Vue']
+tags: ['Markdown', 'Cover Image', 'Releases']
 series: false
 cover_image: ./images/logo-black-1080.png
 canonical_url: false
-description: "Esta es una descripcion bien chimbita. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions."
+description: "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions."
 ---
 
 ## Este es el Titulo de mi post

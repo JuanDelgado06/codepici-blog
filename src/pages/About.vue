@@ -1,6 +1,7 @@
 <template>
-  <Layout isActive= 'true' :showFooter="true">
-        <div class="MyContainer header-content" >
+  <Layout :isActive="true" :showFooter="true">
+      <ClientOnly >
+        <div class="MyContainer header-content"  >
             <vue-scroll-progress-bar backgroundColor="linear-gradient(to right, rgba(44, 209, 176, 0.65), rgba(130, 78, 253, 0.65))" height=".4rem" />
               <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}">About us</h1>
               
@@ -37,6 +38,7 @@
 
           <btnTop offset="300"/>
         </div>
+      </ClientOnly>
   </Layout>
 </template>
 
@@ -58,5 +60,5 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/index';
-  
+
 </style>

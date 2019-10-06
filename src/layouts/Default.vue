@@ -20,7 +20,6 @@
             </button>
           </div>
           <!-- MENU DRAWER DESKTOP -->
-            <SearchInput class="nav__link"/>
           <nav class="nav view-desktop">
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
@@ -59,7 +58,6 @@ query {
 </static-query>
 
 <script>
-import SearchInput from '../components/SearchInput'
 import Footer from './Footer'
 export default {
   metaInfo: {
@@ -74,13 +72,13 @@ export default {
     isActive: null,
     showFooter: true
   },
-  components: { Footer, SearchInput },
+  components: { Footer },
   data() {
     return {
       drawer: false,
       direction: 'rtl',
       padding: true,
-      showNavbar: true
+      showNavbar: true,
     }
   },
   mounted () {
@@ -92,7 +90,7 @@ export default {
   methods: {
     onScroll () {
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-      if (currentScrollPosition < 1) {
+      if (currentScrollPosition <  1) {
         return
       }
       this.showNavbar = currentScrollPosition < this.lastScrollPosition

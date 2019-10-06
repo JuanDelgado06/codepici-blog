@@ -55,7 +55,8 @@ export default {
   }
 
   &:hover {
-    box-shadow: 1px 10px 30px 0 rgba(255, 255, 255, 0.274);
+    transform: translateY(-5px);
+    box-shadow: 1px 10px 30px 0 rgba(0,0,0,.1);
   }
 
   &__tags {
