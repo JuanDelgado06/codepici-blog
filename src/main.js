@@ -17,8 +17,20 @@ import BackToTop from 'vue-backtotop'
 import VueParticles from 'vue-particles'
 import VueTypedJs from 'vue-typed-js'
 
+import VueFuse from 'vue-fuse'
+import Fuse from 'fuse.js'
+
+
 export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
+  Vue.component(VueFuse.name, VueFuse)
+  Vue.prototype.$search = function (term, list, options) {
+    return new Promise(function (resolve, reject) {
+      var run = new Fuse(list, options)
+      var results = run.search(term)
+      resolve(results)
+    })
+  }
   
   Vue.use(ElementUI, { locale })
   Vue.use(VueScrollReveal)
@@ -29,4 +41,6 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(VueScrollProgressBar)
   Vue.use(VueParticles)
   Vue.use(VueTypedJs)
+  Vue.use(VueFuse)
+  // Vue.use(Fuse)
 }
