@@ -5,7 +5,8 @@
       <header class="MyHeader MyContainer">
         <div class="title-header">
             <g-link to="/" class="logo-header">
-                <g-image alt="logo" src="../assets/img/logo.svg" ></g-image>
+                <!-- <g-image alt="logo" src="../assets/img/logo.svg" ></g-image> -->
+                <g-image alt="logo" src="~/favicon.png" ></g-image>
             </g-link>
           <strong>
             <g-link to="/" class="title__link title-bar">
