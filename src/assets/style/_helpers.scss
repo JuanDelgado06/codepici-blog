@@ -2,7 +2,10 @@
     .active--exact {
         transition: all .4s ease;
         @extend .link-bar;
-        padding: 2px 15px;
+        padding: 0 .7rem;
+        @media screen and(min-width: 700px){
+            padding: 0 1rem;
+        }
     }
 }
 .el-menu-item {
@@ -75,4 +78,9 @@
     @include  respond-to(small) {
       padding-top: 5rem;
     }
+}
+
+//Responsive {
+.flex {
+    display: flex;
 }

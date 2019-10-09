@@ -16,59 +16,21 @@
         <div v-if="sinResultados">
             <h2>No hay resultados para {{noEncontrado}}</h2>
         </div>
-        <div v-for="book in results" :key="book.name" class="">
-            <h2 class="w-1/4">{{ book.title }}</h2>
-            <div class="ml-4 w-3/4">{{ book.summary }}</div>
-            <a :href="book.url">LInk</a>
-        </div>
-        <!-- <div v-for="edge in $page.posts.edges"  :key="edge.node.id">
-            <h2>{{ edge.node.title }}</h2>
-            <p>{{edge.node.description}}</p>
-        </div> -->
+          <div v-for="book in results" :key="book.name" class="">
+              <h2 class="w-1/4">{{ book.title }}</h2>
+              <div class="ml-4 w-3/4">{{ book.summary }}</div>
+              <a :href="book.url">LInk</a>
+          </div>
         </div>
     </div>
   </Layout>
 </template>
 
-<page-query>
-query Posts ($page: Int) {
-  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 2, page: $page ) @paginate {
-    totalCount
-    pageInfo {
-      totalPages
-      currentPage
-      isFirst
-      isLast
-    }
-    edges {
-      node {
-        id
-        title
-        date (format: "D. MMMM YYYY")
-        timeToRead
-        description
-        cover_image (width: 770, height: 380, blur: 10)
-        path
-        tags {
-          id
-          title
-          path
-        }
-      }
-    }
-  }
-}
-</page-query>
-
 <script>
-import VueFuse from '@/components/VueFuse.vue'
 import axios from 'axios'
 
 export default {
   name: 'app',
-  components: {
-    VueFuse
-  },
   data () {
     return {
         sinResultados: false,
@@ -100,7 +62,7 @@ export default {
     axios("/search.json").then(response => {
       // console.log(response.data.items)
       this.post = response.data.items
-      console.log(this.post);
+      // console.log(this.post);
     })
     this.$on('results', results => {
       this.results = results

@@ -1,142 +1,129 @@
 <template>
-  <div class="relative">
-
-    <div class="relative w-80">
-      <el-input
-        type="text"
-        placeholder="Busca algo increible" prefix-icon="el-icon-search" clearable
-        v-model="query"
-        @input="softReset"
-        @keyup="performSearch"
-        @keyup.esc="searchResultsVisible = false"
-        @keydown.up.prevent="highlightPrev"
-        @keydown.down.prevent="highlightNext"
-        @keyup.enter="gotoLink"
-        @blur="searchResultsVisible = false"
-        @focus="searchResultsVisible = true"
-        ref="search"
-      >
-      </el-input>
-
-    </div>
-    <transition name="fade">
-      <div v-if="query.length > 0 && searchResultsVisible" class="search-result" style="max-height: 32rem">
-        <div class="flex flex-col" ref="results">
-          <a
-            v-for="(post, index) in results"
-            :key="index"
-            :href="post.item.path"
-            @click="reset"
-          >
-            <!-- class="bg-background-form border-b border-gray-400 text-xl cursor-pointer p-4 search-hover"
-            :class="{ 'search-highlighted' : index === highlightedIndex }" -->
-            {{ post.item.title }}
-
-            <span>{{ post.item.description }}</span>
-          </a>
-          <a href="#">Hola mundo
-            <span>Soy un spam perro</span>
-          </a>
-
-          <div v-if="results.length === 0" class="search-result">
-            <p class="my-0">No encontramos '<strong>{{ query }}</strong>'</p>
+    <div>
+      <div class="container-search">
+          <div class="buscadorContainer">
+              <input v-model="buscar" placeholder="Que quieres buscar ?"  event-name="results" @keyup="runSearch" class="buscador"> 
+              <!-- <el-button @click="runSearch" :disabled="buscar == ''" icon="el-icon-search" size="small"></el-button> -->
           </div>
-        </div>
+          <!-- <transition name="el-fade-in-linear"> -->
+          <div class="content-result" v-if="buscar !== ''">
+              <div v-if="sinResultados" class="sin-resultados">
+                  <h2>No hay resultados para <span>{{noEncontrado}}</span></h2>
+              </div>
+              <div v-for="book in results" :key="book.name" class="">
+                  <h2 class="w-1/4">{{ book.title }}</h2>
+                  <div class="ml-4 w-3/4">{{ book.summary }}</div>
+                  <a :href="book.url">LInk</a>
+              </div>
+          </div>
+          <!-- </transition> -->
       </div>
-    </transition>
-  </div>
+    </div>
 </template>
-
-
-<static-query>
-  {
-    metadata{
-      pathPrefix
-    }
-  }
-</static-query>
 
 <script>
 import axios from 'axios'
 
 export default {
-  components: {
-  },
-  created() {
-    axios(this.$static.metadata.pathPrefix + "/search.json").then(response => {
-      this.posts = response.data
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  },
-  data() {
+  name: 'app',
+  data () {
     return {
-      query: '',
-      results: [],
-      posts: [],
-      highlightedIndex: 0,
-      searchResultsVisible: false,
-      options: {
-        shouldSort: true,
-        includeMatches: true,
-        threshold: 0.5,
-        location: 0,
-        distance: 500,
-        maxPatternLength: 32,
-        minMatchCharLength: 1,
-        keys: ['title', 'description']
-      }
+        sinResultados: false,
+        noEncontrado: '',
+        buscar: '',
+        results: [],
+        post: []
     }
   },
   methods: {
-    softReset() {
-      this.highlightedIndex = 0
-      this.searchResultsVisible = true
-    },
-    performSearch() {
-      this.$search(this.query, this.posts, this.options).then(results => {
-        this.results = results
+    runSearch () {
+      this.$search(this.buscar, this.post, { keys: ['title', 'summary'] }).then(result => {
+        this.results = result
+        // console.log(this.results.length);
+        if( this.buscar.length >= 1 && this.results.length < 1 ) {
+            // console.log(`No hay resultados para ${this.buscar}`);
+            this.noEncontrado = this.buscar
+            this.sinResultados = true
+        } else {
+            // console.log(`Resultados de ${this.buscar} son ${this.results.length}`)
+            this.sinResultados = false
+        }
+      }) .catch(err => {
+          console.log(err);
       })
-    },
-    highlightPrev() {
-      if (this.highlightedIndex > 0) {
-        this.highlightedIndex = this.highlightedIndex - 1
-        this.scrollIntoView()
-      }
-    },
-    highlightNext() {
-      if (this.highlightedIndex < this.results.length - 1) {
-        this.highlightedIndex = this.highlightedIndex + 1
-        this.scrollIntoView()
-      }
-    },
-    scrollIntoView() {
-      this.$refs.results.children[this.highlightedIndex].scrollIntoView({ block: 'nearest' })
-    },
-    gotoLink() {
-      if (this.results[this.highlightedIndex]) {
-        window.location = this.results[this.highlightedIndex].item.path
-      }
-    },
-    focusSearch(e) {
-      if (e.key === '/') {
-        this.$refs.search.focus()
-      }
     }
-  }
+  },
+  created () {
+    axios("/search.json").then(response => {
+      // console.log(response.data.items)
+      this.post = response.data.items
+      // console.log(this.post);
+    })
+    this.$on('results', results => {
+      this.results = results
+    })
+  },
 }
 </script>
 
 <style lang="scss">
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .2s;
+@import '@/assets/style/index';
+.center {
+  margin: auto;
+  text-align: center;
+}
+.container-search {
+  display: inline;
+}
+.buscadorContainer {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 89.5% 9.5%;
+    grid-gap: 1%;    
+    background: $c-dark-alt;
+    border: 1px solid $c-primary;
+    border-radius: .8rem;
+    .el-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0);
+        border: none;
+        color: $c-primary;
+    }
+    .buscador {
+        outline: none;
+        padding: .7rem;
+        font-family: $font-nice;
+        background: rgba(0, 0, 0, 0);
+        color: $c-primary;
+        border: none;
+    }
+    ::placeholder { 
+        color: $c-primary-alt; 
+    } 
+}
+.content-result {
+  background: $c-dark-alt;
+  border: 1px solid $c-primary;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.sin-resultados {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  span {
+    color: $c-negative;
+    font-family: $font-default;
+    text-transform: uppercase;
+    text-decoration: underline;
   }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
-  .search-result {
-    background: #f2f2f2;
-  }
+}
 </style>
-

@@ -5,7 +5,6 @@
       <header class="MyHeader MyContainer">
         <div class="title-header">
             <g-link to="/" class="logo-header">
-                <!-- <g-image alt="logo" src="../assets/img/logo.svg" ></g-image> -->
                 <g-image alt="logo" src="~/favicon.png" ></g-image>
             </g-link>
           <strong>
@@ -15,18 +14,21 @@
           </strong>
         </div>
           <!-- BOTON PARA MENU DRAWER -->
-          <div class="nav view-mobile">
+          <div class="nav view-mobile flex">
+            <el-button @click="showSearch = !showSearch" :icon="!showSearch ? 'el-icon-search' : 'el-icon-close'"></el-button>
             <button @click.prevent="drawer = true" class="btn-menu">
               <i class="el-icon-menu icon"></i>
             </button>
           </div>
           <!-- MENU DRAWER DESKTOP -->
-          <nav class="nav view-desktop">
+          <nav class="nav view-desktop flex">
+              <el-button @click="showSearch = !showSearch" :icon="!showSearch ? 'el-icon-search' : 'el-icon-close'"></el-button>
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
               <g-link class="nav__link" to="/blog/">Blog</g-link>
-              <g-link class="nav__link" to="/search/">Buscar</g-link>
+              <g-link to="/search/" class="nav__link">Buscar</g-link>
           </nav>
+        
       </header>
     </div>
     <el-drawer
@@ -48,7 +50,11 @@
               <g-link to="/search/" class="nav-link-mobile">Buscar</g-link>
             </el-menu-item>           
         </el-menu>
-    </el-drawer>    
+    </el-drawer>   
+    <div class="button-search">
+      <SearchInput   v-if="showSearch"  />
+    </div>
+
     <slot />
     <Footer v-if="showFooter"/>
   </div>
@@ -64,6 +70,8 @@ query {
 
 <script>
 import Footer from './Footer'
+import SearchInput from '~/components/SearchInput'
+
 export default {
   metaInfo: {
     link: [
@@ -77,13 +85,14 @@ export default {
     isActive: null,
     showFooter: true
   },
-  components: { Footer },
+  components: { Footer, SearchInput },
   data() {
     return {
       drawer: false,
       direction: 'rtl',
       padding: true,
       showNavbar: true,
+      showSearch: false
     }
   },
   mounted () {
@@ -100,13 +109,24 @@ export default {
       }
       this.showNavbar = currentScrollPosition < this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
-    }
+    },
   }  
 }
 </script>
 
 <style lang="scss" scope>
 @import '@/assets/style/index';
+.button-search {
+position: absolute;
+width: 80%;
+max-width: 700px;
+top: 10%;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+z-index: 1000;
+}
 .master {
   z-index: 999;
 }
@@ -163,13 +183,31 @@ transform: translate3d(0, -100%, 0);
 }
 .nav {
   align-self: center;
+  .el-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0);
+        border: none;
+        color: $c-primary;
+        font-size: 1.2rem;
+        &:focus, &:hover {
+        color: $c-primary;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+      }
+  }
 }
 .nav__link {
   margin-left: 1.2rem;
   color: $c-primary;
   font-family: $font-code;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding: 0 2rem;
   &:hover {
     color: $c-primary-alt;
     }
