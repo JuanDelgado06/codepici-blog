@@ -42,5 +42,4 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(VueParticles)
   Vue.use(VueTypedJs)
   Vue.use(VueFuse)
-  // Vue.use(Fuse)
 }

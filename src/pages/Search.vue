@@ -10,20 +10,21 @@
         <div class="md:w-1/2 center bg-teal-light min-h-screen overflow-scroll">
         <h1 class="text-grey-darkest my-4">Buscador</h1>
         <div class="buscadorContainer">
-            <input v-model="buscar" placeholder="Que quieres buscar ?"  event-name="results" @keyup.enter="runSearch" class="buscador"> 
+            <input v-model="buscar" placeholder="Que quieres buscar ?"  event-name="results" @keyup="runSearch" class="buscador"> 
             <el-button @click="runSearch" :disabled="buscar == ''" icon="el-icon-search" size="small"></el-button>
         </div>
         <div v-if="sinResultados">
             <h2>No hay resultados para {{noEncontrado}}</h2>
         </div>
         <div v-for="book in results" :key="book.name" class="">
-            <h2 class="w-1/4">{{ book.name }}</h2>
-            <div class="ml-4 w-3/4">{{ book.description }}</div>
+            <h2 class="w-1/4">{{ book.title }}</h2>
+            <div class="ml-4 w-3/4">{{ book.summary }}</div>
+            <a :href="book.url">LInk</a>
         </div>
-        <div v-for="edge in $page.posts.edges"  :key="edge.node.id">
+        <!-- <div v-for="edge in $page.posts.edges"  :key="edge.node.id">
             <h2>{{ edge.node.title }}</h2>
             <p>{{edge.node.description}}</p>
-        </div>
+        </div> -->
         </div>
     </div>
   </Layout>
@@ -61,6 +62,7 @@ query Posts ($page: Int) {
 
 <script>
 import VueFuse from '@/components/VueFuse.vue'
+import axios from 'axios'
 
 export default {
   name: 'app',
@@ -74,40 +76,48 @@ export default {
         buscar: '',
         results: [],
         post: [
-            // {
-            // name: 'Node.js',
-            // description: 'Node es un "framework" de javascript con el cual javascript se a convertido en uno de los mejores lenguajes '
-            // }, {
-            // name: 'javascript',
-            // description: 'javascript es mi lenguaje de programacion favorito'
-            // }, {
-            // name: 'Vue.js',
-            // description: 'Me encanta Vue.js y quiero ser todo un experto en Vue y en el Mevn Stack.'
-            // }, {
-            // name: 'Firebase',
-            // description: 'Estamos aprendiendo Firebase para lograr hacer cosas increibles'
-            // }, {
-            // name: 'Curso de Firebase',
-            // description: 'Estamos aprendiendo Firebase para lograr hacer cosas increibles'
-            // }
+            {
+            "id": "https://codepici-blog.site/mi-primer-post/",
+            "url": "https://codepici-blog.site/mi-primer-post/",
+            "title": "Mi primer Post",
+            "summary": "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.",
+            "date_modified": "2019-10-03T00:00:00.000Z"
+        },
+        {
+            "id": "https://codepici-blog.site/say-hello-to-gridsome/",
+            "url": "https://codepici-blog.site/say-hello-to-gridsome/",
+            "title": "Say hello to Gridsome 🎉",
+            "summary": "A new static site generator baby is born. It's highly inspired by Gatsby.js (React based) but built on top of Vue.js. We have been working on it for a year and will have a beta ready soon. You can expect this baby to grow up fast!",
+            "date_modified": "2019-02-07T00:00:00.000Z"
+        },
+        {
+            "id": "https://codepici-blog.site/markdown-test-file/",
+            "url": "https://codepici-blog.site/markdown-test-file/",
+            "title": "Markdown test file",
+            "summary": "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.",
+            "date_modified": "2019-02-06T00:00:00.000Z"
+        },
+        {
+            "id": "https://codepici-blog.site/post-con-imagen/",
+            "url": "https://codepici-blog.site/post-con-imagen/",
+            "title": "Post con Imagen",
+            "summary": "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.",
+            "date_modified": "2019-01-07T00:00:00.000Z"
+        }
         ]
     }
   },
   methods: {
-    saludar () { 
-        alert('Saludando')
-    },
     runSearch () {
-      this.$search(this.buscar, this.post, { keys: ['name', 'description'] }).then(result => {
+      this.$search(this.buscar, this.post, { keys: ['title', 'summary'] }).then(result => {
         this.results = result
-        console.log(this.results.length);
+        // console.log(this.results.length);
         if( this.buscar.length >= 1 && this.results.length < 1 ) {
-            console.log(`No hay resultados para ${this.buscar}`);
+            // console.log(`No hay resultados para ${this.buscar}`);
             this.noEncontrado = this.buscar
             this.sinResultados = true
-            this.buscar = ''
         } else {
-            console.log(`Resultados de ${this.buscar} son ${this.results.length}`)
+            // console.log(`Resultados de ${this.buscar} son ${this.results.length}`)
             this.sinResultados = false
         }
       }) .catch(err => {
@@ -116,8 +126,6 @@ export default {
     }
   },
   created () {
-    this.posts = this.$page.posts.edges
-    console.log(this.$page.posts.edges[1].node.title );
     this.$on('results', results => {
       this.results = results
     })
