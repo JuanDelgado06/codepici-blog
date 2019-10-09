@@ -75,36 +75,7 @@ export default {
         noEncontrado: '',
         buscar: '',
         results: [],
-        post: [
-            {
-            "id": "https://codepici-blog.site/mi-primer-post/",
-            "url": "https://codepici-blog.site/mi-primer-post/",
-            "title": "Mi primer Post",
-            "summary": "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.",
-            "date_modified": "2019-10-03T00:00:00.000Z"
-        },
-        {
-            "id": "https://codepici-blog.site/say-hello-to-gridsome/",
-            "url": "https://codepici-blog.site/say-hello-to-gridsome/",
-            "title": "Say hello to Gridsome 🎉",
-            "summary": "A new static site generator baby is born. It's highly inspired by Gatsby.js (React based) but built on top of Vue.js. We have been working on it for a year and will have a beta ready soon. You can expect this baby to grow up fast!",
-            "date_modified": "2019-02-07T00:00:00.000Z"
-        },
-        {
-            "id": "https://codepici-blog.site/markdown-test-file/",
-            "url": "https://codepici-blog.site/markdown-test-file/",
-            "title": "Markdown test file",
-            "summary": "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.",
-            "date_modified": "2019-02-06T00:00:00.000Z"
-        },
-        {
-            "id": "https://codepici-blog.site/post-con-imagen/",
-            "url": "https://codepici-blog.site/post-con-imagen/",
-            "title": "Post con Imagen",
-            "summary": "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.",
-            "date_modified": "2019-01-07T00:00:00.000Z"
-        }
-        ]
+        post: []
     }
   },
   methods: {
@@ -126,6 +97,11 @@ export default {
     }
   },
   created () {
+    axios("/search.json").then(response => {
+      // console.log(response.data.items)
+      this.post = response.data.items
+      console.log(this.post);
+    })
     this.$on('results', results => {
       this.results = results
     })

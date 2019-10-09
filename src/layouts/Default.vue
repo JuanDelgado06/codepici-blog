@@ -45,7 +45,7 @@
               <g-link  to="/blog/" class="nav-link-mobile">Blog</g-link> 
             </el-menu-item>           
             <el-menu-item index="4">
-              <g-link class="nav__link" to="/search/">Buscar</g-link>
+              <g-link to="/search/" class="nav-link-mobile">Buscar</g-link>
             </el-menu-item>           
         </el-menu>
     </el-drawer>    
