@@ -1,13 +1,21 @@
 //Media Queries
+$small-mobile: 400px;
 $mobile: 600px;
 $table: 768px;
+$laptop: 900px;
 $desktop: 1224px;
 @mixin respond-to($media) {
+    @if $media == little {
+        @media only screen and (min-width: $small-mobile) { @content; }
+    }
     @if $media == small {
         @media only screen and (min-width: $mobile) { @content; }
     }
     @if $media == mid {
         @media only screen and (min-width: $table) { @content; }
+    }
+    @if $media == semiBig {
+        @media only screen and (min-width: $laptop) { @content; }
     }
     @else if $media == big {
         @media only screen and (min-width: $desktop) { @content; }

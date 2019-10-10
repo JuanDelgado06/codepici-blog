@@ -16,7 +16,7 @@
           </vue-particles>
         </div>
       </div>
-    <div class="MyContainer"  v-scroll-reveal.rese t>             
+    <div class="MyContainer"  v-scroll-reveal.reset>             
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
         </p>

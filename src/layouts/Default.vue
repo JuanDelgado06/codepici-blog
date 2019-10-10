@@ -15,20 +15,19 @@
         </div>
           <!-- BOTON PARA MENU DRAWER -->
           <div class="nav view-mobile flex">
-            <SearchDialog />
-            <el-button @click="showSearch = !showSearch" :icon="!showSearch ? 'el-icon-search' : 'el-icon-close'"></el-button>
+            <el-button @click="showSearch =  true" icon="el-icon-search" v-show="showSearch == false"></el-button>
             <button @click.prevent="drawer = true" class="btn-menu">
               <i class="el-icon-menu icon"></i>
             </button>
           </div>
           <!-- MENU DRAWER DESKTOP -->
           <nav class="nav view-desktop flex">
-              <el-button @click="showSearch = !showSearch" :icon="!showSearch ? 'el-icon-search' : 'el-icon-close'"></el-button>
-              <SearchDialog class="nav__link"/>
+              <!-- <el-button @click="showSearch =  !showSearch" icon="el-icon-search">Open</el-button> -->
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
               <g-link class="nav__link" to="/blog/">Blog</g-link>
-              <g-link to="/search/" class="nav__link">Buscar</g-link>
+              <el-button @click="showSearch =  true" icon="el-icon-search" v-show="showSearch == false" class="nav__link"></el-button>
+              <!-- <g-link to="/search/" class="nav__link">Buscar</g-link> -->
           </nav>
         
       </header>
@@ -53,8 +52,13 @@
             </el-menu-item>           
         </el-menu>
     </el-drawer>   
-    <div class="button-search">
-      <SearchInput   v-if="showSearch"  />
+    <div class="button-search" >
+      <SearchInput   v-if="showSearch" />
+      <el-button 
+          @click="closeModal"
+          icon="el-icon-close" 
+          v-show="showSearch ==  true" class="close-search" circle size="small">
+      </el-button>
     </div>
 
     <slot />
@@ -73,7 +77,6 @@ query {
 <script>
 import Footer from './Footer'
 import SearchInput from '~/components/SearchInput'
-import SearchDialog from '~/components/SearchDialog'
 
 export default {
   metaInfo: {
@@ -86,9 +89,9 @@ export default {
   },
   props: {
     isActive: null,
-    showFooter: true
+    showFooter: true,
   },
-  components: { Footer, SearchInput, SearchDialog  },
+  components: { Footer, SearchInput  },
   data() {
     return {
       drawer: false,
@@ -113,6 +116,9 @@ export default {
       this.showNavbar = currentScrollPosition < this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
     },
+    closeModal () {
+      this.showSearch = false
+    }
   }  
 }
 </script>
@@ -120,24 +126,39 @@ export default {
 <style lang="scss" scope>
 @import '@/assets/style/index';
 .button-search {
-position: absolute;
-width: 80%;
-max-width: 700px;
-top: 12%;
-left: 0;
-right: 0;
-bottom: 0;
-margin: auto;
-z-index: 1000;
-}
-.master {
-  z-index: 999;
-}
-.header-container {
-  z-index: 999;
-  width: 100%;
-  background: $c-dark-alt; 
-  padding: .1rem 0;
+  .el-button {
+    background: rgba(255, 255, 255, 0);
+    color: $c-default;
+    font-size: 1.5rem;
+    border: none;
+    right: 1rem;  
+    &:focus, &:hover {
+      color: $c-primary;
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+    }  
+  }
+  .close-search {
+    position: fixed;
+    z-index: 1001;
+    top: 3.1rem;
+    right: 7%;
+    @include  respond-to(little) {
+      top: 3.2rem;
+      right: 8%;
+    }    
+    @include  respond-to(small) {
+      top: 4.5rem;
+      right: 10%;
+    }
+    @include  respond-to(semiBig) {
+      right: 19%;
+    }
+    @include  respond-to(big) {
+      top: 3.6rem;
+      right: 22%;
+    }
+  }
 }
 .paddingHeader {
   padding: .1rem 0;
@@ -152,38 +173,7 @@ z-index: 1000;
 .navbarHidden {
 transform: translate3d(0, -100%, 0);
 }
-.MyHeader {
-  display: flex;
-  justify-content: space-between;
-  margin: .3rem auto;
-  padding: 0 .4rem;
-  @include  respond-to(small) {
-    padding: 0 .1rem;
-  }
-}
-.title-header {
-  display: flex;
-  align-items: center;
-}
-.title__link {
-  border: none;
-  font-size: 1.8rem;
-  align-self: center;
-  font-family: $font-code;
-  @include  respond-to(small) {
-    font-size: 2.4rem;
-  }
-  &:hover {
-    color: $c-primary-alt;
-  }
-}
-.logo-header {
-  width: 2rem;
-  margin-right: .5rem;
-  @include respond-to(small) {
-    width: 3rem;
-  }
-}
+
 .nav {
   align-self: center;
   .el-button {
@@ -201,32 +191,5 @@ transform: translate3d(0, -100%, 0);
       }
   }
 }
-.nav__link {
-  margin-left: 1.2rem;
-  color: $c-primary;
-  font-family: $font-code;
-  font-weight: bold;
-  font-size: 1.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // padding: 0 2rem;
-  &:hover {
-    color: $c-primary-alt;
-    }
-}
-.menu-nav-mobile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  height: 75vh;
-}
-.nav-link-mobile {
-  color: $c-primary;
-  font-size: 1.5rem;
-  font-family: $font-code;
-  font-weight: bold;
-}
+
 </style>

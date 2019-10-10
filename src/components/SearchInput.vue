@@ -1,21 +1,25 @@
 <template>
     <div>
-      <div class="container-search">
-          <div class="buscadorContainer">
-              <input v-model="buscar" placeholder="Que quieres buscar ?"  event-name="results" @keyup="runSearch" class="buscador"> 
-          </div>
-          <!-- <transition name="el-fade-in-linear"> -->
-          <div class="content-result" v-if="buscar !== ''">
-              <div v-if="sinResultados" class="sin-resultados">
-                  <h2>No hay resultados para <span>{{noEncontrado}}</span></h2>
+      <div class="container-search" >
+        <div class="container-modal" >
+            <div class="header-modal flex">
+              <h2>Que quieres buscar ?</h2>
+            </div>
+              <div class="buscadorContainer">
+                  <input v-model="buscar" placeholder="Que quieres buscar ?"  event-name="results" @keyup="runSearch" class="buscador"> 
               </div>
-              <div v-for="book in results" :key="book.name" class="">
-                  <h2 class="w-1/4">{{ book.title }}</h2>
-                  <div class="ml-4 w-3/4">{{ book.summary }}</div>
-                  <a :href="book.url">LInk</a>
+              <div class="content-result" v-if="buscar !== ''">
+                  <div v-if="sinResultados" class="sin-resultados">
+                      <h2>No hay resultados para <span>{{noEncontrado}}</span></h2>
+                  </div>
+                  <div v-for="book in results" :key="book.name" class="">
+                      <h2 class="w-1/4">{{ book.title }}</h2>
+                      <div class="ml-4 w-3/4">{{ book.summary }}</div>
+                      <a :href="book.url">LInk</a>
+                  </div>
               </div>
           </div>
-          <!-- </transition> -->
+
       </div>
     </div>
 </template>
@@ -27,6 +31,7 @@ export default {
   name: 'SearchInput',
   data () {
     return {
+        mostrar: true,
         sinResultados: false,
         noEncontrado: '',
         buscar: '',
@@ -67,33 +72,45 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/index';
-.center {
-  margin: auto;
-  text-align: center;
-}
 .container-search {
   ::-webkit-scrollbar {
     width: .8rem;
   }
-  ::-webkit-scrollbar-track {
-    // box-shadow: inset 0 0 5px $c-primary; 
-    // border-radius: 2rem;
-  }
   ::-webkit-scrollbar-thumb {
-    background: rgba(44, 209, 176, 0.507); 
-    border-radius: 1rem;
+    background: rgba(22, 219, 180, 0.4); 
   }
   ::-webkit-scrollbar-thumb:hover {
     background: $c-primary-alt; 
   }
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.616);
+}
+.container-modal {
+    margin: 3rem auto;
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+    width: 90%;
+    @extend .link-bar;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.7);
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .buscadorContainer {
     display: grid;
-    margin: 0;
+    margin: 0 1%;
     padding: 0;
     background: $c-dark-alt;
     border: 1px solid $c-primary;
     border-radius: .8rem;
+    position: sticky;
+    top: 0;
     .buscador {
         outline: none;
         padding: .7rem;
@@ -103,29 +120,36 @@ export default {
         border: none;
     }
     ::placeholder { 
-        color: $c-primary-alt; 
+      color: $c-primary-alt; 
+        font-family: $font-code;
     } 
-}
-.content-result {
-  background: $c-dark-alt;
-  border: 1px solid $c-primary;
-  border-radius: .45rem;
-  margin-top: 1rem;
-  padding: 1rem;
-  max-height: 60vh;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 .sin-resultados {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-bottom: 2rem;
   span {
     color: $c-negative;
     font-family: $font-default;
     text-transform: uppercase;
     text-decoration: underline;
+  }
+}
+.header-modal {
+  justify-content: space-between;
+  h2 {
+    margin: .8rem auto;
+    font-family: $font-code;
+    color: $c-secondary;
+    font-size: 1.3rem;
+    @include  respond-to(little) {
+      font-size: 1.8rem;
+    }    
+  }
+  .close-modal {
+    position: absolute;
+    top: .4rem;
+    right: 1rem;
   }
 }
 </style>
