@@ -6,6 +6,13 @@
     "description": "Best blog feed evah.",
     "items": [
         {
+            "id": "https://codepici-blog.site/el-framework-java-script-progresivo/",
+            "url": "https://codepici-blog.site/el-framework-java-script-progresivo/",
+            "title": "El Framework JavaScript Progresivo",
+            "summary": "Vue (pronunciado /vjuː/, como view) es un framework progresivo para construir interfaces de usuario. A diferencia de otros frameworks monolíticos, Vue está diseñado desde cero para ser utilizado incrementalmente.",
+            "date_modified": "2019-10-09T00:00:00.000Z"
+        },
+        {
             "id": "https://codepici-blog.site/mi-primer-post/",
             "url": "https://codepici-blog.site/mi-primer-post/",
             "title": "Mi primer Post",

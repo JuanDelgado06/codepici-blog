@@ -1,5 +1,5 @@
 <template>
-  <div class="master">
+  <div class="master" :dialogVisible="true">
     <div class="header-container" 
       :class="{headerBar : isActive, paddingHome: padding, paddingHeader : isActive, navbarHidden : !showNavbar}">
       <header class="MyHeader MyContainer">
@@ -15,6 +15,7 @@
         </div>
           <!-- BOTON PARA MENU DRAWER -->
           <div class="nav view-mobile flex">
+            <SearchDialog />
             <el-button @click="showSearch = !showSearch" :icon="!showSearch ? 'el-icon-search' : 'el-icon-close'"></el-button>
             <button @click.prevent="drawer = true" class="btn-menu">
               <i class="el-icon-menu icon"></i>
@@ -23,6 +24,7 @@
           <!-- MENU DRAWER DESKTOP -->
           <nav class="nav view-desktop flex">
               <el-button @click="showSearch = !showSearch" :icon="!showSearch ? 'el-icon-search' : 'el-icon-close'"></el-button>
+              <SearchDialog class="nav__link"/>
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
               <g-link class="nav__link" to="/blog/">Blog</g-link>
@@ -71,6 +73,7 @@ query {
 <script>
 import Footer from './Footer'
 import SearchInput from '~/components/SearchInput'
+import SearchDialog from '~/components/SearchDialog'
 
 export default {
   metaInfo: {
@@ -85,7 +88,7 @@ export default {
     isActive: null,
     showFooter: true
   },
-  components: { Footer, SearchInput },
+  components: { Footer, SearchInput, SearchDialog  },
   data() {
     return {
       drawer: false,
@@ -120,7 +123,7 @@ export default {
 position: absolute;
 width: 80%;
 max-width: 700px;
-top: 10%;
+top: 12%;
 left: 0;
 right: 0;
 bottom: 0;
