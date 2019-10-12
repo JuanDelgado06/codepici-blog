@@ -28,12 +28,12 @@ export default {
   props: ['post'],
   data() {
     return {
-      postDescription: this.post.description.substring(0, 180),
+      postDescription: this.post.description.substring(0, 200),
       tooText: false
     }
   },
   created () {
-    if ( this.postDescription.length >= 180) {
+    if ( this.postDescription.length >= 200) {
       this.tooText = true
     }
   }
@@ -45,10 +45,16 @@ export default {
 .post-card {
   position: relative;
   background: $c-dark-alt;
+  border: 2px solid $c-primary-alt;
   border-radius: 1.1rem;
   margin: 0 .6rem 1rem .6rem;
+  transition: all .3s ease;
+  box-shadow: 1px 5px 20px 1px rgba(0, 0, 0, 0.6);
   @include respond-to(small) {
     margin: 0 0 1rem 0;
+    &:hover {
+      box-shadow: 1px 5px 20px 1px rgba(0, 0, 0, 0.0);
+    }
   }
   &-header {
     overflow: hidden; 
@@ -60,15 +66,15 @@ export default {
   &-title {
     margin-top: 0;
   }
+  &-content {
+    padding: 1rem ;
+  }
   &-tags {
     z-index: 1;
-    position: relative;
-  }
-  &-content {
-    padding: 1rem;
   }
   &-description {
     font-size: .8rem;
+    margin-bottom: 1.5rem;
     @include respond-to(small) {
       font-size: .9rem;
     }

@@ -1,26 +1,29 @@
 <template>
     <div>
       <div class="container-search" >
-        <div class="container-modal" >
-            <div class="header-modal flex">
-              <h2>Que quieres buscar ?</h2>
+        <transition name="fade" appear>
+          <div class="container-modal" >
+              <div class="header-modal flex">
+                <h2>Que quieres buscar ?</h2>
+              </div>
+                <div class="buscadorContainer">
+                    <input v-model="buscar" placeholder="___"  event-name="results" @keyup="runSearch" class="buscador" autofocus autocomplete="on"> 
+                </div>
+                <div class="content-result" v-if="buscar !== ''">
+                    <div v-if="sinResultados" class="sin-resultados">
+                        <h2>No hay resultados para <span>{{noEncontrado}}</span></h2>
+                    </div>
+                    <div v-for="book in results" :key="book.name" class="result">
+                        <a :href="book.url">
+                          <h2 class="result-title">{{ book.title }}</h2>
+                        </a>
+                        <div class="result-description">{{ book.summary }}</div>
+                        <a class="result-link" :href="book.url">Leer mas</a>
+                    </div>
+                </div>
             </div>
-              <div class="buscadorContainer">
-                  <input v-model="buscar" placeholder="___"  event-name="results" @keyup="runSearch" class="buscador" autofocus autocomplete="on"> 
-              </div>
-              <div class="content-result" v-if="buscar !== ''">
-                  <div v-if="sinResultados" class="sin-resultados">
-                      <h2>No hay resultados para <span>{{noEncontrado}}</span></h2>
-                  </div>
-                  <div v-for="book in results" :key="book.name" class="">
-                      <h2 class="w-1/4">{{ book.title }}</h2>
-                      <div class="ml-4 w-3/4">{{ book.summary }}</div>
-                      <a :href="book.url">LInk</a>
-                  </div>
-              </div>
-          </div>
-
-      </div>
+        </transition>
+        </div>
     </div>
 </template>
 
@@ -151,6 +154,24 @@ export default {
     position: absolute;
     top: .4rem;
     right: 1rem;
+  }
+}
+.result {
+  border-bottom: 3px dashed $c-primary;
+  padding-bottom: 1rem;
+  &-title {
+    color: $c-primary;
+  }
+  &-description {
+    margin-bottom: .7rem;
+    font-size: 0.8rem;
+    font-family: $font-nice;
+  }
+  &-link {
+    background: $c-secondary;
+    border-radius: .7rem;
+    padding: 0.3rem .6rem;
+    color: $c-dark-alt;
   }
 }
 </style>

@@ -79,8 +79,16 @@
       padding-top: 5rem;
     }
 }
-
 //Responsive {
 .flex {
     display: flex;
 }
+//Transition
+.fade-enter-active {
+transition: all .5s;
+}
+
+.fade-enter {
+opacity: 0;
+}
+

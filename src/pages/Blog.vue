@@ -3,9 +3,11 @@
     <div class="MyContainer header-content blog"  >
       <!-- <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}" class="blog-title title-first">Blog</h1> -->
       <h2 class="blog-subtitle"> Publicaciones en total: {{totalPost}}</h2>
-      <div class="blog-posts" >
-        <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
-      </div>     
+        <transition name="fade" appear>
+          <div class="blog-posts" >
+              <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+          </div>     
+        </transition>
       <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
             prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="4" ariaLabel="..."/>            
     </div>
@@ -14,7 +16,7 @@
 
 <page-query>
 query Posts ($page: Int) {
-  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 3, page: $page ) @paginate {
+  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 4, page: $page ) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -29,7 +31,7 @@ query Posts ($page: Int) {
         date (format: "D. MMMM YYYY")
         timeToRead
         description
-        cover_image (width: 770, height: 380, blur: 10)
+        cover_image (width: 770, height: 400, blur: 10)
         path
         tags {
           id
@@ -76,9 +78,9 @@ export default {
       grid-gap: 1rem;
       grid-template-columns: repeat(2, 1fr);
     }
-    @include respond-to(big) {
-      grid-template-columns: repeat(3, 1fr)
-    }
+    // @include respond-to(big) {
+    //   grid-template-columns: repeat(3, 1fr)
+    // }
   }
 }
 .pagination {

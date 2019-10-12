@@ -14,39 +14,23 @@
 
             <div class="post-content" v-html="$page.post.content" />
 
-            <div class="post-footer" v-for="url in postUrl" :key="url.name">
-                <social-sharing :url="url.url" inline-template 
-                    title="Cursos Baratos" class="nav__link"
-                    description="CodePici es el Mejor perros"
-                    quote="Cursos Baratos"
-                    hashtags="vuejs,codepici,juandelgado"
-                    twitter-user="vuejs"
-                >
-                <div>
-                    <network network="facebook" style="cursor: pointer;">
-                    <a class="">Share Facebook
-                    </a>
-                    </network>
-                </div>
-              </social-sharing> 
-            </div>
             <div class="post-footer" >
                 <social-sharing :url="urlPath" inline-template 
-                    title="Cursos Baratos" class="nav__link"
+                    title="Cursos Baratos" 
                     description="CodePici es el Mejor perros"
-                    quote="Cursos Baratos"
-                    hashtags="vuejs,codepici,juandelgado"
+                    quote="CodePici"
+                    hashtags="vuejs, codepici, juandelgado06"
                     twitter-user="vuejs"
                 >
-                <div>
-                    <network network="facebook" style="cursor: pointer;">
-                    <a class="">Share Facebook wiht path
-                    </a>
-                    </network>
-                </div>
+                  <div>
+                      <network network="facebook" style="cursor: pointer;">
+                        <a class="">Compartir Post en Facebook
+                        </a>
+                      </network>
+                  </div>
               </social-sharing> 
-            </div>
               <PostTags :post="$page.post" />
+            </div>
           </div>
 
           <div class="post-comments">
@@ -59,7 +43,6 @@
 <script>
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
-import axios from 'axios'
 
 export default {
   data() {
@@ -85,14 +68,7 @@ export default {
     }
   },
   created () {
-    axios("/search.json").then(response => {
-      // console.log(response.data.items)
-      this.postUrl = response.data.items
-      console.log(this.postUrl);
-      console.log('Informacion de page');
-      console.log(this.$page.post.path);
-    })
-    this.urlPath =  this.$page.post.path
+    this.urlPath =  `https://codepici-blog.site${this.$page.post.path}`
   },
 }
 </script>
@@ -141,5 +117,8 @@ query Post ($id: ID!) {
     list-style: circle;
     margin-left: 2rem;
   }
+}
+.post-footer {
+  margin: 2rem 0;
 }
 </style>
