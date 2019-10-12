@@ -5,6 +5,7 @@ date: 2019-10-09
 published: true
 tags: ['Markdown', 'Vue', 'CodePici']
 series: false
+cover_image: ./images/vuejs-2.png
 canonical_url: false
 description: "Vue (pronunciado /vjuː/, como view) es un framework progresivo para construir interfaces de usuario. A diferencia de otros frameworks monolíticos, Vue está diseñado desde cero para ser utilizado incrementalmente."
 ---

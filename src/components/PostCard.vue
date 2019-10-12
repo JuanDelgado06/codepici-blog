@@ -1,16 +1,17 @@
 <template>
   <div class="post-card content-box" :class="{'post-card--has-poster' : post.poster}">
-    <div class="post-card__header">
-      <g-image alt="Cover image" v-if="post.cover_image" class="post-card__image" :src="post.cover_image" />
+    <div class="post-card-header">
+      <g-image alt="Cover image" v-if="post.cover_image" class="post-card-image" :src="post.cover_image" />
     </div>
-    <div class="post-card__content">
-      <h2 class="post-card__title" v-html="post.title" />
-      <p class="post-card__description" v-html="post.description" />
+    <div class="post-card-content">
+      <PostMeta class="post-card-meta" :post="post" />
+      <h3 class="post-card-title" v-html="post.title" />
+      <!-- <p class="post-card-description" v-html="postDescription" /> -->
+      <p class="post-card-description">{{postDescription}} <span v-if="tooText">...</span></p>
 
-      <PostMeta class="post-card__meta" :post="post" />
-      <PostTags class="post-card__tags" :post="post" />
+      <PostTags class="post-card-tags" :post="post" />
 
-      <g-link class="post-card__link" :to="post.path">Link</g-link>
+      <g-link class="post-card-link" :to="post.path">Link</g-link>
     </div>
   </div>
 </template>
@@ -25,46 +26,54 @@ export default {
     PostTags
   },
   props: ['post'],
+  data() {
+    return {
+      postDescription: this.post.description.substring(0, 180),
+      tooText: false
+    }
+  },
+  created () {
+    if ( this.postDescription.length >= 180) {
+      this.tooText = true
+    }
+  }
 }
 </script>
 
 <style lang="scss">
+@import '@/assets/style/index';
 .post-card {
-  margin-bottom: var(--space);
   position: relative;
-
-  &__header {
-    margin-left: calc(var(--space) * -1);
-    margin-right: calc(var(--space) * -1);
-    margin-bottom: calc(var(--space) / 2);
-    margin-top: calc(var(--space) * -1);
-    overflow: hidden;
-    border-radius: var(--radius) var(--radius) 0 0;
-
-    &:empty {
-      display: none;
-    }
+  background: $c-dark-alt;
+  border-radius: 1.1rem;
+  margin: 0 .6rem 1rem .6rem;
+  @include respond-to(small) {
+    margin: 0 0 1rem 0;
   }
-
-  &__image {
+  &-header {
+    overflow: hidden; 
+    border-radius: 1rem  1rem 0 0;
+  }
+  &-image {
     min-width: 100%;
   }
-
-  &__title {
+  &-title {
     margin-top: 0;
   }
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 1px 10px 30px 0 rgba(0,0,0,.1);
-  }
-
-  &__tags {
+  &-tags {
     z-index: 1;
     position: relative;
   }
-
-  &__link {
+  &-content {
+    padding: 1rem;
+  }
+  &-description {
+    font-size: .8rem;
+    @include respond-to(small) {
+      font-size: .9rem;
+    }
+  }
+  &-link {
     position: absolute;
     top: 0;
     left: 0;

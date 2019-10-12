@@ -1,6 +1,6 @@
 <template>
    <div class="post-meta">
-      Publicado el {{ post.date }} /
+       {{ post.date }} /
       <template v-if="post.timeToRead">
         <strong>{{ post.timeToRead }} min de lectura.</strong>
       </template>

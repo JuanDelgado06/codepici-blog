@@ -6,7 +6,7 @@
               <h2>Que quieres buscar ?</h2>
             </div>
               <div class="buscadorContainer">
-                  <input v-model="buscar" placeholder="Que quieres buscar ?"  event-name="results" @keyup="runSearch" class="buscador"> 
+                  <input v-model="buscar" placeholder="___"  event-name="results" @keyup="runSearch" class="buscador" autofocus autocomplete="on"> 
               </div>
               <div class="content-result" v-if="buscar !== ''">
                   <div v-if="sinResultados" class="sin-resultados">
@@ -74,10 +74,11 @@ export default {
 @import '@/assets/style/index';
 .container-search {
   ::-webkit-scrollbar {
-    width: .8rem;
+    width: .5rem;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(22, 219, 180, 0.4); 
+    background: rgba(130, 78, 253, 0.5); 
+    // border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: $c-primary-alt; 
@@ -88,7 +89,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.616);
+  background: rgba(0, 0, 0, 0.7);
 }
 .container-modal {
     margin: 3rem auto;

@@ -1,18 +1,20 @@
 <template>
   <Layout isActive= 'true' :showFooter="true">
-    <div class="MyContainer header-content"  >
-                 <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}">Blog</h1>
-                <div class="posts">
-                  <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
-                </div>     
-                <Pager :info="$page.posts.pageInfo"/>            
-      </div>
+    <div class="MyContainer header-content blog"  >
+      <!-- <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}" class="blog-title title-first">Blog</h1> -->
+      <h2 class="blog-subtitle"> Publicaciones en total: {{totalPost}}</h2>
+      <div class="blog-posts" >
+        <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+      </div>     
+      <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
+            prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="4" ariaLabel="..."/>            
+    </div>
   </Layout>
 </template>
 
 <page-query>
 query Posts ($page: Int) {
-  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 2, page: $page ) @paginate {
+  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 3, page: $page ) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -52,13 +54,68 @@ export default {
   components: {  btnTop, PostCard, Pager  },
   data() {
     return {
-      isActive : true
+      isActive : true,
+      totalPost: ''
     }
+  },
+  mounted () {
+    this.totalPost = this.$page.posts.totalCount
   },
 }
 </script>
 
 <style lang="scss">
 @import '@/assets/style/index';
-
+.blog {
+  &-subtitle {
+    margin: 0 0 1rem 0;
+  }
+  &-posts {
+    @include respond-to(mid) {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include respond-to(big) {
+      grid-template-columns: repeat(3, 1fr)
+    }
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem auto;
+  width: 60%;
+  @include respond-to(small) {
+    width: 50%;
+    a {
+      font-size: 1rem;
+    }
+  }
+  .active--exact {
+    color: $c-dark;
+    background: $c-primary;
+    padding: .2rem 0.6rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 11px 10px 37px 9px rgba(0, 0, 0, 0.76);
+    text-shadow: none;
+  }
+  a {
+    color: $c-default;
+    transition: all .4s ease-in;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: $font-nice;
+    text-shadow: 2px 2px 5px #6333d4a8;
+    @include respond-to(small) {
+    a {
+      font-size: 1.5rem;
+    }
+  }
+  }
+}
 </style>
