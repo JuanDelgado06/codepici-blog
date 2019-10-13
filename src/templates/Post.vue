@@ -15,21 +15,35 @@
             <div class="post-content" v-html="$page.post.content" />
 
             <div class="post-footer" >
-                <social-sharing :url="urlPath" inline-template 
-                    title="Cursos Baratos" 
-                    description="CodePici es el Mejor perros"
-                    quote="CodePici"
-                    hashtags="vuejs, codepici, juandelgado06"
-                    twitter-user="vuejs"
-                >
-                  <div>
-                      <network network="facebook" style="cursor: pointer;">
-                        <a class="">Compartir Post en Facebook
-                        </a>
-                      </network>
-                  </div>
-              </social-sharing> 
-              <PostTags :post="$page.post" />
+              <PostTags :post="$page.post" class="post-tags"/>
+              <div class="post-social">
+                  <h3 class="post-title-share">Compartir📢</h3>
+                  <social-sharing :url="urlPath" inline-template 
+                      :title="titleShare"
+                      :description="descriptionShare"
+                      quote="CodePici"
+                      hashtags="vuejs, codepici, juandelgado06"
+                      twitter-user="vuejs"
+                  >
+                    <div class="link">
+                        <network network="facebook" style="cursor: pointer;">
+                          <div class="link-fb link-item">
+                            <a class="icon-share"><i class="fab fa-facebook-f"></i></a>  
+                          </div>
+                        </network>
+                        <network network="whatsapp" style="cursor: pointer; ">
+                          <div class="link-ws link-item">
+                          <a class="icon-share"><i class="fab fa-whatsapp"></i></a> 
+                          </div>
+                        </network>                      
+                        <network network="twitter" style="cursor: pointer; ">
+                          <div class="link-tb link-item">
+                          <a class="icon-share"><i class="fab fa-twitter"></i></a> 
+                          </div>
+                        </network>                      
+                    </div>
+                </social-sharing> 
+              </div>
             </div>
           </div>
 
@@ -49,7 +63,9 @@ export default {
     return {
       url: 'https://github.com/JuanDelgado06',
       postUrl: [],
-      urlPath: ''
+      urlPath: '',
+      titleShare: '',
+      descriptionShare: ''
     }
   },
   components: {
@@ -69,6 +85,9 @@ export default {
   },
   created () {
     this.urlPath =  `https://codepici-blog.site${this.$page.post.path}`
+    this.titleShare =  this.$page.post.title
+    this.descriptionShare = this.$page.post.description
+    console.log(this.descriptionShare);
   },
 }
 </script>
@@ -119,6 +138,47 @@ query Post ($id: ID!) {
   }
 }
 .post-footer {
-  margin: 2rem 0;
+  margin: 3rem 0 2rem;
+  outline: none;
+  .link {
+    display: flex;
+    align-items: center;
+    &-item {
+      margin-right: .8rem;
+      padding: 0.6rem;
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius:10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        color: #f2f2f2;
+      }
+    }
+    &-fb {
+      background: #3b5998;
+    }
+    &-ws {
+      background: #08be30;
+    }
+    &-tb {
+      background: #14bed4;
+    }
+    .icon-share {
+      font-size: 1.5rem;
+    }
+  }
+  .post-tags {
+    text-align: center;
+  }
+}
+.post-title-share {
+  margin: 0 1rem 0 0;
+  align-self: center;
+}
+.post-social {
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -15,21 +15,20 @@ export default {
 <style lang="scss">
 @import '@/assets/style/index';
 .post-tags {
-  margin: 1em 0 0;
-
-  &__link {
-	background: $c-accent;
-	border-radius: 8px;
-	color: $c-dark;
-	font-size: .8em;
-	text-decoration: none;
-	transition: all .3s ease-in;
-	margin-right: .7em;
-	padding: .5em .2rem;	
-	&:hover {
-		background: $c-secondary;
+	margin: 1em 0 ;
+	&__link {
+		background: $c-accent;
+		border-radius: 8px;
 		color: $c-dark;
+		font-size: .8em;
+		text-decoration: none;
+		transition: all .3s ease-in;
+		margin-right: .7em;
+		padding: .5em .2rem;	
+		&:hover {
+			background: $c-secondary;
+			color: $c-dark;
+		}
 	}
-  }
 }
 </style>

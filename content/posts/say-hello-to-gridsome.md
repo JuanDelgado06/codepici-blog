@@ -24,7 +24,8 @@ Here is an example on how to query posts from the GraphQL layer in a page:
   <Layout>
     <h2>Latest blog posts</h2>
     <ul>
-      <li v-for="edge in $page.allWordPressPost.edges" :key="edge.node.id">
+      <li v-for="edge in $page..." 
+                :key="edge.node.id">
         {{ edge.node.title }}
       </li>
     </ul>

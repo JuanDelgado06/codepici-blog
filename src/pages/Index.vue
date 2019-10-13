@@ -6,7 +6,6 @@
           <vue-typed-js :strings="['con CodePici', 'el Futuro']">
             <h1 class="title-hero">Desarrollando <span class="subtitle-hero typing"></span></h1>
           </vue-typed-js>          
-          <!-- <h1 class="title-hero">Desarrollando el Futuro <span class="subtitle-hero">Reprográmate ahora</span></h1> -->
         </div>
         <div class="particle">
           <vue-particles
@@ -22,10 +21,6 @@
         </p>
         
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vel minus esse repellendus repudiandae vero. Maiores assumenda doloribus modi reiciendis at fuga deleniti maxime deserunt, repudiandae non saepe quas! Ut.</p>
-      <p class="home-links">
-        <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-        <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-      </p>
 
       <btnTop offset="600"/>
    
