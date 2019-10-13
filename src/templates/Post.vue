@@ -46,8 +46,8 @@
               </div>
             </div>
           </div>
-
           <div class="post-comments">
+            <Vssue title="CodePici" />
             <!-- Add comment widgets here -->
           </div>
         </div>
@@ -65,12 +65,13 @@ export default {
       postUrl: [],
       urlPath: '',
       titleShare: '',
-      descriptionShare: ''
+      descriptionShare: '',
+      logoComment: 'https://codepici-blog.site/assets/static/favicon.82a2fbd.d88937b.png'
     }
   },
   components: {
     PostMeta,
-    PostTags
+    PostTags,
   },
   metaInfo () {
     return {
@@ -87,7 +88,6 @@ export default {
     this.urlPath =  `https://codepici-blog.site${this.$page.post.path}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
-    console.log(this.descriptionShare);
   },
 }
 </script>

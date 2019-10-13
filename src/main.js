@@ -20,6 +20,12 @@ import VueTypedJs from 'vue-typed-js'
 import VueFuse from 'vue-fuse'
 import Fuse from 'fuse.js'
 
+import Vssue from 'vssue'
+// import the api package for specific platform
+import GithubV3 from '@vssue/api-github-v3'
+// import the stylesheet of vssue
+import 'vssue/dist/vssue.css'
+
 
 export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
@@ -42,4 +48,13 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(VueParticles)
   Vue.use(VueTypedJs)
   Vue.use(VueFuse)
+  Vue.use(Vssue, {
+    // set the platform api
+    api: GithubV3,
+    // here set the default options for your OAuth App
+    owner: 'JuanDelgado06',
+    repo: 'codepici-blog',
+    clientId: 'e086eff3e9b299bdc04e',
+    clientSecret: '3aac3b3bd614eb5ff9694cdba9316d76b7ec2b3a', // only required for some of the platforms
+  })
 }

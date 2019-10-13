@@ -29,3 +29,9 @@ Un ecosistema que se puede adoptar de forma incremental y que se puede escalar e
 Virtual DOM Increíblemente Rápido
 Esfuerzos mínimos de optimización
 
+#### Metodo para recargar la pagina desde el servidor
+
+```html
+    location.reload(forceGet="true")
+```
+
