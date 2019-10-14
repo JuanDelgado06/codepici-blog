@@ -15,19 +15,17 @@
         </div>
           <!-- BOTON PARA MENU DRAWER -->
           <div class="nav view-mobile flex">
-            <el-button @click="showSearch =  true" icon="el-icon-search" v-show="showSearch == false"></el-button>
+            <el-button @click="showSearch =  true" v-show="showSearch == false"><i class="fas fa-search"></i></el-button>
             <button @click.prevent="drawer = true" class="btn-menu">
-              <i class="el-icon-menu icon"></i>
+              <i class="fas fa-bars"></i>
             </button>
           </div>
           <!-- MENU DRAWER DESKTOP -->
           <nav class="nav view-desktop flex">
-              <!-- <el-button @click="showSearch =  !showSearch" icon="el-icon-search">Open</el-button> -->
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/about/">About</g-link>
               <g-link class="nav__link" to="/blog/">Blog</g-link>
-              <el-button @click="showSearch =  true" icon="el-icon-search" v-show="showSearch == false" class="nav__link"></el-button>
-              <!-- <g-link to="/search/" class="nav__link">Buscar</g-link> -->
+              <el-button @click="showSearch =  true" v-show="showSearch == false" class="nav__link"><i class="fas fa-search"></i></el-button>
           </nav>
         
       </header>

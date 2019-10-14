@@ -28,6 +28,7 @@ import 'vssue/dist/vssue.css'
 
 
 export default function (Vue, { router, head, isClient }) {
+  head.htmlAttrs = { lang: 'es' }
   Vue.component('Layout', DefaultLayout)
   Vue.component(VueFuse.name, VueFuse)
   Vue.prototype.$search = function (term, list, options) {

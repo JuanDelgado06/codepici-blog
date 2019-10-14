@@ -1,14 +1,15 @@
 <template>
     <Layout :isActive="true"  :showFooter="true">
+      <ClientOnly >
         <div class="MyContainer header-content">
           <div class="post-title">
-            <h1 class="post-title-text">
+            <h1 class="post-title-text" v-block-reveal="{delay: 500, bgcolor: '#834efd', direction: 'lr'}">
               {{ $page.post.title }}
             </h1>
             <PostMeta :post="$page.post" />
           </div>
           <div class="post content-box">
-            <div class="post-header">
+            <div class="post-header" >
               <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
             </div>
 
@@ -40,7 +41,12 @@
                           <div class="link-tb link-item">
                           <a class="icon-share"><i class="fab fa-twitter"></i></a> 
                           </div>
-                        </network>                      
+                        </network>       
+                        <network network="email" style="cursor: pointer; ">
+                          <div class="link-em link-item">
+                          <a class="icon-share"><i class="fa fa-envelope"></i></a> 
+                          </div>
+                        </network>       
                     </div>
                 </social-sharing> 
               </div>
@@ -48,15 +54,17 @@
           </div>
           <div class="post-comments">
             <Vssue title="CodePici" />
-            <!-- Add comment widgets here -->
           </div>
+          <btnTop :offset="300"/>
         </div>
+      </ClientOnly>
     </Layout>
 </template>
 
 <script>
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
+import btnTop from '~/components/plugins/ButtonTop'
 
 export default {
   data() {
@@ -66,12 +74,12 @@ export default {
       urlPath: '',
       titleShare: '',
       descriptionShare: '',
-      logoComment: 'https://codepici-blog.site/assets/static/favicon.82a2fbd.d88937b.png'
     }
   },
   components: {
     PostMeta,
     PostTags,
+    btnTop
   },
   metaInfo () {
     return {
@@ -116,10 +124,6 @@ query Post ($id: ID!) {
 .post-title {
   h1 {
     text-align: center;
-    background: -webkit-linear-gradient(left,$c-secondary, $c-primary );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     @include respond-to(little) {
       font-size: 2.5rem;
     }
@@ -146,12 +150,16 @@ query Post ($id: ID!) {
     &-item {
       margin-right: .8rem;
       padding: 0.6rem;
-      width: 2.3rem;
-      height: 2.3rem;
+      width: 2rem;
+      height: 2rem;
       border-radius:10px;
       display: flex;
       justify-content: center;
       align-items: center;
+      @include respond-to(small) {
+        width: 2.3rem;
+        height: 2.3rem;
+      }
       a {
         color: #f2f2f2;
       }
@@ -165,8 +173,14 @@ query Post ($id: ID!) {
     &-tb {
       background: #14bed4;
     }
+    &-em {
+      background: $c-secondary;
+    }
     .icon-share {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      @include respond-to(small) {
+        font-size: 1.5rem;
+      }
     }
   }
   .post-tags {
@@ -174,11 +188,60 @@ query Post ($id: ID!) {
   }
 }
 .post-title-share {
-  margin: 0 1rem 0 0;
+  margin:  1rem 0 .5rem 0;
   align-self: center;
+  @include respond-to(little) {
+    margin: 0 .8rem 0 0;
+  }
 }
 .post-social {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  @include respond-to(little) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.post-comments {
+  .vssue-new-comment-operations {
+    .vssue-button-login {
+      font-size: .8rem;
+    }
+    .vssue-button {
+      font-size: 0.8rem;
+      &:disabled {
+        opacity: .7;
+      }
+    }
+  }
+  .vssue-pagination-per-page {
+    .vssue-pagination-select {
+      background-color: $c-primary-alt;
+      font-family: $font-nice;
+      border-color: $c-primary;
+      transition: all .3s ease-in;
+      &:focus {
+        background-color: $c-primary;
+      }
+      option {
+        color: $c-primary;
+        background: $c-dark-alt;
+      }
+  }
+  span {
+    display: none;
+  }
+    &:after {
+      content: 'Comentarios por página';
+    }
+  }
+  .vssue-comment-main {
+    .markdown-body {
+    color:$c-default;
+    }
+  }
 }
 </style>

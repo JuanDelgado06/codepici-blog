@@ -50,7 +50,7 @@ module.exports = {
           description: 'Best blog feed evah.'
         },
         // rss: {
-        //   enabled: true,
+          //   enabled: true,
         //   output: '/feed.xml'
         // },
         json: {
@@ -78,7 +78,13 @@ module.exports = {
           // content: node.content, 
         })
       }
-    }
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-147103360-1'
+      }
+    },
   ],
   transformers: {
     //Add markdown support to all file-system sources

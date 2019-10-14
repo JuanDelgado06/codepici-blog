@@ -22,7 +22,6 @@
         
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vel minus esse repellendus repudiandae vero. Maiores assumenda doloribus modi reiciendis at fuga deleniti maxime deserunt, repudiandae non saepe quas! Ut.</p>
 
-      <btnTop offset="600"/>
    
     </div>
     </ClientOnly>
@@ -30,12 +29,10 @@
 </template>
 
 <script>
-import btnTop from '~/components/plugins/ButtonTop'
 export default {
   metaInfo: {
     title: 'Home'
   },
-  components: { btnTop }
 }
 </script>
 

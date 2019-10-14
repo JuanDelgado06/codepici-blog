@@ -27,7 +27,6 @@ export default {
   border: none;
   outline: none;
   background: -webkit-linear-gradient(bottom,$c-secondary, $c-primary );
-  box-shadow: 5px 5px 19px -2px rgba(59, 47, 114, 0.93);
   cursor: pointer;
   i {
     font-size: 1.5rem;
