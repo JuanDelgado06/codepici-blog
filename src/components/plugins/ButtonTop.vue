@@ -27,6 +27,9 @@ export default {
   border: none;
   outline: none;
   background: -webkit-linear-gradient(bottom,$c-secondary, $c-primary );
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   i {
     font-size: 1.5rem;

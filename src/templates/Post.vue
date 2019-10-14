@@ -14,7 +14,9 @@
             </div>
 
             <div class="post-content" v-html="$page.post.content" />
-
+            <div class="post-pay">
+              <a href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank">Apóyanos</a>
+            </div>
             <div class="post-footer" >
               <PostTags :post="$page.post" class="post-tags"/>
               <div class="post-social">
@@ -124,7 +126,8 @@ query Post ($id: ID!) {
 .post-title {
   h1 {
     text-align: center;
-    @include respond-to(little) {
+    margin-bottom: 0;
+  @include respond-to(little) {
       font-size: 2.5rem;
     }
     @include respond-to(small) {
@@ -203,45 +206,6 @@ query Post ($id: ID!) {
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
-}
-.post-comments {
-  .vssue-new-comment-operations {
-    .vssue-button-login {
-      font-size: .8rem;
-    }
-    .vssue-button {
-      font-size: 0.8rem;
-      &:disabled {
-        opacity: .7;
-      }
-    }
-  }
-  .vssue-pagination-per-page {
-    .vssue-pagination-select {
-      background-color: $c-primary-alt;
-      font-family: $font-nice;
-      border-color: $c-primary;
-      transition: all .3s ease-in;
-      &:focus {
-        background-color: $c-primary;
-      }
-      option {
-        color: $c-primary;
-        background: $c-dark-alt;
-      }
-  }
-  span {
-    display: none;
-  }
-    &:after {
-      content: 'Comentarios por página';
-    }
-  }
-  .vssue-comment-main {
-    .markdown-body {
-    color:$c-default;
-    }
   }
 }
 </style>

@@ -46,7 +46,7 @@ export default {
 .btn-action {
   @extend .btn-action-master;
   bottom: 2.5rem;
-  right: 2.5rem;
+  left: 2.5rem;
   z-index: 1;
   i {
     font-size: 1.3rem;
@@ -63,7 +63,7 @@ export default {
 .btn-action-home {
   @extend .btn-action-master;
   bottom: calc( 2.5rem * 2.3 );  
-  right: 2.5rem;
+  left: 2.5rem;
   transition: all .4s ease-in;
   i {
     font-size: 1.3rem;
@@ -73,7 +73,7 @@ export default {
 }
 .clickBtnHome {
   bottom: calc( 2.5rem * 2.3 );  
-  right: 2.5rem;
+  left: 2.5rem;
   background: $c-primary;
   animation-name: show;
   animation-duration: .5s;
@@ -81,42 +81,42 @@ export default {
 @keyframes show {
   from {
     bottom: 2.5rem;
-    right: 2.5rem;
+    left: 2.5rem;
     opacity: 0;
   }
   to {
     bottom: calc( 2.5rem * 2.3 );
-    right: 2.5rem;
+    left: 2.5rem;
     opacity: 1;
     }
 }
 .closeBtn {
   bottom: 2.5rem;
-  right: 2.5rem;
+  left: 2.5rem;
   animation-name: close;
   animation-duration: .5s;
 }
 @keyframes close {
   0% {
     bottom: 2.5rem;
-    right: 2.5rem;
+    left: 2.5rem;
     opacity: 0;
   }
   2% {
     bottom: calc( 2.5rem * 2.3 );
-    right: 2.5rem;
+    left: 2.5rem;
     opacity: 1;
     }
   100% {
     bottom: 2.5rem;
-    right: 2.5rem;
+    left: 2.5rem;
     opacity: 0;
   }
 }
 .btn-action-blog {
   @extend .btn-action-home;
   bottom: calc( 2.5rem * 2.3 );  
-  right: 2.5rem;
+  left: 2.5rem;
   transition: all .4s ease-in;
   i {
     font-size: 1.3rem;
@@ -126,7 +126,7 @@ export default {
 }
 .clickBtnBlog {
   bottom:calc( 2.5rem * 3.6 );  
-  right: 2.5rem;
+  left: 2.5rem;
   background: $c-primary;
   animation-name: showBlog;
   animation-duration: .5s;
@@ -134,18 +134,18 @@ export default {
 @keyframes showBlog {
   from {
     bottom: 2.5rem;
-    right: 2.5rem;
+    left: 2.5rem;
     opacity: 0;
   }
   to {
     bottom: 9.5rem;
-    right: 2.5rem;
+    left: 2.5rem;
     opacity: 1;
     }
 }
 .closeBtn {
   bottom: 2.5rem;
-  right: 2.5rem;
+  left: 2.5rem;
   animation-name: close;
   animation-duration: .5s;
 }

@@ -96,8 +96,13 @@ export default {
       showSearch: false
     }
   },
+  created () {
+    console.log('Se a actualizado la pagina con created');
+  },
   mounted () {
     window.addEventListener('scroll', this.onScroll)
+    console.log('Se a actualizado la pagina con mounted');
+    this.showSearch = false
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)

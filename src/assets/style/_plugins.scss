@@ -26,3 +26,48 @@
     opacity: 0;
   }
   //Fin Estilos de la revelacion por bloque
+
+  //Estilos para los comentarios
+  .vssue-new-comment-operations {
+    .vssue-button-login {
+      font-size: .8rem;
+    }
+    .vssue-button {
+      font-size: 0.8rem;
+      &:disabled {
+        opacity: .7;
+      }
+    }
+  }
+  .vssue-pagination-per-page {
+    .vssue-pagination-select {
+      background-color: $c-primary-alt !important;
+      font-family: $font-nice;
+      border-color: $c-primary !important;
+      transition: all .3s ease-in;
+      &:focus {
+        background-color: $c-primary;
+      }
+      option {
+        color: $c-primary;
+        background: $c-dark-alt;
+      }
+  }
+  span {
+    display: none;
+  }
+    &:after {
+      content: 'Comentarios por página';
+    }
+  }
+  .vssue-comment-main {
+    .markdown-body {
+    color:$c-default;
+    }
+    .vssue-edit-comment-input {
+      color: $c-default;
+      font-family: $font-nice;
+    }
+  }
+
+  //Fin Estilos para los comentarios
