@@ -6,7 +6,7 @@
             <h1 class="post-title-text" v-block-reveal="{delay: 500, bgcolor: '#834efd', direction: 'lr'}">
               {{ $page.post.title }}
             </h1>
-            <PostMeta :post="$page.post" />
+            <PostMeta :post="$page.post" class="post-meta"/>
           </div>
           <div class="post content-box">
             <div class="post-header" >
@@ -134,14 +134,59 @@ query Post ($id: ID!) {
       font-size: 3rem;
     }
   }
+  .post-meta {
+    text-align: center;
+  }
 }
 .post-content {
-  h2, h3 {
+  h2, h3,h4 {
     color: $c-primary;
+    // font-family: $font-nice;
   }
-  li {
-    list-style: circle;
-    margin-left: 2rem;
+  a {
+    font-size: 1rem;
+    color: $c-accent;
+    text-decoration: underline;
+  }
+  ul {
+    li {
+      list-style: circle;
+      margin-left: 2rem;
+    }
+  }
+  code {
+    background: $c-dark-alt;
+    margin: 0 auto;
+    border-left: 2px solid rgba(17, 160, 217, 0.8);
+    border-right: 2px solid rgba(17, 160, 217, 0.8);
+    border-radius: 10px;
+    color: $c-primary;
+    display: block;
+    font-family: $font-nice;
+    font-size: 0.8rem;
+    font-weight: 300;
+    padding: 0.5rem 1rem;
+    width: 90%;
+    white-space: pre;
+    overflow-y: hidden;
+    overflow-x: auto;
+    @include respond-to(small) {
+      width: 80%;
+    }
+  }
+  blockquote {
+    background: $c-dark-alt;
+    border-radius: 1rem;
+    border-left: 2px solid $c-primary;
+    border-right: 2px solid $c-primary;
+    font-size: 0.9rem;
+    color: #cecece;
+    padding:  .1rem 1rem;
+    width: 90%;
+    margin: 0 auto;
+    @include respond-to(small) {
+      width: 80%;
+    }
   }
 }
 .post-footer {

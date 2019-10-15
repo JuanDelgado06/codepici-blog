@@ -25,6 +25,7 @@ border: none;
 font-size: 1.8rem;
 align-self: center;
 font-family: $font-code;
+font-weight: 600;
 @include  respond-to(small) {
     font-size: 2.4rem;
 }

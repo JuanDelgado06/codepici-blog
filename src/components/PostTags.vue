@@ -23,6 +23,7 @@ export default {
 		font-size: .8em;
 		text-decoration: none;
 		transition: all .3s ease-in;
+		margin-bottom: 1rem;
 		margin-right: .7em;
 		padding: .5em .2rem;	
 		&:hover {

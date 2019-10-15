@@ -7,7 +7,7 @@
       <PostMeta class="post-card-meta" :post="post" />
       <h3 class="post-card-title" v-html="post.title" />
       <!-- <p class="post-card-description" v-html="postDescription" /> -->
-      <p class="post-card-description">{{postDescription}} <span v-if="tooText">...</span></p>
+      <p class="post-card-description">{{postDescription}}<span v-if="tooText">...</span></p>
 
       <PostTags class="post-card-tags" :post="post" />
 
