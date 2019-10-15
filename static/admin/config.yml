@@ -15,6 +15,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Published", name: "published", widget: "boolean"}
       - {label: "Excerpt", name: "description", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "date"} 
       - {label: "Cover image", name: "cover_image", widget: "image"}
