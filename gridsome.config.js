@@ -85,6 +85,12 @@ module.exports = {
         id: 'UA-147103360-1'
       }
     },
+    {
+      use: `gridsome-plugin-netlify-cms`,
+      options: {
+        publicPath: `static/admin`
+      }
+    },
   ],
   transformers: {
     //Add markdown support to all file-system sources

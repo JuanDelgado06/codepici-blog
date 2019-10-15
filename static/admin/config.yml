@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: JuanDelgado06/codepici-blog
+  # branch: master
+
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    # slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Excerpt", name: "excerpt", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "date"} 
+      - {label: "Cover image", name: "cover_image", widget: "image"}
+      - {label: "Tags", name: "tags", widget: "array"} 
+      - {label: "Body", name: "body", widget: "markdown"}
