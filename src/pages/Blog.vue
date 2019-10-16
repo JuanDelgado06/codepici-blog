@@ -1,7 +1,6 @@
 <template>
-  <Layout isActive= 'true' :showFooter="true">
+  <Layout :showFooter="true">
     <div class="MyContainer header-content blog"  >
-      <!-- <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}" class="blog-title title-first">Blog</h1> -->
       <h2 class="blog-subtitle"> Publicaciones en total: {{totalPost}}</h2>
         <transition name="fade" appear>
           <div class="blog-posts" >

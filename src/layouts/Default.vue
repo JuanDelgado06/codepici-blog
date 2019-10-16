@@ -48,7 +48,7 @@
         </el-menu>
     </el-drawer>   
     <div class="button-search" >
-      <SearchInput   v-if="showSearch" />
+      <SearchInput   v-if="showSearch"/>
       <el-button 
           @click="closeModal"
           icon="el-icon-close" 
@@ -83,8 +83,11 @@ export default {
     ]
   },
   props: {
-    isActive: null,
     showFooter: true,
+    isActive: {
+      type: Boolean, 
+      default: true
+    }
   },
   components: { Footer, SearchInput  },
   data() {
@@ -93,12 +96,13 @@ export default {
       direction: 'rtl',
       padding: true,
       showNavbar: true,
-      showSearch: false
+      showSearch: false,
     }
   },
   mounted () {
     window.addEventListener('scroll', this.onScroll)
     this.showSearch = false
+    // console.log(this.closeSearch);
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)

@@ -1,5 +1,5 @@
 <template>
-  <Layout class="home" :showFooter="true">
+  <Layout class="home" :showFooter="true" :isActive="false">
     <ClientOnly>
       <div class="wrap-banner ">
         <div class="main-title MyContainer">

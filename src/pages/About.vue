@@ -4,7 +4,7 @@
         <div class="MyContainer header-content"  >
             <vue-scroll-progress-bar backgroundColor="linear-gradient(to right, rgba(44, 209, 176, 0.65), rgba(130, 78, 253, 0.65))" height=".4rem" />
               <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}">About us</h1>
-              
+              <button @click="isActive = false">Ocultar borde nice</button>
               <p v-block-reveal="{delay: 500, bgcolor: '#1d1d1d', direction: 'tb'}">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id dictum tortor, at volutpat lectus. Sed at erat in felis varius dignissim. Vestibulum vestibulum dictum dapibus. Maecenas velit dolor, egestas nec ultrices vel, commodo vitae leo. Morbi semper rhoncus ante, vel venenatis lorem aliquet non. Nullam eget sem vestibulum est gravida efficitur. Donec sagittis condimentum mattis. Nulla a ultricies metus. Sed ornare, magna ut accumsan fringilla, est ante dictum est, vel efficitur velit risus eget ligula. Sed dictum sapien eget nisl cursus euismod. Sed euismod, tellus in pulvinar accumsan, tellus magna faucibus quam, sed porttitor ante velit eu lorem. In a elementum mauris, nec lacinia lacus. Nulla at dolor vitae quam gravida lobortis non vel massa. Nam eget urna eu felis faucibus lacinia sit amet a tortor.
               </p>
