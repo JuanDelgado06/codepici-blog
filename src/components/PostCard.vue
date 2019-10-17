@@ -71,6 +71,7 @@ export default {
   }
   &-tags {
     z-index: 1;
+    position: sticky;
   }
   &-description {
     font-size: .8rem;

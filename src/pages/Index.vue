@@ -69,8 +69,10 @@ height: 100%;
   font-size: 2.4rem;
   text-align: center;
   font-family: $font-code;
+  font-weight: 500;
   .subtitle-hero {
     font-family: $font-code;
+    font-weight: 500;
   }
   @include  respond-to(small) {
     font-size: 4rem;
