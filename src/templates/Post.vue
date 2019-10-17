@@ -15,14 +15,13 @@
 
             <div class="post-content" v-html="$page.post.content" />
             
-            <div class="post-link" v-if="$page.post.link">
-              <h3 class="post-link-title"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
-              <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descargar <i class="fas fa-cloud-download-alt"></i> </a>
+            <div class="post-cms">
+              <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
+              <div class="post-link" v-if="$page.post.link">
+                <h3 class="post-link-title"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+                <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descargar <i class="fas fa-cloud-download-alt"></i> </a>
+              </div>
             </div>
-            <!-- <div class="post-link">
-              <h3 class="post-link-title"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
-              <a class="post-link-mega" href="https://stfly.io/CTPW" target="_blank"> <i class="fas fa-cloud-download-alt" ></i> Descargar <i class="fas fa-cloud-download-alt"></i> </a>
-            </div> -->
 
             <div class="post-footer" >
               <TextDonation :viewOne="true"/>
@@ -68,7 +67,7 @@
             <Vssue title="CodePici" />
           </div>
 
-          <!-- <DonationAlert /> -->
+          <DonationAlert />
           <btnTop :offset="300"/>
         </div>
       </ClientOnly>
@@ -133,6 +132,8 @@ query Post ($id: ID!) {
     description
     content
     cover_image 
+    link
+    duration
   }
 }
 </page-query>
@@ -155,10 +156,6 @@ query Post ($id: ID!) {
   }
 }
 .post-content {
-  h2, h3,h4 {
-    color: $c-primary;
-    // font-family: $font-nice;
-  }
   a {
     font-size: 1rem;
     color: $c-accent;
@@ -269,20 +266,48 @@ query Post ($id: ID!) {
     justify-content: center;
   }
 }
-.post-link {
-  text-align: center;
-  &-title {
-    font-size: 2.2rem;
-    color: $c-negative;
+.post-cms {
+  &-time {
+    text-align: center;
   }
-  &-mega {
-    background: $c-negative;
-    color: $c-default;
-    padding: 0.6rem .8rem;
-    border-radius: 8px;
-    transition: all .6s ease;
-    &:hover {
-      background: $c-secondary;
+  .post-link {
+    text-align: center;
+    &-title {
+      font-size: 1.8rem;
+      color: $c-negative;
+      @include respond-to(small) {
+        font-size: 2.2rem;
+      }
+    }
+    &-mega {
+      background: $c-negative;
+      color: $c-default;
+      padding: 0.6rem .8rem;
+      border-radius: 8px;
+      transition: all .6s ease;
+      &:hover {
+        background: $c-secondary;
+      }
+    }
+  }
+}
+.temario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    font-size: 2.5rem;
+    padding: 0;
+  }
+  ol {
+    margin: 0;
+    padding: 0;
+    li {
+      font-weight: 300;
+      strong {
+        font-weight: 700;
+      }
     }
   }
 }

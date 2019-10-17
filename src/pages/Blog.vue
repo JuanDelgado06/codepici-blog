@@ -2,20 +2,20 @@
   <Layout :showFooter="true">
     <div class="MyContainer header-content blog"  >
       <h2 class="blog-subtitle"> Publicaciones en total: {{totalPost}}</h2>
-        <transition name="fade" appear>
-          <div class="blog-posts" >
-              <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
-          </div>     
-        </transition>
+      <transition name="fade" appear>
+        <div class="blog-posts" >
+            <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+        </div>     
+      </transition>
       <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
-            prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="4" ariaLabel="..."/>            
+            prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="6" ariaLabel="..."/>            
     </div>
   </Layout>
 </template>
 
 <page-query>
 query Posts ($page: Int) {
-  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 5, page: $page ) @paginate {
+  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 6, page: $page ) @paginate {
     totalCount
     pageInfo {
       totalPages
