@@ -10,12 +10,10 @@
                 twitter-user="vuejs"
             >
                 <div>
-                    <network network="facebook" style="cursor: pointer;">
-                    <a class="nav-link-mobile">Facebook
-                    </a>
-                    </network>
+                    <network network="facebook" style="cursor: pointer;">Facebook</network>
                 </div>
             </social-sharing>       
+            <a href="https://zealous-aryabhata-98ce9d.netlify.com/admin" target="_blank">Admin</a>
         </el-footer>        
     </div>
 </template>

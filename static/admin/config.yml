@@ -21,4 +21,5 @@ collections:
       - {label: "Cover image", name: "cover_image", widget: "image"}
       - {label: "Tags", name: "tags", widget: "list"} 
       - {label: "Link", name: "link", widget: "string", required: false }
+      - {label: "Duration", name: "duration", widget: "string", required: false }
       - {label: "Body", name: "body", widget: "markdown"}
