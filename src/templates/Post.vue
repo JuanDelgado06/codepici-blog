@@ -21,10 +21,14 @@
                 <h3 class="post-link-title"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
                 <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descargar <i class="fas fa-cloud-download-alt"></i> </a>
               </div>
+              
+            </div>
+            <div class="donation-link">
+                <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
+
             </div>
 
             <div class="post-footer" >
-              <TextDonation :viewOne="true"/>
               <PostTags :post="$page.post" class="post-tags"/>
               <div class="post-social">
                   <h3 class="post-title-share">Compartir📢</h3>
@@ -205,6 +209,7 @@ query Post ($id: ID!) {
 .post-footer {
   margin: 3rem 0 2rem;
   outline: none;
+  text-align: center;
   .link {
     display: flex;
     align-items: center;
@@ -247,6 +252,23 @@ query Post ($id: ID!) {
   .post-tags {
     text-align: center;
   }
+}
+.donation-link {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1rem;
+}
+.post-link-donation {
+  @extend .link-bar;
+  text-align: center;
+  color: $c-default;
+  padding: 0.3rem .8rem;
+  border-radius: 8px;
+  transition: all .6s ease;
+  text-transform: uppercase;
+  font-family: $font-default;
+  font-size: 1.5rem;
+  color:$c-primary;
 }
 .post-title-share {
   margin:  1rem 0 .5rem 0;
