@@ -14,6 +14,15 @@
             </div>
 
             <div class="post-content" v-html="$page.post.content" />
+            
+            <div class="post-link" v-if="$page.post.link">
+              <h3 class="post-link-title"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+              <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descargar <i class="fas fa-cloud-download-alt"></i> </a>
+            </div>
+            <!-- <div class="post-link">
+              <h3 class="post-link-title"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+              <a class="post-link-mega" href="https://stfly.io/CTPW" target="_blank"> <i class="fas fa-cloud-download-alt" ></i> Descargar <i class="fas fa-cloud-download-alt"></i> </a>
+            </div> -->
 
             <div class="post-footer" >
               <TextDonation :viewOne="true"/>
@@ -59,7 +68,7 @@
             <Vssue title="CodePici" />
           </div>
 
-          <DonationAlert />
+          <!-- <DonationAlert /> -->
           <btnTop :offset="300"/>
         </div>
       </ClientOnly>
@@ -260,5 +269,21 @@ query Post ($id: ID!) {
     justify-content: center;
   }
 }
-
+.post-link {
+  text-align: center;
+  &-title {
+    font-size: 2.2rem;
+    color: $c-negative;
+  }
+  &-mega {
+    background: $c-negative;
+    color: $c-default;
+    padding: 0.6rem .8rem;
+    border-radius: 8px;
+    transition: all .6s ease;
+    &:hover {
+      background: $c-secondary;
+    }
+  }
+}
 </style>
