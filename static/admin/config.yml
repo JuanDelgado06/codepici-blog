@@ -15,10 +15,10 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Published", name: "published", widget: "boolean", required: "false"}
+      - {label: "Published", name: "published", widget: "boolean", required: false}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "date"} 
       - {label: "Cover image", name: "cover_image", widget: "image"}
       - {label: "Tags", name: "tags", widget: "list"} 
-      - {label: "Link", name: "link", widget: "string", required: "false" }
+      - {label: "Link", name: "link", widget: "string", required: false }
       - {label: "Body", name: "body", widget: "markdown"}
