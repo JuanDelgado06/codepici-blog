@@ -94,6 +94,7 @@ export default {
       postUrl: [],
       urlPath: '',
       titleShare: '',
+      imageUrl: '',
       descriptionShare: '',
     }
   },
@@ -116,22 +117,23 @@ export default {
         { property: "og:description", content: this.$page.post.description },
         { property: "og:url", content: this.urlPath },
         { property: "article:published_time", content: this.$page.post.date },
-        { property: "og:image", content: this.$page.post.cover_image },
+        { property: "og:image", content: this.imageUrl },
         
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: this.$page.post.title },
         { name: "twitter:description", content: this.$page.post.description },
         { name: "twitter:site", content: "@codepici" },
         { name: "twitter:creator", content: "@codepici" },
-        { name: "twitter:image", content: this.$page.post.cover_image },
+        { name: "twitter:image", content: this.imageUrl },
       ]
     }
   },
   created () {
     this.urlPath =  `https://codepici-blog.site${this.$page.post.path}`
+    this.imageUrl = `https://codepici-blog.site${this.$page.post.cover_image}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
-    console.log(this.$page.post.cover_image);
+    console.log(`Image ${this.imageUrl}`);
   },
 }
 </script>
