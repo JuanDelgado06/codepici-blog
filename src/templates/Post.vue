@@ -15,20 +15,23 @@
 
             <div class="post-content" v-html="$page.post.content" />
             
-            <div class="post-cms">
-              <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
-              <div class="post-link" v-if="$page.post.link">
-                <h3 class="post-link-title"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
-                <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descargar <i class="fas fa-cloud-download-alt"></i> </a>
-              </div>
-              
-            </div>
-            <div class="donation-link">
-                <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
-
-            </div>
 
             <div class="post-footer" >
+            <div class="post-cms">
+              <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
+              <div class="post-link" >
+                <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+                  <div class="button-link" v-if="$page.post.link">
+                    <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Mega <i class="fas fa-cloud-download-alt"></i> </a>
+                  </div>
+                  <div class="button-link">
+                      <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
+                  </div>
+                  <div class="button-link" v-if="$page.post.oficial">
+                    <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
+                  </div>
+              </div>
+            </div>
               <PostTags :post="$page.post" class="post-tags"/>
               <div class="post-social">
                   <h3 class="post-title-share">Compartir📢</h3>
@@ -71,7 +74,7 @@
             <Vssue title="CodePici" />
           </div>
 
-          <DonationAlert />
+          <DonationAlert v-if="$page.post.link"/>
           <btnTop :offset="300"/>
         </div>
       </ClientOnly>
@@ -82,7 +85,6 @@
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
 import DonationAlert from '~/components/DonationAlert'
-import TextDonation from '~/components/TextAnimation'
 import btnTop from '~/components/plugins/ButtonTop'
 
 export default {
@@ -99,7 +101,6 @@ export default {
     PostMeta,
     PostTags,
     DonationAlert,
-    TextDonation,
     btnTop
   },
   metaInfo () {
@@ -109,7 +110,20 @@ export default {
         {
           name: 'description',
           content: this.$page.post.description
-        }
+        },
+        { property: "og:type", content: 'article' },
+        { property: "og:title", content: this.$page.post.title },
+        { property: "og:description", content: this.$page.post.description },
+        { property: "og:url", content: this.urlPath },
+        { property: "article:published_time", content: this.$page.post.date },
+        { property: "og:image", content: this.$page.post.cover_image },
+        
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: this.$page.post.title },
+        { name: "twitter:description", content: this.$page.post.description },
+        { name: "twitter:site", content: "@codepici" },
+        { name: "twitter:creator", content: "@codepici" },
+        { name: "twitter:image", content: this.$page.post.cover_image },
       ]
     }
   },
@@ -117,6 +131,7 @@ export default {
     this.urlPath =  `https://codepici-blog.site${this.$page.post.path}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
+    console.log(this.$page.post.cover_image);
   },
 }
 </script>
@@ -138,6 +153,7 @@ query Post ($id: ID!) {
     cover_image 
     link
     duration
+    oficial
   }
 }
 </page-query>
@@ -160,6 +176,9 @@ query Post ($id: ID!) {
   }
 }
 .post-content {
+  h1, h2, h3 {
+    color: $c-primary;
+  }
   a {
     font-size: 1rem;
     color: $c-accent;
@@ -253,22 +272,54 @@ query Post ($id: ID!) {
     text-align: center;
   }
 }
-.donation-link {
+.button-link {
   display: flex;
   justify-content: center;
-  margin: 2rem 0 1rem;
+  // margin: 2rem 0 1rem;
 }
-.post-link-donation {
-  @extend .link-bar;
+.post-link {
   text-align: center;
-  color: $c-default;
-  padding: 0.3rem .8rem;
-  border-radius: 8px;
-  transition: all .6s ease;
-  text-transform: uppercase;
-  font-family: $font-default;
-  font-size: 1.5rem;
-  color:$c-primary;
+   &-title {
+    font-size: 1.8rem;
+    text-align: center;
+    color: $c-primary;
+    @include respond-to(small) {
+      font-size: 2.2rem;
+    }
+  }
+  &-donation {
+    @extend .link-bar;
+    @extend .buttons-link;
+    color:$c-primary;
+    margin-bottom: 1rem;
+    &:hover {
+      background: $c-primary;
+      border:2px solid $c-primary;
+      color: $c-dark;
+    }
+  }
+  &-mega {
+    @extend .buttons-link;
+    color: $c-negative;
+    border: 2px solid $c-negative;
+    margin: 1rem 0;
+    &:hover {
+      background: $c-negative;
+      border:2px solid $c-negative;
+      color: $c-dark;
+    }
+  }
+  &-oficial {
+    @extend .buttons-link;
+    color: $c-info;
+    border: 2px solid $c-info;
+    margin-bottom: 2rem;
+    &:hover {
+      background: $c-info;
+      border:2px solid $c-info;
+      color: $c-dark;
+    }
+  }
 }
 .post-title-share {
   margin:  1rem 0 .5rem 0;
@@ -291,26 +342,7 @@ query Post ($id: ID!) {
 .post-cms {
   &-time {
     text-align: center;
-  }
-  .post-link {
-    text-align: center;
-    &-title {
-      font-size: 1.8rem;
-      color: $c-negative;
-      @include respond-to(small) {
-        font-size: 2.2rem;
-      }
-    }
-    &-mega {
-      background: $c-negative;
-      color: $c-default;
-      padding: 0.6rem .8rem;
-      border-radius: 8px;
-      transition: all .6s ease;
-      &:hover {
-        background: $c-secondary;
-      }
-    }
+    font-family: $font-nice;
   }
 }
 .temario {

@@ -22,4 +22,5 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"} 
       - {label: "Link", name: "link", widget: "string", required: false }
       - {label: "Duration", name: "duration", widget: "string", required: false }
+      - {label: "Link Oficial", name: "oficial", widget: "string", required: false }
       - {label: "Body", name: "body", widget: "markdown"}

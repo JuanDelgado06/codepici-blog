@@ -66,6 +66,18 @@
         font-size: 1.5rem;
     }
 }
+.buttons-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 70%;
+    padding: 0.3rem .6rem;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all .4s ease;
+    @include respond-to(small) {
+        width: 30%;
+    }
+}
 //Helpers Comunes
 .view-mobile {
     @media screen and(min-width: 600px){
