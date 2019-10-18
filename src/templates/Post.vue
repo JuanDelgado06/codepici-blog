@@ -30,6 +30,9 @@
                   <div class="button-link" v-if="$page.post.oficial">
                     <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
                   </div>
+                  <div class="button-link" >
+                    <button @click="reloadPage">Recargar</button>
+                  </div>
               </div>
             </div>
               <PostTags :post="$page.post" class="post-tags"/>
@@ -133,7 +136,14 @@ export default {
     this.imageUrl = `https://codepici-blog.site${this.$page.post.cover_image}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
-    console.log(`Image ${this.imageUrl}`);
+    setTimeout(() => {
+        console.log('Me ejecute men');
+      }, 5000)
+  },
+  methods: {
+    reloadPage () {
+        return window.location.reload(true)
+    }
   },
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
-  <Layout class="home" :showFooter="true" :isActive="false">
+  <Layout :showFooter="true" :isActive="false">
     <ClientOnly>
+    <div class="home">
       <div class="wrap-banner ">
         <div class="main-title MyContainer">
           <vue-typed-js :strings="['con CodePici', 'el Futuro']">
@@ -15,24 +16,54 @@
           </vue-particles>
         </div>
       </div>
-    <div class="MyContainer"  v-scroll-reveal.reset>             
-        <p>
+    </div>
+    <div class="MyContainer"  >             
+        <p v-scroll-reveal.reset>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
         </p>
         
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vel minus esse repellendus repudiandae vero. Maiores assumenda doloribus modi reiciendis at fuga deleniti maxime deserunt, repudiandae non saepe quas! Ut.</p>
-
-   
+        <p v-scroll-reveal.reset>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vel minus esse repellendus repudiandae vero. Maiores assumenda doloribus modi reiciendis at fuga deleniti maxime deserunt, repudiandae non saepe quas! Ut.</p>
+        <h2>Ultimas publicaciones</h2>
+        <div class="last-post">
+            <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+        </div>
     </div>
     </ClientOnly>
   </Layout>
 </template>
 
+<page-query>
+query Posts ($page: Int) {
+  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 4, page: $page ) @paginate {
+    totalCount
+    pageInfo {
+      totalPages
+      currentPage
+      isFirst
+      isLast
+    }
+    edges {
+      node {
+        id
+        title
+        date (format: "D. MMMM YYYY")
+        timeToRead
+        description
+        cover_image (width: 770, height: 400, blur: 10)
+        path
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
+import PostCard from '~/components/PostCard.vue'
 export default {
   metaInfo: {
     title: 'Home'
   },
+  components: { PostCard }
 }
 </script>
 
@@ -80,5 +111,13 @@ height: 100%;
 }
 .home-links a {
   margin-right: 1rem;
+}
+.last-post {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  @include respond-to(small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>
