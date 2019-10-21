@@ -57,7 +57,7 @@
     </div>
 
     <slot />
-    <Footer v-if="showFooter"/>
+    <Footer v-if="showFooter" class="footer"/>
   </div>
 </template>
 
@@ -191,5 +191,4 @@ transform: translate3d(0, -100%, 0);
       }
   }
 }
-
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <Layout :showFooter="true" :isActive="false">
+  <Layout :showFooter="true" :isActive="false" class="home">
     <ClientOnly>
-    <div class="home">
+    <div  >
       <div class="wrap-banner ">
         <div class="main-title MyContainer">
           <vue-typed-js :strings="['con CodePici', 'el Futuro']">
@@ -17,16 +17,9 @@
         </div>
       </div>
     </div>
-    <div class="MyContainer"  >             
-        <p v-scroll-reveal.reset>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-        </p>
-        
-        <p v-scroll-reveal.reset>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum vel minus esse repellendus repudiandae vero. Maiores assumenda doloribus modi reiciendis at fuga deleniti maxime deserunt, repudiandae non saepe quas! Ut.</p>
-        <h2>Ultimas publicaciones</h2>
-        <div class="last-post">
-            <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
-        </div>
+    <div class="MyContainer ">             
+        <h2 class="title-init">Ultimas publicaciones</h2>
+        <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
     </div>
     </ClientOnly>
   </Layout>
@@ -70,8 +63,14 @@ export default {
 <style lang="scss">
 @import '@/assets/style/index';
 .home {
-  background-image: url(../assets/img/bg-galaxia.png);
+  // position: fixed;
+  background-image: url(../assets/img/bg-space-2.png);
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  // height: 100vh;
 }
 .wrap-banner {
   position: relative;
@@ -91,10 +90,11 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
+  z-index: 1;
 }
 .particle-js {
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .title-hero {
   font-size: 2.4rem;
@@ -112,12 +112,23 @@ height: 100%;
 .home-links a {
   margin-right: 1rem;
 }
-.last-post {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 10px;
+.title-init {
+  text-align: center;
+  font-weight: 500;
+  margin: 2rem  0 ;
+  font-size: 2rem;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+  padding: .7rem;
   @include respond-to(small) {
-    grid-template-columns: repeat(2, 1fr);
+    font-size: 3rem;
+    border-bottom: 2px solid;
+    border-top: 2px solid;
+    margin: 3rem 0;
+    padding: 1rem;
   }
+}
+.carousel {
+  margin: 2rem 0;
 }
 </style>

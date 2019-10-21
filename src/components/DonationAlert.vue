@@ -30,7 +30,7 @@ export default {
             this.viewPost = true
             setTimeout(() => {
                 this.activate = false
-            }, 4300);
+            }, 4400);
         }, 3000);
     },
 }

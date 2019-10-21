@@ -12,6 +12,8 @@ body {
 }
 
 .MyContainer {
+    position: relative;
+    z-index: 2;
     max-width: 900px;
     width: 95%;
     margin: 0 auto;

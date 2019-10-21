@@ -78,6 +78,16 @@
         width: 30%;
     }
 }
+.go-back {
+    background: rgba(0, 0, 0, 0.295);
+    border: 1px solid $c-secondary;
+    border-radius: 10px;
+    color: $c-secondary;
+    cursor: pointer;
+    transition: all .4s ease;
+    padding: 0.2rem 0.6rem;
+    font-size: 1rem;
+}
 //Helpers Comunes
 .view-mobile {
     @media screen and(min-width: 600px){
@@ -95,15 +105,17 @@
       padding-top: 5rem;
     }
 }
-//Responsive {
+//One Purpose {
 .flex {
     display: flex;
+}
+.z-index-999 {
+    z-index: 999;
 }
 //Transition
 .fade-enter-active {
 transition: all .6s;
 }
-
 .fade-enter {
 opacity: 0;
 }

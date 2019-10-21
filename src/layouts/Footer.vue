@@ -2,17 +2,6 @@
     <div>
         <el-footer class="MyFooter footer-bar ">
             <h3 class="title-footer">Mi Repositorio</h3>
-            <social-sharing :url="url" inline-template 
-                title="Cursos Baratos" class="nav__link"
-                description="CodePici es el Mejor perros"
-                quote="Cursos Baratos"
-                hashtags="vuejs,codepici,juandelgado"
-                twitter-user="vuejs"
-            >
-                <div>
-                    <network network="facebook" style="cursor: pointer;">Facebook</network>
-                </div>
-            </social-sharing>       
             <a href="https://zealous-aryabhata-98ce9d.netlify.com/admin" target="_blank">Admin</a>
         </el-footer>        
     </div>
@@ -21,17 +10,14 @@
 <script>
 export default {
     name: 'Footer',
-    data() {
-        return {
-             url: 'https://github.com/JuanDelgado06',
-        }
-    },
 }
 </script>
 
 <style lang="scss">
 @import '@/assets/style/index';
     .MyFooter {
+        position: sticky;
+        z-index: 999;
         width: 100%;
         background: $c-dark-alt;
         padding: .8rem;

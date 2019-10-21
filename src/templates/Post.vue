@@ -2,6 +2,7 @@
     <Layout :isActive="true"  :showFooter="true">
       <ClientOnly >
         <div class="MyContainer header-content">
+          <a @click="$router.go(-1)" class="go-back"><i class="fas fa-long-arrow-alt-left"></i> Atras</a>
           <div class="post-title">
             <h1 class="post-title-text" v-block-reveal="{delay: 500, bgcolor: '#834efd', direction: 'lr'}">
               {{ $page.post.title }}
@@ -14,35 +15,31 @@
             </div>
 
             <div class="post-content" v-html="$page.post.content" />
-            
 
             <div class="post-footer" >
-            <div class="post-cms">
-              <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
-              <div class="post-link" >
-                <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
-                  <div class="button-link" v-if="$page.post.link">
-                    <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Mega <i class="fas fa-cloud-download-alt"></i> </a>
-                  </div>
-                  <div class="button-link">
-                      <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
-                  </div>
-                  <div class="button-link" v-if="$page.post.oficial">
-                    <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
-                  </div>
-                  <div class="button-link" >
-                    <button @click="reloadPage">Recargar</button>
-                  </div>
+              <div class="post-cms">
+                <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
+                <div class="post-link" >
+                  <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+                    <div class="button-link" v-if="$page.post.link">
+                      <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Mega <i class="fas fa-cloud-download-alt"></i> </a>
+                    </div>
+                    <div class="button-link">
+                        <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
+                    </div>
+                    <div class="button-link" v-if="$page.post.oficial">
+                      <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
+                    </div>
+                </div>
               </div>
-            </div>
+
               <PostTags :post="$page.post" class="post-tags"/>
               <div class="post-social">
                   <h3 class="post-title-share">Compartir📢</h3>
                   <social-sharing :url="urlPath" inline-template 
                       :title="titleShare"
                       :description="descriptionShare"
-                      quote="CodePici"
-                      hashtags="vuejs, codepici, juandelgado06"
+                      hashtags="codepici, juandelgado06"
                       twitter-user="codepici"
                   >
                     <div class="link">
@@ -136,9 +133,6 @@ export default {
     this.imageUrl = `https://codepici-blog.site${this.$page.post.cover_image}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
-    setTimeout(() => {
-        console.log('Me ejecute men');
-      }, 5000)
   },
   methods: {
     reloadPage () {
@@ -175,6 +169,7 @@ query Post ($id: ID!) {
 .post-title {
   h1 {
     text-align: center;
+    margin-top: .4rem;
     margin-bottom: 0;
   @include respond-to(little) {
       font-size: 2.5rem;
@@ -287,7 +282,6 @@ query Post ($id: ID!) {
 .button-link {
   display: flex;
   justify-content: center;
-  // margin: 2rem 0 1rem;
 }
 .post-link {
   text-align: center;

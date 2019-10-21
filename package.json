@@ -26,6 +26,7 @@
     "vssue": "^1.2.0",
     "vue-backtotop": "^1.6.1",
     "vue-block-reveal": "^1.0.0",
+    "vue-carousel": "^0.18.0",
     "vue-fuse": "^2.1.0",
     "vue-scroll-reveal": "^1.0.11",
     "vue-social-sharing": "^2.4.6",
