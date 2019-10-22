@@ -1,5 +1,5 @@
 <template>
-  <Layout :showFooter="true" :isActive="false" class="home">
+  <Layout :showFooter="true" :isActive="false">
     <ClientOnly>
       <section class="starts-background">
         <div class="stars"></div>
@@ -67,14 +67,6 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/index';
-.home {
-  width: 100%;
-  background-image: url(../assets/img/bg-space-2.png);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 .wrap-banner {
   position: relative;
   display: flex;
