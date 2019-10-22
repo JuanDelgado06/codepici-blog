@@ -2,8 +2,8 @@
     <Layout :isActive="true"  :showFooter="true">
       <ClientOnly >
         <div class="MyContainer header-content">
-          <a @click="$router.go(-1)" class="go-back"><i class="fas fa-long-arrow-alt-left"></i> Atras</a>
           <div class="post-title">
+            <a @click="$router.go(-1)" class="go-back"><i class="fas fa-long-arrow-alt-left"></i> Atras</a>
             <h1 class="post-title-text" v-block-reveal="{delay: 500, bgcolor: '#834efd', direction: 'lr'}">
               {{ $page.post.title }}
             </h1>
@@ -167,15 +167,18 @@ query Post ($id: ID!) {
 <style lang="scss">
 @import '@/assets/style/index';
 .post-title {
+  margin-top: .6rem;
   h1 {
+  // -webkit-text-stroke: 1px $c-default;
+    // color: transparent;
     text-align: center;
-    margin-top: .4rem;
+    margin-top: .5rem;
     margin-bottom: 0;
   @include respond-to(little) {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
     @include respond-to(small) {
-      font-size: 3rem;
+      font-size: 4rem;
     }
   }
   .post-meta {

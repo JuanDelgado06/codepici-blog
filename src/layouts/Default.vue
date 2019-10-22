@@ -1,7 +1,7 @@
 <template>
   <div class="master" :dialogVisible="true">
     <div class="header-container" 
-      :class="{headerBar : isActive, paddingHome: padding, paddingHeader : isActive, navbarHidden : !showNavbar}">
+      :class="{headerBar : isActive, paddingHome: padding, paddingHeader : isActive}">
       <header class="MyHeader MyContainer">
         <div class="title-header">
             <g-link to="/" class="logo-header">
@@ -98,27 +98,10 @@ export default {
       drawer: false,
       direction: 'rtl',
       padding: true,
-      showNavbar: true,
       showSearch: false,
     }
   },
-  mounted () {
-    window.addEventListener('scroll', this.onScroll)
-    this.showSearch = false
-    // console.log(this.closeSearch);
-  },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.onScroll)
-  },
   methods: {
-    onScroll () {
-      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-      if (currentScrollPosition <  1) {
-        return
-      }
-      this.showNavbar = currentScrollPosition < this.lastScrollPosition
-      this.lastScrollPosition = currentScrollPosition
-    },
     closeModal () {
       this.showSearch = false
     }
@@ -167,16 +150,12 @@ export default {
   padding: .1rem 0;
   position: fixed;
   top: 0;
-  transform: translate3d(0, 0, 0);
-  transition: 0.4s all ease-out;
-  @include  respond-to(small) {
-    padding: .2rem 0;
-  }
+  // transform: translate3d(0, 0, 0);
+  // transition: 0.4s all ease-out;
+  // @include  respond-to(small) {
+  //   padding: .2rem 0;
+  // }
 }
-.navbarHidden {
-transform: translate3d(0, -100%, 0);
-}
-
 .nav {
   align-self: center;
   .el-button {

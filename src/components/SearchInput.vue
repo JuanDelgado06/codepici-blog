@@ -7,7 +7,7 @@
                 <h2>Que quieres buscar ?</h2>
               </div>
                 <div class="buscadorContainer">
-                    <input v-model="buscar" placeholder="___"  event-name="results" @keyup="runSearch" class="buscador" autofocus autocomplete="on"> 
+                    <input v-model="buscar" placeholder="___"  event-name="results" @keyup="runSearch" class="buscador" id="focusSearch"> 
                 </div>
                 <div class="content-result" v-if="buscar !== ''">
                     <div v-if="sinResultados" class="sin-resultados">
@@ -46,29 +46,30 @@ export default {
     runSearch () {
       this.$search(this.buscar, this.post, { keys: ['title', 'summary'] }).then(result => {
         this.results = result
-        // console.log(this.results.length);
         if( this.buscar.length >= 1 && this.results.length < 1 ) {
-            // console.log(`No hay resultados para ${this.buscar}`);
             this.noEncontrado = this.buscar
             this.sinResultados = true
         } else {
-            // console.log(`Resultados de ${this.buscar} son ${this.results.length}`)
             this.sinResultados = false
         }
       }) .catch(err => {
           console.log(err);
       })
+    },
+    focusInput () {
+      return document.getElementById("focusSearch").focus()
     }
   },
   created () {
     axios("/search.json").then(response => {
-      // console.log(response.data.items)
       this.post = response.data.items
-      // console.log(this.post);
     })
     this.$on('results', results => {
       this.results = results
     })
+  },
+  mounted() {
+      this.focusInput()    
   },
 }
 </script>

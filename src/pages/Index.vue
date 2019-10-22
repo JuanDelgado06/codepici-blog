@@ -1,5 +1,5 @@
 <template>
-  <Layout :showFooter="true" :isActive="false">
+  <Layout :showFooter="true" :isActive="false" style="background: #080808">
     <ClientOnly>
       <div class="wrap-banner ">
         <div class="main-title MyContainer">
@@ -17,9 +17,12 @@
       </div>
       <div class="MyContainer ">             
           <h2 class="title-init">Ultimas publicaciones</h2>
-          <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
-          <div class="post-card-home">
-            
+          <!-- <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" /> -->
+          <div class="card-home" v-for="edge in $page.posts.edges" :key="edge.node.id">
+            <div class="card-home-title">
+              <h2>{{edge.node.title}}</h2>
+              <p>{{edge.node.description}}</p>
+            </div>
           </div>
       </div>
     </ClientOnly>
@@ -57,7 +60,7 @@ export default {
   metaInfo: {
     title: 'Home'
   },
-  components: { PostCard }
+  components: { PostCard },
 }
 </script>
 
@@ -122,5 +125,8 @@ export default {
 }
 .carousel {
   margin: 2rem 0;
+}
+.card-home {
+  
 }
 </style>

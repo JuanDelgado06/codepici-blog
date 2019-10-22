@@ -1,7 +1,9 @@
 <template>
   <div class="post-card content-box" :class="{'post-card--has-poster' : post.poster}">
     <div class="post-card-header">
-      <g-image alt="Cover image" v-if="post.cover_image" class="post-card-image" :src="post.cover_image" />
+      <g-link :to="post.path">
+        <g-image alt="Cover image" v-if="post.cover_image" class="post-card-image" :src="post.cover_image" />
+      </g-link>
     </div>
     <div class="post-card-content">
       <PostMeta class="post-card-meta" :post="post" />
@@ -62,6 +64,12 @@ export default {
   }
   &-image {
     min-width: 100%;
+    transition: all .4s ease-in-out;
+    z-index: 1;
+    position: sticky;
+    &:hover {
+      transform: scale(1.1)
+    }
   }
   &-title {
     margin-top: 0;

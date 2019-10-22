@@ -17,7 +17,6 @@ export default {
 @import '@/assets/style/index';
     .MyFooter {
         position: sticky;
-        z-index: 999;
         width: 100%;
         background: $c-dark-alt;
         padding: .8rem;
