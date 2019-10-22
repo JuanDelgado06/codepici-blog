@@ -1,7 +1,10 @@
 <template>
   <Layout :showFooter="true" :isActive="false" class="home">
     <ClientOnly>
-    <div  >
+      <section class="starts-background">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+      </section>
       <div class="wrap-banner ">
         <div class="main-title MyContainer">
           <vue-typed-js :strings="['con CodePici', 'el Futuro']">
@@ -16,11 +19,13 @@
           </vue-particles>
         </div>
       </div>
-    </div>
-    <div class="MyContainer ">             
-        <h2 class="title-init">Ultimas publicaciones</h2>
-        <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
-    </div>
+      <div class="MyContainer ">             
+          <h2 class="title-init">Ultimas publicaciones</h2>
+          <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+          <div class="post-card-home">
+            
+          </div>
+      </div>
     </ClientOnly>
   </Layout>
 </template>
@@ -63,14 +68,11 @@ export default {
 <style lang="scss">
 @import '@/assets/style/index';
 .home {
-  // position: fixed;
   background-image: url(../assets/img/bg-space-2.png);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
-  // height: 100vh;
 }
 .wrap-banner {
   position: relative;
@@ -117,6 +119,7 @@ export default {
   font-weight: 500;
   margin: 2rem  0 ;
   font-size: 2rem;
+  // background: rgba(0, 0, 0, 0.274);
   border-bottom: 2px solid;
   border-top: 2px solid;
   padding: .7rem;

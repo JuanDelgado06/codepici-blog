@@ -44,7 +44,7 @@ export default {
 @import '@/assets/style/index';
 .post-card {
   position: relative;
-  background: $c-dark-alt;
+  background: rgba(8, 8, 8, 0.5);
   border: 2px solid $c-primary-alt;
   border-radius: 1.1rem;
   margin: 0 .6rem 1rem .6rem;

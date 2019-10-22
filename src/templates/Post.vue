@@ -1,6 +1,10 @@
 <template>
     <Layout :isActive="true"  :showFooter="true">
       <ClientOnly >
+        <section class="starts-background">
+          <div class="stars"></div>
+          <div class="stars2"></div>
+        </section>
         <div class="MyContainer header-content">
           <a @click="$router.go(-1)" class="go-back"><i class="fas fa-long-arrow-alt-left"></i> Atras</a>
           <div class="post-title">
