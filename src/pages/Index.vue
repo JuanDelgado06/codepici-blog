@@ -1,10 +1,6 @@
 <template>
   <Layout :showFooter="true" :isActive="false">
     <ClientOnly>
-      <section class="starts-background">
-        <div class="stars"></div>
-        <div class="stars2"></div>
-      </section>
       <div class="wrap-banner ">
         <div class="main-title MyContainer">
           <vue-typed-js :strings="['con CodePici', 'el Futuro']">

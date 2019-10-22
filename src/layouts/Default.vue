@@ -55,7 +55,10 @@
           v-show="showSearch ==  true" class="close-search" circle size="small">
       </el-button>
     </div>
-
+    <section class="starts-background">
+      <div class="stars"></div>
+      <div class="stars2"></div>
+    </section>
     <slot />
     <Footer v-if="showFooter" class="footer"/>
   </div>

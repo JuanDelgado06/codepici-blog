@@ -1,9 +1,5 @@
 <template>
   <Layout :showFooter="true">
-    <section class="starts-background">
-        <div class="stars"></div>
-        <div class="stars2"></div>
-      </section>
     <div class="MyContainer header-content blog"  >
       <h2 class="blog-subtitle"> Publicaciones en total: {{totalPost}}</h2>
       <transition name="fade" appear>
