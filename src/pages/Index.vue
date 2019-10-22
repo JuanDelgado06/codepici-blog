@@ -68,6 +68,7 @@ export default {
 <style lang="scss">
 @import '@/assets/style/index';
 .home {
+  width: 100%;
   background-image: url(../assets/img/bg-space-2.png);
   background-size: cover;
   background-attachment: fixed;
