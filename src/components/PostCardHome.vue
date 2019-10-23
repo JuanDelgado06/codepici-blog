@@ -60,12 +60,18 @@ export default {
   &:hover img {
     filter: brightness(90%);
   }
+  &-image {
+    overflow: hidden;
+  }
   img {
     object-fit: cover;
     width: 100%;
     height: 100%;
     filter: brightness(55%);
     transition: all .4s ease-in-out;
+    &:hover {
+      transform: scale(1.1)
+    }
   }
   &-description {
     display: flex;

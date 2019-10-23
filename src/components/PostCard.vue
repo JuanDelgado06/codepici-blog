@@ -46,17 +46,17 @@ export default {
 @import '@/assets/style/index';
 .post-card {
   position: relative;
-  background: rgba(8, 8, 8, 0.5);
-  border: 2px solid $c-primary-alt;
+  // background: rgba(8, 8, 8, 0.6);
+  // background: rgba(32, 32, 32, 0.5);
+  border-top: 2px solid  $c-primary-alt;
+  // border-right: 2px solid  $c-primary-alt;
+  // border-left: 2px solid  $c-primary-alt;
+  border-bottom: 2px solid  $c-primary-alt;
   border-radius: 1.1rem;
   margin: 0 .6rem 1rem .6rem;
   transition: all .3s ease;
-  box-shadow: 1px 5px 20px 1px rgba(0, 0, 0, 0.6);
   @include respond-to(small) {
     margin: 0 0 1rem 0;
-    &:hover {
-      box-shadow: 1px 5px 20px 1px rgba(0, 0, 0, 0.0);
-    }
   }
   &-header {
     overflow: hidden; 

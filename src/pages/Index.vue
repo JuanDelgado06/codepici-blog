@@ -22,6 +22,7 @@
           <div class="lastPost">
             <PostCardHome v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
           </div>
+          <FormNetlify />
       </div>
     </ClientOnly>
   </Layout>
@@ -54,11 +55,12 @@ query Posts ($page: Int) {
 
 <script>
 import PostCardHome from '~/components/PostCardHome.vue'
+import FormNetlify from '~/components/FormNetlify.vue'
 export default {
   metaInfo: {
     title: 'Home'
   },
-  components: { PostCardHome},
+  components: { PostCardHome, FormNetlify},
 }
 </script>
 
