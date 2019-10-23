@@ -15,14 +15,12 @@
           </vue-particles>
         </div>
       </div>
-      <div class="MyContainer ">             
-          <h2 class="title-init">Ultimas publicaciones</h2>
-          <!-- <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" /> -->
-          <div class="card-home" v-for="edge in $page.posts.edges" :key="edge.node.id">
-            <div class="card-home-title">
-              <h2>{{edge.node.title}}</h2>
-              <p>{{edge.node.description}}</p>
-            </div>
+      <div class="MyContainer ">    
+          <div class="title-init">
+              <h2 class="glitch" data-text="Ultimas Publicaciones">Ultimas Publicaciones</h2>
+          </div>         
+          <div class="lastPost">
+            <PostCardHome v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
           </div>
       </div>
     </ClientOnly>
@@ -31,7 +29,7 @@
 
 <page-query>
 query Posts ($page: Int) {
-  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 4, page: $page ) @paginate {
+  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: DESC, perPage: 6, page: $page ) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -46,7 +44,7 @@ query Posts ($page: Int) {
         date (format: "D. MMMM YYYY")
         timeToRead
         description
-        cover_image (width: 770, height: 400, blur: 10)
+        cover_image 
         path
       }
     }
@@ -55,12 +53,12 @@ query Posts ($page: Int) {
 </page-query>
 
 <script>
-import PostCard from '~/components/PostCard.vue'
+import PostCardHome from '~/components/PostCardHome.vue'
 export default {
   metaInfo: {
     title: 'Home'
   },
-  components: { PostCard },
+  components: { PostCardHome},
 }
 </script>
 
@@ -107,26 +105,35 @@ export default {
   margin-right: 1rem;
 }
 .title-init {
-  text-align: center;
-  font-weight: 500;
   margin: 2rem  0 ;
-  font-size: 2rem;
-  // background: rgba(0, 0, 0, 0.274);
-  border-bottom: 2px solid;
-  border-top: 2px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
   padding: .7rem;
   @include respond-to(small) {
-    font-size: 3rem;
-    border-bottom: 2px solid;
-    border-top: 2px solid;
     margin: 3rem 0;
     padding: 1rem;
+  }
+  h2 {
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.8rem;
+    @include respond-to(small) {
+      font-size: 3.5rem;
+    }
   }
 }
 .carousel {
   margin: 2rem 0;
 }
-.card-home {
-  
+.lastPost {
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  @include respond-to(semiBig) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 16px;
+  }
 }
 </style>

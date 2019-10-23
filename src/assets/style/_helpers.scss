@@ -599,3 +599,44 @@ opacity: 0;
       }
   }
 
+//Animation text glitch
+$primaryColor: #f2f2f2;
+$secondaryColor: #080808;
+$steps: 10;
+.glitch {
+    position: relative;
+    color: $primaryColor;
+    transform: scale3d(1,1,1);
+    &::before,
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        background: $secondaryColor;
+        color: $primaryColor;
+        clip: rect(0, 900px, 0, 0);
+    }
+
+    &::before {
+        left: 7px;
+        text-shadow: 2px 0 $c-negative;
+        animation: glitch-effect 3s infinite linear alternate-reverse;
+        animation-delay: 2s;
+    }
+    &::after {
+        left: 3px;
+        text-shadow: -2px 0 $c-primary;
+        animation: glitch-effect 3s infinite linear alternate-reverse;
+        animation-delay: 3s;
+    }
+}
+@keyframes glitch-effect{
+    @for $i from 0 through $steps{
+        #{percentage($i*(1/$steps))}{
+            clip:rect(random(100)+px,9999px,random(100)+px,0);
+        }
+    }
+}
