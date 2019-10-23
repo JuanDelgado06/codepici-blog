@@ -4,6 +4,7 @@
         name="contact"
         method="post"
         v-on:submit.prevent="handleSubmit"
+        netlify
         action="/blog/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
@@ -67,5 +68,8 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/index';
-    
+    .sender-info {
+        display: grid;
+        
+    }
 </style>
