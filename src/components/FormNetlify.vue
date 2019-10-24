@@ -69,9 +69,9 @@ export default {
                     message: 'Gracias por contactarnos, te responderemos en el menor tiempo posible',
                     type: 'success'
                 });
-                this.formData.name = ''
-                this.formData.email = ''
-                this.formData.message = ''
+                // this.formData.name = ''
+                // this.formData.email = ''
+                // this.formData.message = ''
             } )
             .catch(error => alert(error))
         }
