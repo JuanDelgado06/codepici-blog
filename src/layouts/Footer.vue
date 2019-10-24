@@ -2,7 +2,7 @@
     <div>
         <el-footer class="MyFooter footer-bar ">
             <h3 class="title-footer">Mi Repositorio</h3>
-            <a href="https://zealous-aryabhata-98ce9d.netlify.com/admin" target="_blank">Admin</a>
+            <a href="https://codepici-blog.site/admin/" target="_blank">Admin</a>
         </el-footer>        
     </div>
 </template>
