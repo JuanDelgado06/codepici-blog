@@ -60,5 +60,7 @@ export default function (Vue, { router, head, isClient }) {
     clientId: 'e086eff3e9b299bdc04e',
     clientSecret: '3aac3b3bd614eb5ff9694cdba9316d76b7ec2b3a', // only required for some of the platforms
   })
-  Vue.use(VueScrollTo)
+  Vue.use(VueScrollTo, {
+    duration: 1000,
+  })
 }

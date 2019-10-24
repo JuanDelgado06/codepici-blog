@@ -30,6 +30,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: .9;
   cursor: pointer;
   i {
     font-size: 1.5rem;
