@@ -22,7 +22,7 @@
             </div>
             <div>
             <label for="email">Tu Email</label>
-            <input type="email" name="email" v-model="formData.email" />
+            <input type="text" name="email" v-model="formData.email" />
             </div>
         </div>
 
