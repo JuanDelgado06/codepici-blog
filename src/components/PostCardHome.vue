@@ -58,7 +58,7 @@ export default {
   
   }
   &:hover img {
-    filter: brightness(90%);
+    filter: brightness(60%);
   }
   &-image {
     overflow: hidden;
@@ -67,7 +67,7 @@ export default {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    filter: brightness(55%);
+    filter: brightness(90%);
     transition: all .4s ease-in-out;
     &:hover {
       transform: scale(1.1)
@@ -94,10 +94,16 @@ export default {
   &-button {
     font-family: $font-nice;
     color: $c-default;
+    cursor: pointer;
     padding: .1rem .3rem;
     font-size: 1rem;
     border-bottom: 3px solid #b3b3b3;
     margin-bottom: 0.5rem;
+    transition: all .4s ease-in;
+  }
+  &:hover .card-home-button {
+    border-color: $c-primary;
+    color: $c-primary;
   }
 }
 

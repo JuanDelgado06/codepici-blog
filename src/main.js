@@ -11,11 +11,13 @@ import SocialSharing from 'vue-social-sharing'
 import VueScrollReveal from 'gridsome-scroll-reveal';
 import VueBlockReveal from 'vue-block-reveal';
 import VueScrollProgressBar from '@guillaumebriday/vue-scroll-progress-bar'
+import VueScrollTo from 'vue-scrollto'
 
 import VueImg from 'v-img';
 import BackToTop from 'vue-backtotop'
 import VueParticles from 'vue-particles'
 import VueTypedJs from 'vue-typed-js'
+
 
 import VueFuse from 'vue-fuse'
 import Fuse from 'fuse.js'
@@ -58,4 +60,5 @@ export default function (Vue, { router, head, isClient }) {
     clientId: 'e086eff3e9b299bdc04e',
     clientSecret: '3aac3b3bd614eb5ff9694cdba9316d76b7ec2b3a', // only required for some of the platforms
   })
+  Vue.use(VueScrollTo)
 }
