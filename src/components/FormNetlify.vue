@@ -62,18 +62,18 @@ export default {
                     ...this.formData,
                 }),
             })
-            // .then(() => this.$router.push('/blog'))
-            .then( () => {
-                this.$notify({
-                    title: 'Enviado Correctamente',
-                    message: 'Gracias por contactarnos, te responderemos en el menor tiempo posible',
-                    type: 'success'
-                });
-            } )
+            .then(() => this.$router.push('/blog'))
+            // .then( () => {
+                // this.$notify({
+                //     title: 'Enviado Correctamente',
+                //     message: 'Gracias por contactarnos, te responderemos en el menor tiempo posible',
+                //     type: 'success'
+                // });
+            // } )
             .catch(error => alert(error))
-            this.formData.name = ''
-            this.formData.email = ''
-            this.formData.message = ''
+            // this.formData.name = ''
+            // this.formData.email = ''
+            // this.formData.message = ''
         }
     },
 }
