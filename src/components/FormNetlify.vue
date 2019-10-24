@@ -22,7 +22,7 @@
             </div>
             <div>
             <label for="email">Tu Email</label>
-            <input type="text" name="email" v-model="formData.email" />
+            <input type="email" name="email" v-model="formData.email" />
             </div>
         </div>
 
@@ -59,7 +59,14 @@ export default {
             ...this.formData,
         }),
         })
-        .then(() => this.$router.push('/blog'))
+        // .then(() => this.$router.push('/blog'))
+        .then( () => {
+            this.$notify({
+                title: 'Enviado Correctamente',
+                message: 'Gracias por contactarnos, te responderemos en el menor tiempo posible',
+                type: 'success'
+            });
+        } )
         .catch(error => alert(error))
     }
     }    
