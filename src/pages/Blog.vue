@@ -49,14 +49,35 @@ import btnTop from '~/components/plugins/ButtonTop'
 import { Pager } from "gridsome";
 
 export default {
-  metaInfo: {
-    title: 'Blog'
-  },
   components: {  btnTop, PostCard, Pager  },
   data() {
     return {
       isActive : true,
-      totalPost: ''
+      totalPost: '',
+      img : 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/4f403379780121.5db47ac9a167b.jpg'
+    }
+  },
+  metaInfo () {
+    return {
+      title: "CodiPici Blog",
+      meta: [
+        {
+          name: 'description',
+          content: "Aprende desarrollo, diseño y programacion web. Aqui encontraras articulos, tutoriales y mucho mas, todo relacionado con el mundo del desarrollo web"
+        },
+        { property: "og:type", content: 'article' },
+        { property: "og:title", content: "CodePici Blog" },
+        { property: "og:description", content: "Aprende desarrollo, diseño y programacion web. Aqui encontraras articulos, tutoriales y mucho mas, todo relacionado con el mundo del desarrollo web" },
+        { property: "og:url", content: "https://codepici-blog.site/blog/" },
+        { property: "og:image", content: this.img },
+        
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "CodePici Blog" },
+        { name: "twitter:description", content: "Aprende desarrollo, diseño y programacion web. Aqui encontraras articulos, tutoriales y mucho mas, todo relacionado con el mundo del desarrollo web" },
+        { name: "twitter:site", content: "@codepici" },
+        { name: "twitter:creator", content: "@codepici" },
+        { name: "twitter:image", content: this.img },
+      ]
     }
   },
   mounted () {

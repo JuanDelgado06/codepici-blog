@@ -1,7 +1,7 @@
 module.exports = {
   siteName: 'CodePici',
   siteUrl: "https://codepici-blog.site/",
-  siteDescription: "Aprende desarrollo, diseño y programacion web. Aqui encontraras articulos, tutoriales y mucho mas, todo relacionado con el mundo del desarrollo web,",
+  siteDescription: "Aprende desarrollo, diseño y programacion web. Aqui encontraras articulos, tutoriales y mucho mas, todo relacionado con el mundo del desarrollo web.",
   templates: {
     Post: '/:title',
     Tag: '/tag:id'
