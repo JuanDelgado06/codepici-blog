@@ -59,7 +59,7 @@ export default {
   },
   metaInfo () {
     return {
-      title: "CodiPici Blog",
+      title: "CodePici Blog",
       meta: [
         {
           name: 'description',
