@@ -42,7 +42,7 @@
     text-transform: uppercase;
     text-align: center;
     transition: all .4s ease;
-    @include respond-to(table) {
+    @include respond-to(mid) {
         width: 32%;
     }
 }
