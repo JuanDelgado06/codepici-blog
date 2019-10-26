@@ -45,11 +45,11 @@
               <g-link  to="/about/" class="nav-link-mobile">About</g-link> 
             </el-menu-item>           
             <el-menu-item index="3">
-              <a hreft="/#contact"  class="nav-link-mobile" v-if="!isActive" v-scroll-to="'#contact'" @click="drawer = false">Contácto</a>
-              <g-link  class="nav-link-mobile" to="/#contact" v-else>Contácto</g-link>
+              <g-link  to="/blog/" class="nav-link-mobile">Blog</g-link> 
             </el-menu-item>           
             <el-menu-item index="4">
-              <g-link  to="/blog/" class="nav-link-mobile">Blog</g-link> 
+              <a hreft="/#contact"  class="nav-link-mobile" v-if="!isActive" v-scroll-to="'#contact'" @click="drawer = false">Contácto</a>
+              <g-link  class="nav-link-mobile" to="/#contact" v-else>Contácto</g-link>
             </el-menu-item>           
         </el-menu>
     </el-drawer>   
@@ -66,7 +66,7 @@
       <div class="stars2"></div>
     </section>
     <slot />
-    <Footer v-if="showFooter" class="footer"/>
+    <Footer v-if="showFooter" />
   </div>
 </template>
 

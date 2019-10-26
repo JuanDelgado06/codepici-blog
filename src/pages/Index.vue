@@ -154,9 +154,6 @@ export default {
     }
   }
 }
-.carousel {
-  margin: 2rem 0;
-}
 .lastPost {
   margin-bottom: 3rem;
   display: grid;

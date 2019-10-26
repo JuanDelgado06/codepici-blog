@@ -37,13 +37,13 @@
 .buttons-link {
     font-size: 1.5rem;
     font-weight: bold;
-    width: 70%;
+    width: 65%;
     padding: 0.3rem .6rem;
     text-transform: uppercase;
     text-align: center;
     transition: all .4s ease;
-    @include respond-to(small) {
-        width: 30%;
+    @include respond-to(table) {
+        width: 32%;
     }
 }
 .go-back {

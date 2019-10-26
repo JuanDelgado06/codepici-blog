@@ -62,18 +62,18 @@ export default {
                     ...this.formData,
                 }),
             })
-            .then(() => this.$router.push('/blog'))
-            // .then( () => {
-                // this.$notify({
-                //     title: 'Enviado Correctamente',
-                //     message: 'Gracias por contactarnos, te responderemos en el menor tiempo posible',
-                //     type: 'success'
-                // });
-            // } )
+            // .then(() => this.$router.push('/blog'))
+            .then( () => {
+                this.$notify({
+                    title: 'Enviado Correctamente',
+                    message: 'Gracias por contactarnos, te responderemos en el menor tiempo posible',
+                    type: 'success'
+                });
+            } )
             .catch(error => alert(error))
-            // this.formData.name = ''
-            // this.formData.email = ''
-            // this.formData.message = ''
+            this.formData.name = ''
+            this.formData.email = ''
+            this.formData.message = ''
         }
     },
 }
@@ -83,7 +83,7 @@ export default {
 @import '@/assets/style/index';
     .form-contact {
         width: 100%;
-        margin: 1rem auto;
+        margin: 3rem auto;
         background: url('../assets/img/bg-form.jpg');
         background-size: cover;
         background-position: center;
@@ -135,7 +135,7 @@ export default {
         .textarea {
             display: block;
             min-width: 100%;
-            height: 200px;
+            height: 100px;
             outline: none;
             resize: none;
             font-family: $font-nice;
@@ -145,6 +145,9 @@ export default {
             background: rgba(8, 8, 8, 0.5);
             color: $c-primary;
             margin-top: .5rem;
+            @include respond-to(small) {
+                height: 200px;
+            }
         }
     }
     .button-send {
