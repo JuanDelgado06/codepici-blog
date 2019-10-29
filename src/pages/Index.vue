@@ -15,6 +15,15 @@
           </vue-particles>
         </div>
       </div>
+      <div class="cookies">
+        <cookie-law>
+          <div slot-scope="props" class="cookies-item">
+            <p>Este sitio utiliza 🍪Cookies🍪 de Terceros para mejorar tu experiencia de navegación <a href="https://weblogs.webedia.es/cookies.html" target="_blank" class="more">mas información</a>.</p>
+            <button class="skew" @click="props.accept"><span>Aceptar</span></button>
+          </div>
+        </cookie-law>  
+      </div>
+
       <div class="MyContainer ">    
           <div class="title-init">
               <h2 class="glitch" data-text="Ultimas Publicaciones">Ultimas Publicaciones</h2>
@@ -58,6 +67,7 @@ query Posts ($page: Int) {
 import PostCardHome from '~/components/PostCardHome.vue'
 import FormNetlify from '~/components/FormNetlify.vue'
 import btnTop from '~/components/plugins/ButtonTop'
+import CookieLaw from 'vue-cookie-law'
 
 export default {
   data() {
@@ -67,7 +77,7 @@ export default {
   },
   metaInfo () {
     return {
-      title: "CodePici",
+      title: "Home",
       meta: [
         {
           name: 'description',
@@ -88,12 +98,61 @@ export default {
       ]
     }
   },
-  components: { PostCardHome, FormNetlify, btnTop},
+  components: { PostCardHome, FormNetlify, btnTop, CookieLaw},
 }
 </script>
 
 <style lang="scss">
 @import '@/assets/style/index';
+.cookies {
+  .Cookie--base {
+  @extend .footer-bar;
+    background: $c-dark;
+    color: $c-default;
+    padding: .4rem .5rem;
+    @include respond-to(small) {
+      padding: 1rem;
+    }
+  }
+  &-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    text-align: center;
+    @include respond-to(small) {
+      grid-template-columns: 80% 20%;
+    }
+  }
+  p {
+    margin: 0;
+  }
+  .skew {
+    align-self: center;
+    border: 2px solid $c-primary;
+    background: rgba(0, 0, 0, 0.014);
+    color: $c-primary;
+    cursor: pointer;
+    font-weight: 700;
+    justify-self: center;
+    align-self: center;
+    padding: .5rem 1rem;
+    margin-top: 0.6rem;
+    transition: all .4s ease;
+    @include respond-to(small) {
+      margin-top: 0;
+    }
+    &:hover {
+      background: $c-primary-alt;
+      color: $c-dark-alt;
+    }
+  }
+  .more {
+    font-family: $font-nice;
+    font-size: 1rem;
+    color: $c-accent;
+    text-decoration: underline;
+  }
+}
 .wrap-banner {
   position: relative;
   display: flex;
