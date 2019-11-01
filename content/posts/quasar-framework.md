@@ -1,13 +1,16 @@
 ---
-path: "/quasar-framework"
 title: Quasar Framework
-date: 2019-10-11
 published: true
-tags: ['Framework', 'Javascript', 'Vue', 'CodePici']
-series: false
+description: >-
+  Quasar (pronunciado /ˈkweɪ.zɑɹ/) es un marco de trabajo basado en Vue.js de
+  código abierto con licencia del MIT, que le permite, como desarrollador web,
+  crear rápidamente sitios web/apps con capacidad de respuesta++ en muchos
+  aspectos. 
+date: 2019-10-11T00:00:00.000Z
 cover_image: ./images/quasar-framework.jpg
-canonical_url: false
-description: "Quasar (pronunciado /ˈkweɪ.zɑɹ/) es un marco de trabajo basado en Vue.js de código abierto con licencia del MIT, que le permite, como desarrollador web, crear rápidamente sitios web/apps con capacidad de respuesta++ en muchos aspectos. "
+tags:
+  - vue
+  - framework
 ---
 
 ## Que es Quasar Framework
