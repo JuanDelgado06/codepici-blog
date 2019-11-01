@@ -21,6 +21,7 @@
                 <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
                 <div class="post-link" >
                   <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+                  <h4 v-if="$page.post.link">Si tienes problemas para ingresar a la descarga del curso mira este <a href="https://www.facebook.com/shrtflycom/videos/484948228939661/?t=5" class="alert-link" target="_blank">Video</a></h4>
                     <div class="button-link" v-if="$page.post.link">
                       <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
                     </div>

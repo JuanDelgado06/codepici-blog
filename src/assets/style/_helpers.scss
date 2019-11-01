@@ -89,6 +89,11 @@
     right: 0;
     bottom: 0;
 }
+.alert-link {
+    // font-size: 1rem;
+    color: #ffa500;
+    text-decoration: underline;
+}
 //Transition
 .fade-enter-active {
 transition: all .6s;
