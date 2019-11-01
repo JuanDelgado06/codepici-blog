@@ -1,17 +1,31 @@
 <template>
-  <Layout :isActive="true" :showFooter="false">
+  <Layout :isActive="true" :showFooter="false" class="dont-scroll">
       <ClientOnly >
         <div class="conteiner-categorias">
           <div class="categorias">
             <ul  class="categorias-items">
                 <li class="categorias-item" v-for="(tag, index) in $page.tags.edges" :key="index">
-                  <div class="categorias-link">
-                      <g-link
-                        class="link-prueba"
-                        :to="tag.node.path"
-                      >{{tag.node.id}}</g-link>
+                  <div class="categoria-1"  v-if="index % 2 == 0">
+                    <div class="categorias-link">
+                        <g-link
+                          class="link-prueba"
+                          :to="tag.node.path"
+                        >{{tag.node.id}}</g-link>
+                    </div>
+                    <g-image class="categoria-image" src="../assets/img/bg-catego.jpg"
+                      v-if="index % 2 == 0"
+                    ></g-image>
                   </div>
-                  <g-image src="../assets/img/bg-catego.jpg"></g-image>
+                  <div class="categoria-2 zoom-1" v-else>
+                      <div class="categorias-link">
+                          <g-link
+                            class="link-prueba"
+                            :to="tag.node.path"
+                          >{{tag.node.id}}</g-link>
+                      </div>
+                      <g-image class="categoria-image" src="../assets/img/bg-catego-2.jpg"></g-image>
+                  </div>
+                  <!-- <g-image v-if="tag.node.id == 'vue' " class="categoria-image" src="../assets/img/logo.svg"></g-image> -->
                 </li>
               </ul>
           </div>
@@ -45,7 +59,7 @@ export default {
     return {
       isActive : true
     }
-  },
+  }
 }
 </script>
 
@@ -53,7 +67,7 @@ export default {
 @import '@/assets/style/index';
 .conteiner-categorias {
   margin-top: 2rem;
-  @include respond-to(small) {
+  @include respond-to(mid) {
       margin-top: 3rem;
     ::-webkit-scrollbar {
       width: .5rem;
@@ -67,6 +81,31 @@ export default {
     }
   }
 }
+.categoria-1 {
+  transition: all .3s ease-out;
+  animation: zoom 2s;
+  animation-iteration-count: infinite;
+@keyframes zoom {
+    0% {transform: scale(.9);}
+    20% {transform: scale(1);}
+    80% {transform: scale(1);}
+    99% {transform: scale(.9);}
+    100% {transform: scale(.9);}
+  }  
+}
+.categoria-2 {
+  transition: all .3s ease-out;
+  animation: zoom-2 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 1.8s;
+  @keyframes zoom-2 {
+    0% {transform: scale(.9);}
+    20% {transform: scale(1);}
+    80% {transform: scale(1);}
+    99% {transform: scale(.9);}
+    100% {transform: scale(.9);}
+  }  
+}
 .categorias {
   width: 100%;
   max-height: 100vh;
@@ -75,8 +114,12 @@ export default {
   &-items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    @include respond-to(small) {
+    grid-gap: 1rem;
+    @include respond-to(mid) {
       grid-template-columns: repeat(4, 1fr);
+    }
+    @include respond-to(big) {
+      grid-template-columns: repeat(5, 1fr);
     }
   }
   &-item {
@@ -89,18 +132,31 @@ export default {
   }
   &-link {
     position: absolute;
-    margin: 0 auto;
     left:0;
     right:0;
     height: 100%;
   }
+  &-image {
+    filter: blur(10px);
+    opacity: 0.5;
+  }
   .link-prueba {
-    color: $c-default;
-    text-transform: uppercase;
+    align-items: center;
+    color: $c-primary;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100%;
+    text-transform: uppercase;
+    font-size: .8rem;
+    @include respond-to(little) {
+      font-size: 1rem;
+    }
+    @include respond-to(small) {
+      font-size: 1.4rem;
+    }
+    @include respond-to(semiBig) {
+      font-size: 1.8rem;
+    }
   }
 }
 </style>
