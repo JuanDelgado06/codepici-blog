@@ -1,46 +1,37 @@
 <template>
-  <Layout :isActive="true" :showFooter="true">
+  <Layout :isActive="true" :showFooter="false">
       <ClientOnly >
-        <div class="MyContainer header-content"  >
-            <vue-scroll-progress-bar backgroundColor="linear-gradient(to right, rgba(44, 209, 176, 0.65), rgba(130, 78, 253, 0.65))" height=".4rem" />
-              <h1 v-block-reveal="{delay: 250, bgcolor: '#2cd1b0'}">About us</h1>
-              <button @click="isActive = false">Ocultar borde nice</button>
-              <p v-block-reveal="{delay: 500, bgcolor: '#1d1d1d', direction: 'tb'}">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id dictum tortor, at volutpat lectus. Sed at erat in felis varius dignissim. Vestibulum vestibulum dictum dapibus. Maecenas velit dolor, egestas nec ultrices vel, commodo vitae leo. Morbi semper rhoncus ante, vel venenatis lorem aliquet non. Nullam eget sem vestibulum est gravida efficitur. Donec sagittis condimentum mattis. Nulla a ultricies metus. Sed ornare, magna ut accumsan fringilla, est ante dictum est, vel efficitur velit risus eget ligula. Sed dictum sapien eget nisl cursus euismod. Sed euismod, tellus in pulvinar accumsan, tellus magna faucibus quam, sed porttitor ante velit eu lorem. In a elementum mauris, nec lacinia lacus. Nulla at dolor vitae quam gravida lobortis non vel massa. Nam eget urna eu felis faucibus lacinia sit amet a tortor.
-              </p>
-              <p v-scroll-reveal.reset="{ delay: 400 }">
-        Vivamus pretium feugiat lacus, mollis luctus nibh dictum ac. Integer non tortor sed diam posuere feugiat. Fusce sit amet finibus nisi. Nulla porttitor, dui ac auctor hendrerit, justo nisi congue ante, ut viverra urna sapien a magna. Sed imperdiet aliquam interdum. Etiam mi orci, malesuada ut neque et, luctus finibus mauris. Sed tincidunt ipsum sem, sed mollis augue iaculis sed. Nullam a purus fermentum, egestas dolor sit amet, vehicula magna. Curabitur in blandit erat. Integer ultricies nisl arcu, vitae eleifend ligula accumsan et. Vivamus at tempor orci. Sed iaculis magna dolor, vel cursus ipsum gravida ac. Sed condimentum ultricies arcu id ornare. Curabitur scelerisque placerat semper. Sed vel accumsan nisi. Integer convallis lacus sit amet ex venenatis sollicitudin.
-              </p>
-        
-          <g-image v-scroll-reveal.reset="{ delay: 400}" alt="gato-gordo" thumbnails
-          v-img:group src="https://images.unsplash.com/photo-1569576231685-8a0bb772d2f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-          >            
-          </g-image>
-        <p v-scroll-reveal.reset="{ delay: 400 }">
-        Pellentesque odio orci, iaculis a porttitor eget, convallis nec ante. In condimentum pulvinar dui, et luctus ligula mollis sed. Quisque at mi vitae nisi sodales auctor eu tristique nisl. Mauris vestibulum, dui elementum posuere auctor, tellus felis convallis purus, sit amet blandit erat metus ac sapien. Nunc vitae ligula imperdiet, porttitor elit eu, pretium turpis. Ut sit amet pellentesque lectus, non tincidunt arcu. Phasellus vel tristique tortor. Fusce eget lacus placerat, iaculis lorem ut, convallis tortor. Morbi ac facilisis eros.
-        </p>
-        <h2  v-block-reveal="{delay: 250, bgcolor: '#2cd1b0', direction: 'lt'}">Probando el plugin Vue Block Reveal</h2>
-
-        <p v-scroll-reveal.reset="{ delay: 400 }">
-          <g-image v-scroll-reveal.reset="{ delay: 400}" alt="gato-gordo" 
-          v-img:group src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-          >            
-          </g-image>
-
-        Proin porta, arcu quis interdum efficitur, neque metus tempus mi, nec egestas neque mi at nunc. Etiam sed purus est. Donec sollicitudin posuere elit, in aliquam libero rhoncus ut. Integer tincidunt arcu quam, nec egestas justo mattis eget. Mauris a mi et sem lacinia iaculis. Maecenas commodo nec orci bibendum efficitur. Pellentesque ac viverra lacus, in efficitur lacus. Nulla aliquet arcu tortor, ac bibendum libero ultricies et. Vestibulum eu metus nunc. Pellentesque luctus fermentum magna. Maecenas porta, enim sit amet feugiat tempus, libero metus venenatis augue, ac dictum nisl enim id orci.
-        </p>
-        <div v-block-reveal="{delay: 500, bgcolor: '#834efd', direction: 'tb'}"> 
-            <g-image  alt="gato-gordo" src="https://www.pets4homes.co.uk/images/articles/4859/large/ten-interesting-facts-about-ragdoll-cats-5b434cbc69d2e.jpg"></g-image>
-        </div>
-        <p v-scroll-reveal.reset="{ delay: 400 }">
-        Curabitur hendrerit enim felis, non ornare tortor accumsan vel. Suspendisse nulla tortor, ultricies pellentesque elit vel, fermentum hendrerit quam. Maecenas id arcu at dui pharetra eleifend. Nam suscipit accumsan elit, a lacinia dolor luctus nec. Suspendisse porttitor lacinia sapien, eu blandit nisi convallis scelerisque. Proin ut dui quis erat vulputate tempus sit amet sed dui. Nunc suscipit pharetra ligula, hendrerit euismod nisl mattis ut. Pellentesque interdum augue diam, quis viverra mi elementum vitae. Cras efficitur quam eu dolor vulputate, sed placerat quam efficitur. Vivamus vel sem eget nibh lobortis imperdiet id hendrerit dolor. Phasellus ac libero quis nulla eleifend molestie. Ut pulvinar ante sed ante lacinia aliquam.
-        </p>
-
-          <btnTop offset="300"/>
+        <div class="conteiner-categorias">
+          <div class="categorias">
+            <ul  class="categorias-items">
+                <li class="categorias-item" v-for="(tag, index) in $page.tags.edges" :key="index">
+                  <div class="categorias-link">
+                      <g-link
+                        class="link-prueba"
+                        :to="tag.node.path"
+                      >{{tag.node.id}}</g-link>
+                  </div>
+                  <g-image src="../assets/img/bg-catego.jpg"></g-image>
+                </li>
+              </ul>
+          </div>
         </div>
       </ClientOnly>
   </Layout>
 </template>
+
+<page-query>
+query Posts {
+  tags: allTag ( sortBy: "path", order: ASC ) {
+    edges {
+      node {
+        id
+        path
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 import btnTop from '~/components/plugins/ButtonTop'
@@ -60,5 +51,56 @@ export default {
 
 <style lang="scss">
 @import '@/assets/style/index';
-
+.conteiner-categorias {
+  margin-top: 2rem;
+  @include respond-to(small) {
+      margin-top: 3rem;
+    ::-webkit-scrollbar {
+      width: .5rem;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(44, 209, 176, 0.8); 
+      // border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: $c-primary-alt; 
+    }
+  }
+}
+.categorias {
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include respond-to(small) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &-item {
+    position: relative;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    color: $c-primary;
+  }
+  &-link {
+    position: absolute;
+    margin: 0 auto;
+    left:0;
+    right:0;
+    height: 100%;
+  }
+  .link-prueba {
+    color: $c-default;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
 </style>

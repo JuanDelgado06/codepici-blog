@@ -59,6 +59,14 @@ query Posts ($page: Int) {
         path
       }
     }
+  },
+  tags: allTag {
+    edges {
+      node {
+        id
+        path
+      }
+    }
   }
 }
 </page-query>
