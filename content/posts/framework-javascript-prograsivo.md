@@ -1,13 +1,15 @@
 ---
-path: "/vue-framework"
 title: El Framework JavaScript Progresivo
-date: 2019-10-09
 published: true
-tags: ['Markdown', 'Vue', 'CodePici']
-series: false
+description: >-
+  Vue (pronunciado /vjuː/, como view) es un framework progresivo para construir
+  interfaces de usuario. A diferencia de otros frameworks monolíticos, Vue está
+  diseñado desde cero para ser utilizado incrementalmente.
+date: 2019-10-09T00:00:00.000Z
 cover_image: ./images/vuejs-2.png
-canonical_url: false
-description: "Vue (pronunciado /vjuː/, como view) es un framework progresivo para construir interfaces de usuario. A diferencia de otros frameworks monolíticos, Vue está diseñado desde cero para ser utilizado incrementalmente."
+tags:
+  - vue
+  - herramienta
 ---
 
 ## Este es el Titulo de mi post
