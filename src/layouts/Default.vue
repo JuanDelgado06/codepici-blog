@@ -24,7 +24,7 @@
           <nav class="nav view-desktop flex">
               <g-link class="nav__link" to="/">Home</g-link>
               <g-link class="nav__link" to="/blog/">Blog</g-link>
-              <g-link class="nav__link" to="/about/">Categorias</g-link>
+              <g-link class="nav__link" to="/categoria/">Categorias</g-link>
               <a hreft="/#contact" class="nav__link" v-if="!isActive" v-scroll-to="'#contact'">Contácto</a>
               <g-link class="nav__link" to="/#contact" v-else>Contácto</g-link>
               <el-button @click="showSearch =  true" v-show="showSearch == false" class="nav__link"><i class="fas fa-search"></i></el-button>
@@ -45,7 +45,7 @@
               <g-link  to="/blog/" class="nav-link-mobile">Blog</g-link> 
             </el-menu-item>           
             <el-menu-item index="3">
-              <g-link  to="/about/" class="nav-link-mobile">Categorias</g-link> 
+              <g-link  to="/categoria/" class="nav-link-mobile">Categorias</g-link> 
             </el-menu-item>           
             <el-menu-item index="4">
               <a hreft="/#contact"  class="nav-link-mobile" v-if="!isActive" v-scroll-to="'#contact'" @click="drawer = false">Contácto</a>
