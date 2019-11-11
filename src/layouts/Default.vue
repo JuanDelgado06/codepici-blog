@@ -15,7 +15,7 @@
         </div>
           <!-- BOTON PARA MENU DRAWER -->
           <div class="nav view-mobile flex">
-            <el-button @click="showSearch =  true" v-show="showSearch == false"><i class="fas fa-search"></i></el-button>
+            <el-button @click="showSearch =  true" v-show="showSearch == false" v-if="showButtonSearch == true"><i class="fas fa-search"></i></el-button>
             <button @click.prevent="drawer = true" class="btn-menu">
               <i class="fas fa-bars"></i>
             </button>
@@ -27,7 +27,7 @@
               <g-link class="nav__link" to="/categoria/">Categorias</g-link>
               <a hreft="/#contact" class="nav__link" v-if="!isActive" v-scroll-to="'#contact'">Contácto</a>
               <g-link class="nav__link" to="/#contact" v-else>Contácto</g-link>
-              <el-button @click="showSearch =  true" v-show="showSearch == false" class="nav__link"><i class="fas fa-search"></i></el-button>
+              <el-button @click="showSearch =  true" v-show="showSearch == false" class="nav__link" v-if="showButtonSearch == true"><i class="fas fa-search"></i></el-button>
           </nav>
         
       </header>
@@ -93,6 +93,10 @@ export default {
   },
   props: {
     showFooter: true,
+    showButtonSearch : {
+      type: Boolean,
+      default: true
+    },
     isActive: {
       type: Boolean, 
       default: true

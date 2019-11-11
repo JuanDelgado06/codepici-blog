@@ -1,5 +1,5 @@
 <template>
-    <Layout :isActive="true"  :showFooter="true">
+    <Layout :isActive="true"  :showFooter="true" :showButtonSearch="false">
       <ClientOnly >
         <div class="MyContainer header-content">
           <div class="post-title">
