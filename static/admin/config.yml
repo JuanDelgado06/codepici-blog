@@ -2,7 +2,7 @@ backend:
   name: github
   repo: JuanDelgado06/codepici-blog
   # branch: master
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads/"
 
