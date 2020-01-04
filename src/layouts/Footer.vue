@@ -10,7 +10,7 @@
                         <a class="icon-share" href="https://twitter.com/codepici" target="_blank"><i class="fab fa-twitter"></i></a> 
                         </div>
                         <div class="admin-logo">
-                            <a href="https://codepici-blog.site/admin/" target="_blank"><g-image alt="logo" src="~/favicon.png" ></g-image></a>
+                            <a href="https://codepici-blog.netlify.com/admin/" target="_blank"><g-image alt="logo" src="~/favicon.png" ></g-image></a>
                         </div>
                 </div>            
                 <div class="create">
