@@ -1,12 +1,19 @@
 ---
-path: "/guia-rapida-de-yarn"
-title: Guía rápida de Yarn
-date: 2019-10-15
-published: true
-tags: ['herramienta', 'guía']
-cover_image: ./images/yarn-guia.jpg 
 canonical_url: false
-description: "Yarn es un gestor de paquetes rápido, confiable y seguro, es una excelente alternativa a npm ya que yarn es mucho mas rápido porque almacena en cache los paquetes descargados y realiza operaciones en paralelo para maximizar la utilización de recursos. En este post te voy a mostrar las cosas mas importantes que debes de saber, como descargarlo y como utilizarlo."
+path: /guia-rapida-de-yarn
+title: Guía rápida de Yarn
+published: true
+description: >-
+  Yarn es un gestor de paquetes rápido, confiable y seguro, es una excelente
+  alternativa a npm ya que yarn es mucho mas rápido porque almacena en cache los
+  paquetes descargados y realiza operaciones en paralelo para maximizar la
+  utilización de recursos. En este post te voy a mostrar las cosas mas
+  importantes que debes de saber, como descargarlo y como utilizarlo.
+date: 2019-10-15T00:00:00.000Z
+cover_image: ./images/yarn-guia.jpg
+tags:
+  - herramienta
+  - guía
 ---
 
 **Yarn** es un gestor de paquetes rápido, confiable y seguro, es una excelente alternativa a npm ya que **yarn** es mucho mas rápido porque almacena en cache los paquetes descargados y realiza operaciones en paralelo para maximizar la utilización de recursos. En este post te voy a mostrar las cosas mas importantes que debes de saber, como descargarlo y como utilizarlo.
@@ -60,12 +67,20 @@ yarn install
 - Instalar dependencias: 
 
 ``` 
-yarn add [package] //yarn add vue 
+yarn add [package] // ejemplo: yarn add vue 
 
-yarn add [package]@[version] - ejemplo: yarn add vue@[2.6.8]
+yarn add [package]@[version] // ejemplo: yarn add vue@[2.6.8]
 
-yarn add [package] --dev - ejemplo: yarn add vue --dev
+yarn add [package] --dev // ejemplo: yarn add vue --dev
+
 ```
+
+- Instalar globalmente dependencias
+
+```
+yarn global add [package] // ejemplo: yarn global add @vue/cli
+
+```  
 
 - Actualizar dependías:
 
