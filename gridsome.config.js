@@ -8,21 +8,21 @@ module.exports = {
   },
   plugins: [
       // { src : '~/plugins/vue-google-adsense', ssr: true },
-      {
-        use: 'gridsome-plugin-pwa',
-        options: {
-            title: 'CodePici',
-            startUrl: '/',
-            display: 'standalone',
-            statusBarStyle: 'default',
-            manifestPath: 'manifest.json',
-            serviceWorkerPath: 'service-worker.js',
-            shortName: 'CodePici',
-            themeColor: '#080808',
-            backgroundColor: '#080808',
-            icon: './src/favicon.png' // must be supplied!
-        }
-    },  
+    //   {
+    //     use: 'gridsome-plugin-pwa',
+    //     options: {
+    //         title: 'CodePici',
+    //         startUrl: '/',
+    //         display: 'standalone',
+    //         statusBarStyle: 'default',
+    //         manifestPath: 'manifest.json',
+    //         serviceWorkerPath: 'service-worker.js',
+    //         shortName: 'CodePici',
+    //         themeColor: '#080808',
+    //         backgroundColor: '#080808',
+    //         icon: './src/favicon.png' // must be supplied!
+    //     }
+    // },  
     {
       use: '@gridsome/source-filesystem',
       options: {
