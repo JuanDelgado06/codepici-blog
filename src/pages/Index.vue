@@ -24,8 +24,7 @@
         </cookie-law>  
       </div>
 
-      <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense">
-      </Adsense>
+      <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
 
       <div class="MyContainer ">    
           <div class="title-init">

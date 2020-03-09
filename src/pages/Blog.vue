@@ -8,8 +8,7 @@
         </div>     
       </transition>
 
-      <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense">
-      </Adsense>
+      <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense>   -->
       
       <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
             prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="6" ariaLabel="..."/>            
