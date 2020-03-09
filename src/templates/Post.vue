@@ -34,6 +34,9 @@
                 </div>
               </div>
 
+              <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense">
+              </Adsense>
+
               <PostTags :post="$page.post" class="post-tags"/>
               <div class="post-social">
                   <h3 class="post-title-share">Compartir📢</h3>

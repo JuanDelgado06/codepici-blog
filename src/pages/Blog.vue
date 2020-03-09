@@ -7,6 +7,10 @@
             <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
         </div>     
       </transition>
+
+      <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense">
+      </Adsense>
+      
       <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
             prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="6" ariaLabel="..."/>            
     </div>

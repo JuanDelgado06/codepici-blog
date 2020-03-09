@@ -7,6 +7,7 @@ module.exports = {
     Tag: '/tag:id'
   },
   plugins: [
+      { src : '~/plugins/vue-google-adsense'},
       {
         use: 'gridsome-plugin-pwa',
         options: {

@@ -24,6 +24,9 @@
         </cookie-law>  
       </div>
 
+      <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense">
+      </Adsense>
+
       <div class="MyContainer ">    
           <div class="title-init">
               <h2 class="glitch" data-text="Ultimas Publicaciones">Ultimas Publicaciones</h2>

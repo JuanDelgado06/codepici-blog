@@ -28,6 +28,8 @@ import GithubV3 from '@vssue/api-github-v3'
 // import the stylesheet of vssue
 import 'vssue/dist/vssue.css'
 
+//Google adsense
+import Ads from 'vue-google-adsense'
 
 export default function (Vue, { router, head, isClient }) {
   head.htmlAttrs = { lang: 'es' }
@@ -40,6 +42,11 @@ export default function (Vue, { router, head, isClient }) {
       resolve(results)
     })
   }
+  Vue.use(require('vue-script2'))
+   
+  Vue.use(Ads.Adsense)
+  Vue.use(Ads.InArticleAdsense)
+  Vue.use(Ads.InFeedAdsense)
   
   Vue.use(ElementUI, { locale })
   Vue.use(VueScrollReveal)
