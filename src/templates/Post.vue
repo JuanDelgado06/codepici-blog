@@ -23,9 +23,9 @@
             <div id="adsgoeshere" class="money view-mobile" style="text-align: center;" v-html="adsenseContent"></div>
 
             <div class="money-grid view-desktop">
-              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
-              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
-              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+              <div id="adsgoeshere" class="money view-desktop" style="text-align: center;" v-html="adsenseContent"></div>
+              <div id="adsgoeshere" class="money view-desktop" style="text-align: center;" v-html="adsenseContent"></div>
+              <div id="adsgoeshere" class="money view-desktop" style="text-align: center;" v-html="adsenseContent"></div>
             </div>
 
             <div class="post-footer" >
@@ -36,7 +36,6 @@
                     <div class="button-link" v-if="$page.post.link">
                       <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
                     </div>
-                    <!-- Publicidad -->
                     <div class="button-link">
                         <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
                     </div>
