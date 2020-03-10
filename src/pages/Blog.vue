@@ -9,6 +9,7 @@
       </transition>
 
       <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense>   -->
+      <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
       
       <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
             prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="6" ariaLabel="..."/>            
@@ -57,7 +58,8 @@ export default {
     return {
       isActive : true,
       totalPost: '',
-      img : 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/4f403379780121.5db47ac9a167b.jpg'
+      img : 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/4f403379780121.5db47ac9a167b.jpg',
+      adsenseContent: '',
     }
   },
   metaInfo () {
@@ -90,6 +92,7 @@ export default {
   },
   mounted () {
     this.totalPost = this.$page.posts.totalCount
+    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
   },
 }
 </script>

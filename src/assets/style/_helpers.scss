@@ -64,6 +64,20 @@
     max-width: 800px;
     height: 20px;
 }
+.money {
+    margin: 0 auto;
+    width: 90%;
+    @include respond-to(mid) {
+        width: 100%;
+        max-width: 1000px;
+    }
+    &-grid {
+        @include  respond-to(small) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
 //Helpers Comunes
 .view-mobile {
     @media screen and(min-width: 600px){

@@ -25,7 +25,7 @@
       </div>
 
       <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
-      <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
 
       <div class="MyContainer ">    
           <div class="title-init">
@@ -34,6 +34,9 @@
           <div class="lastPost">
             <PostCardHome v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
           </div>
+
+          <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+
           <FormNetlify id="contact"/>
       </div>
       <btnTop :offset="800"/>

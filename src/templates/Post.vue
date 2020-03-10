@@ -14,7 +14,19 @@
               <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
             </div>
 
+            <!-- Publicidad -->
+            <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+
             <div class="post-content" v-html="$page.post.content" />
+            
+            <!-- Publicidad -->
+            <div id="adsgoeshere" class="money view-mobile" style="text-align: center;" v-html="adsenseContent"></div>
+
+            <div class="money-grid view-desktop">
+              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+            </div>
 
             <div class="post-footer" >
               <div class="post-cms">
@@ -24,6 +36,7 @@
                     <div class="button-link" v-if="$page.post.link">
                       <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
                     </div>
+                    <!-- Publicidad -->
                     <div class="button-link">
                         <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
                     </div>
@@ -34,7 +47,7 @@
               </div>
 
               <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
-              <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
+              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
 
 
               <PostTags :post="$page.post" class="post-tags"/>
@@ -78,7 +91,7 @@
             <Vssue title="CodePici" />
           </div>
 
-          <DonationAlert v-if="$page.post.link"/>
+          <!-- <DonationAlert v-if="$page.post.link"/> -->
           <btnTop :offset="300"/>
         </div>
       </ClientOnly>
