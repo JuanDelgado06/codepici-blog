@@ -59,18 +59,8 @@
         font-size: 1rem;
     }
 }
-.adsense {
-    width: 100%;
-    max-width: 800px;
-    height: 20px;
-}
 .money {
-    margin: 0 auto;
-    width: 90%;
-    @include respond-to(mid) {
-        width: 100%;
-        max-width: 1000px;
-    }
+    margin: 1rem auto;
     &-grid {
         @include  respond-to(small) {
             display: grid;
