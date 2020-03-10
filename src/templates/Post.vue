@@ -88,6 +88,8 @@
         <!-- Publicidad -->
         <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
 
+        <div id="adsenseinstance" style="display: block" v-html="adsenseFeedContent"></div>
+
         <div class="MyContainer">
           <div class="post-comments">
             <Vssue title="CodePici" />
@@ -116,6 +118,7 @@ export default {
       imageUrl: '',
       descriptionShare: '',
       adsenseContent: '',
+      adsenseFeedContent: '',
     }
   },
   components: {
@@ -161,6 +164,7 @@ export default {
   },
   mounted() {
     this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
+    this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
   },
   methods: {
     reloadPage () {
