@@ -4,88 +4,98 @@
         <div class="MyContainer header-content">
           <div class="post-title">
             <a @click="$router.go(-1)" class="go-back"><i class="fas fa-long-arrow-alt-left"></i> Atras</a>
-            <h1 class="post-title-text" v-block-reveal="{delay: 500, bgcolor: '#834efd', direction: 'lr'}">
+            <h1 class="post-title-text" v-block-reveal="{delay: 500, bgcolor: '#834efd', direction: 'lr'}" ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
               {{ $page.post.title }}
             </h1>
             <PostMeta :post="$page.post" class="post-meta"/>
           </div>
+        </div> 
+        <!-- my-container -->
+        <div class="MyContainer">
           <div class="post content-box">
             <div class="post-header" >
               <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
             </div>
 
-            <!-- Publicidad -->
-            <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+          </div>
+          <!-- post content-box -->
+        </div>
 
-            <div class="post-content" v-html="$page.post.content" />
-            
-            <!-- Publicidad -->
-            <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+        <!-- Publicidad -->
+        <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
 
-            <div class="post-footer" >
-              <div class="post-cms">
-                <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
-                <div class="post-link" >
-                  <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
-                    <div class="button-link" v-if="$page.post.link">
-                      <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
-                    </div>
-                    <div class="button-link">
-                        <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
-                    </div>
-                    <div class="button-link" v-if="$page.post.oficial">
-                      <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
-                    </div>
+        <div class="MyContainer">
+            <div class="post-content" v-html="$page.post.content"/>
+        </div>
+
+      <!-- Publicidad -->
+      <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
+
+      <div class="MyContainer">
+        <div class="post-footer" >
+          <div class="post-cms">
+            <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
+            <div class="post-link" >
+              <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+                <div class="button-link" v-if="$page.post.link">
+                  <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
                 </div>
-              </div>
+                <div class="button-link">
+                    <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
+                </div>
+                <div class="button-link" v-if="$page.post.oficial">
+                  <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
+                </div>
             </div>
+          </div>
+          
+          <PostTags :post="$page.post" class="post-tags"/>
+          <div class="post-social">
+              <h3 class="post-title-share">Compartir📢</h3>
+              <social-sharing :url="urlPath" inline-template 
+                  :title="titleShare"
+                  :description="descriptionShare"
+                  hashtags="codepici, juandelgado06"
+                  twitter-user="codepici"
+              >
+                <div class="link">
+                    <network network="facebook" style="cursor: pointer;">
+                      <div class="link-fb link-item">
+                        <a class="icon-share"><i class="fab fa-facebook-f"></i></a>  
+                      </div>
+                    </network>
+                    <network network="whatsapp" style="cursor: pointer; ">
+                      <div class="link-ws link-item">
+                      <a class="icon-share"><i class="fab fa-whatsapp"></i></a> 
+                      </div>
+                    </network>                      
+                    <network network="twitter" style="cursor: pointer; ">
+                      <div class="link-tb link-item">
+                      <a class="icon-share"><i class="fab fa-twitter"></i></a> 
+                      </div>
+                    </network>       
+                    <network network="email" style="cursor: pointer; ">
+                      <div class="link-em link-item">
+                      <a class="icon-share"><i class="fa fa-envelope"></i></a> 
+                      </div>
+                    </network>       
+                </div>
+            </social-sharing> 
+          </div>
+        </div>
+      </div>
 
-            <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
-            <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+        <!-- Publicidad -->
+        <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
 
-            <div class="post-footer" >
-              <PostTags :post="$page.post" class="post-tags"/>
-              <div class="post-social">
-                  <h3 class="post-title-share">Compartir📢</h3>
-                  <social-sharing :url="urlPath" inline-template 
-                      :title="titleShare"
-                      :description="descriptionShare"
-                      hashtags="codepici, juandelgado06"
-                      twitter-user="codepici"
-                  >
-                    <div class="link">
-                        <network network="facebook" style="cursor: pointer;">
-                          <div class="link-fb link-item">
-                            <a class="icon-share"><i class="fab fa-facebook-f"></i></a>  
-                          </div>
-                        </network>
-                        <network network="whatsapp" style="cursor: pointer; ">
-                          <div class="link-ws link-item">
-                          <a class="icon-share"><i class="fab fa-whatsapp"></i></a> 
-                          </div>
-                        </network>                      
-                        <network network="twitter" style="cursor: pointer; ">
-                          <div class="link-tb link-item">
-                          <a class="icon-share"><i class="fab fa-twitter"></i></a> 
-                          </div>
-                        </network>       
-                        <network network="email" style="cursor: pointer; ">
-                          <div class="link-em link-item">
-                          <a class="icon-share"><i class="fa fa-envelope"></i></a> 
-                          </div>
-                        </network>       
-                    </div>
-                </social-sharing> 
-              </div>
-            </div>
-                      
+        <div class="MyContainer">
           <div class="post-comments">
             <Vssue title="CodePici" />
           </div>
-
+        </div>  <!--MyContainer FIn-->
+            
           <!-- <DonationAlert v-if="$page.post.link"/> -->
           <btnTop :offset="300"/>
-        </div>
       </ClientOnly>
     </Layout>
 </template>
