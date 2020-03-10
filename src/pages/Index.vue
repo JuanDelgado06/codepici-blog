@@ -25,7 +25,7 @@
       </div>
 
       <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
-      <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center; display:block;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
 
       <div class="MyContainer ">    
           <div class="title-init">
