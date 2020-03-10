@@ -34,11 +34,15 @@
           <div class="lastPost">
             <PostCardHome v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
           </div>
-
-          <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
-
-          <FormNetlify id="contact"/>
       </div>
+
+      <!-- Publidad -->
+      <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+
+      <div class="MyContainer">
+        <FormNetlify id="contact"/>
+      </div>
+      
       <btnTop :offset="800"/>
     </ClientOnly>
   </Layout>

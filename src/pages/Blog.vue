@@ -7,13 +7,15 @@
             <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
         </div>     
       </transition>
+    </div>
 
       <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense>   -->
       <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
       
-      <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
-            prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="6" ariaLabel="..."/>            
-    </div>
+      <div class="MyContainer">
+        <Pager :info="$page.posts.pageInfo" class="pagination"  linkClass="pagination-item"
+              prevLabel="←" nextLabel="→" firstLabel="|←" lastLabel="→|" :range="6" ariaLabel="..."/>            
+      </div>
   </Layout>
 </template>
 

@@ -20,13 +20,7 @@
             <div class="post-content" v-html="$page.post.content" />
             
             <!-- Publicidad -->
-            <div id="adsgoeshere" class="money view-mobile" style="text-align: center;" v-html="adsenseContent"></div>
-
-            <div class="money-grid view-desktop">
-              <div id="adsgoeshere" class="money view-desktop" style="text-align: center;" v-html="adsenseContent"></div>
-              <div id="adsgoeshere" class="money view-desktop" style="text-align: center;" v-html="adsenseContent"></div>
-              <div id="adsgoeshere" class="money view-desktop" style="text-align: center;" v-html="adsenseContent"></div>
-            </div>
+            <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
 
             <div class="post-footer" >
               <div class="post-cms">
@@ -44,11 +38,12 @@
                     </div>
                 </div>
               </div>
+            </div>
 
-              <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
-              <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+            <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
+            <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
 
-
+            <div class="post-footer" >
               <PostTags :post="$page.post" class="post-tags"/>
               <div class="post-social">
                   <h3 class="post-title-share">Compartir📢</h3>
@@ -83,9 +78,7 @@
                 </social-sharing> 
               </div>
             </div>
-            
-            </div>
-          
+                      
           <div class="post-comments">
             <Vssue title="CodePici" />
           </div>

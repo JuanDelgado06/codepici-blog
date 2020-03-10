@@ -61,12 +61,6 @@
 }
 .money {
     margin: 1rem auto;
-    &-grid {
-        @include  respond-to(small) {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
 }
 //Helpers Comunes
 .view-mobile {
