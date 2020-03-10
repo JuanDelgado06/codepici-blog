@@ -21,7 +21,6 @@
                 <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
                 <div class="post-link" >
                   <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
-                  <h4 v-if="$page.post.link">Si tienes problemas para ingresar a la descarga del curso mira este <a href="https://www.facebook.com/shrtflycom/videos/484948228939661/?t=5" class="alert-link" target="_blank">Video</a></h4>
                     <div class="button-link" v-if="$page.post.link">
                       <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
                     </div>
@@ -35,6 +34,8 @@
               </div>
 
               <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
+              <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
+
 
               <PostTags :post="$page.post" class="post-tags"/>
               <div class="post-social">
@@ -99,6 +100,7 @@ export default {
       titleShare: '',
       imageUrl: '',
       descriptionShare: '',
+      adsenseContent: '',
     }
   },
   components: {
@@ -141,6 +143,9 @@ export default {
     this.imageUrl = `https://codepici-blog.site${this.$page.post.cover_image}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
+  },
+  mounted() {
+    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
   },
   methods: {
     reloadPage () {

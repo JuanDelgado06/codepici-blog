@@ -4,15 +4,23 @@
     <meta name="theme-color" content="#080808">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script data-ad-client="ca-pub-3575861396081873" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script data-cfasync="false" src="//d18mealirgdbbz.cloudfront.net/?laemd=844969"></script>
     <script data-cfasync="false" src="//d18mealirgdbbz.cloudfront.net/?laemd=844972"></script>
+    <script data-cfasync="false" src="//d18mealirgdbbz.cloudfront.net/?laemd=844969"></script>
   </head>
   <body ${bodyAttrs}>
     ${app}
-      <div id="divadsensedisplaynone" style="display:none;">
+      
+      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <textarea name="message"></textarea>
+      </form>
+    ${scripts}
+
+    <div id="divadsensedisplaynone" style="display:block;">
           <!-- put here all adsense code -->
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <h2>Anuncio</h2>
+          <h2>Publicidad</h2>
           <ins class="adsbygoogle"
                     style="display:block"
                     data-ad-client="ca-pub-3575861396081873"
@@ -22,13 +30,7 @@
           <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
-      </div>    
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <textarea name="message"></textarea>
-      </form>
-    ${scripts}
+      </div>   
 
     <script type="text/javascript"> var infolinks_pid = 3241262; var infolinks_wsid = 0; </script> 
     <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>

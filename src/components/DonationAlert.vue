@@ -25,13 +25,13 @@ export default {
             activate: true
         }
     },
-    mounted() {
+    created() {
         setTimeout(() => {
             this.viewPost = true
             setTimeout(() => {
                 this.activate = false
-            }, 4500);
-        }, 2500);
+            }, 2500);
+        }, 1500);
     },
 }
 </script>
