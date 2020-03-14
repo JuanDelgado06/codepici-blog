@@ -168,10 +168,10 @@ export default {
     this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
   },
-  mounted() {
+  /* mounted() {
     this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
-  },
+  }, */
 }
 </script>
 
