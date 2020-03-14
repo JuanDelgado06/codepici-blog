@@ -29,66 +29,67 @@
         </div>
 
       <!-- Publicidad -->
-      <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere2" style="text-align: center;" v-html="adsenseContent"></div>
 
-      <div class="MyContainer">
-        <div class="post-footer" >
-          <div class="post-cms">
-            <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
-            <div class="post-link" >
-              <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
-                <div class="button-link" v-if="$page.post.link">
-                  <a class="post-link-mega" :href="$page.post.link" target="_blank"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
-                </div>
-                <div class="button-link">
-                    <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
-                </div>
-                <div class="button-link" v-if="$page.post.oficial">
-                  <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
-                </div>
+        <div class="MyContainer">
+          <div class="post-footer" >
+            <div class="post-cms">
+              <h3 class="post-cms-time" v-if="$page.post.duration"><i class="fas fa-clock"></i> Duracion : {{$page.post.duration}}</h3>
+              <div class="post-link" >
+                <h3 class="post-link-title" v-if="$page.post.link"><i class="fas fa-cloud-download-alt"></i> Link de Descarga <i class="fas fa-cloud-download-alt"></i> </h3>
+                  <div class="button-link" v-if="$page.post.link">
+                    <a class="post-link-mega" @click="showDownload = !showDownload"> <i class="fas fa-cloud-download-alt"></i> Descarga <i class="fas fa-cloud-download-alt"></i> </a>
+                  </div>
+                  <div class="button-link">
+                      <a class="post-link-donation" href="https://paypal.me/JuanDelgado06?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> Donar <i class="fab fa-paypal"></i></a>
+                  </div>
+                  <div class="button-link" v-if="$page.post.oficial">
+                    <a class="post-link-oficial" :href="$page.post.oficial" target="_blank"> <i class="fas fa-qrcode"></i> Web Oficial <i class="fas fa-qrcode"></i> </a>
+                  </div>
+              </div>
+            </div>
+            
+            <PostTags :post="$page.post" class="post-tags"/>
+            <div class="post-social">
+                <h3 class="post-title-share">Compartir📢</h3>
+                <social-sharing :url="urlPath" inline-template 
+                    :title="titleShare"
+                    :description="descriptionShare"
+                    hashtags="codepici, juandelgado06"
+                    twitter-user="codepici"
+                >
+                  <div class="link">
+                      <network network="facebook" style="cursor: pointer;">
+                        <div class="link-fb link-item">
+                          <a class="icon-share"><i class="fab fa-facebook-f"></i></a>  
+                        </div>
+                      </network>
+                      <network network="whatsapp" style="cursor: pointer; ">
+                        <div class="link-ws link-item">
+                        <a class="icon-share"><i class="fab fa-whatsapp"></i></a> 
+                        </div>
+                      </network>                      
+                      <network network="twitter" style="cursor: pointer; ">
+                        <div class="link-tb link-item">
+                        <a class="icon-share"><i class="fab fa-twitter"></i></a> 
+                        </div>
+                      </network>       
+                      <network network="email" style="cursor: pointer; ">
+                        <div class="link-em link-item">
+                        <a class="icon-share"><i class="fa fa-envelope"></i></a> 
+                        </div>
+                      </network>       
+                  </div>
+              </social-sharing> 
             </div>
           </div>
-          
-          <PostTags :post="$page.post" class="post-tags"/>
-          <div class="post-social">
-              <h3 class="post-title-share">Compartir📢</h3>
-              <social-sharing :url="urlPath" inline-template 
-                  :title="titleShare"
-                  :description="descriptionShare"
-                  hashtags="codepici, juandelgado06"
-                  twitter-user="codepici"
-              >
-                <div class="link">
-                    <network network="facebook" style="cursor: pointer;">
-                      <div class="link-fb link-item">
-                        <a class="icon-share"><i class="fab fa-facebook-f"></i></a>  
-                      </div>
-                    </network>
-                    <network network="whatsapp" style="cursor: pointer; ">
-                      <div class="link-ws link-item">
-                      <a class="icon-share"><i class="fab fa-whatsapp"></i></a> 
-                      </div>
-                    </network>                      
-                    <network network="twitter" style="cursor: pointer; ">
-                      <div class="link-tb link-item">
-                      <a class="icon-share"><i class="fab fa-twitter"></i></a> 
-                      </div>
-                    </network>       
-                    <network network="email" style="cursor: pointer; ">
-                      <div class="link-em link-item">
-                      <a class="icon-share"><i class="fa fa-envelope"></i></a> 
-                      </div>
-                    </network>       
-                </div>
-            </social-sharing> 
-          </div>
         </div>
-      </div>
-
+        
+        <Download  :post="$page.post"  v-if="showDownload"/>
         <!-- Publicidad -->
-        <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere3" style="text-align: center;" v-html="adsenseContent"></div>
 
-        <div id="adsenseinstance" style="display: block" v-html="adsenseFeedContent"></div>
+      <div id="adsenseinstance" style="display: block" v-html="adsenseFeedContent"></div>
 
         <div class="MyContainer">
           <div class="post-comments">
@@ -107,6 +108,7 @@ import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
 import DonationAlert from '~/components/DonationAlert'
 import btnTop from '~/components/plugins/ButtonTop'
+import Download from '~/components/Download'
 
 export default {
   data() {
@@ -119,13 +121,15 @@ export default {
       descriptionShare: '',
       adsenseContent: '',
       adsenseFeedContent: '',
+      showDownload: false
     }
   },
   components: {
     PostMeta,
     PostTags,
     DonationAlert,
-    btnTop
+    btnTop,
+    Download
   },
   metaInfo () {
     return {
@@ -151,8 +155,7 @@ export default {
       ],
        script: [
         { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async:true, defer:true },
-        { src: '//d18mealirgdbbz.cloudfront.net/?laemd=844969', defer:true },
-        { src: '//d18mealirgdbbz.cloudfront.net/?laemd=844972', defer:true },
+        { src: '//d2lp70uu6oz7vk.cloudfront.net/?uupld=844969', defer:true },
       ]
     }
   },
@@ -161,15 +164,13 @@ export default {
     this.imageUrl = `https://codepici-blog.site${this.$page.post.cover_image}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
+
+    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
+    this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
   },
   mounted() {
     this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
-  },
-  methods: {
-    reloadPage () {
-        return window.location.reload(true)
-    }
   },
 }
 </script>
@@ -344,6 +345,7 @@ query Post ($id: ID!) {
     color: $c-negative;
     border: 2px solid $c-negative;
     margin: 1rem 0;
+    cursor: pointer;
     &:hover {
       background: $c-negative;
       border:2px solid $c-negative;
