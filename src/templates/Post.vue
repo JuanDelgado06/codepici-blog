@@ -164,14 +164,11 @@ export default {
     this.imageUrl = `https://codepici-blog.site${this.$page.post.cover_image}`
     this.titleShare =  this.$page.post.title
     this.descriptionShare = this.$page.post.description
-
+  },
+  mounted() {
     this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
   },
-  /* mounted() {
-    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
-    this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
-  }, */
 }
 </script>
 
