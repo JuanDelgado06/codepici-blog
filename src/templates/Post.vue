@@ -167,7 +167,7 @@ export default {
   },
   mounted() {
     this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
-    this.adsenseFeedContent = document.getElementById('adsensefedd').innerHTML
+    this.adsenseFeedContent = document.getElementById('adsensefeed').innerHTML
   },
 }
 </script>

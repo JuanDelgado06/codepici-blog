@@ -6,19 +6,22 @@
             :visible.sync="dialogVisible"
             fullscreen
             center
+            custom-class="dialog"
         >
-            <h2 class="center">Link de descarga del curso {{post.title}}</h2>
+            <h2 class="dialog-title-1 center">Link de descarga del curso :</h2>
+            <h3 class="dialog-title-2 center">{{post.title}}</h3>
+            <p class="dialog-link-down center"> 👻 Link abajo 👻</p>
             <div class="grid-2">
-                <div id="adsgoeshere" style="width: 50%; height: 30%;" v-html="adsenseContent"></div>
-                <div id="adsgoeshere3" style="width: 50%; height: 30%;" v-html="adsenseContent"></div>
+                <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
+                <div id="adsgoeshere3" style="text-align: center;" v-html="adsenseContent"></div>
             </div>
 
-            <h3 class="center" v-if="countdown >= 1">El link directo para descargar el curso estara listo en {{ countdown }} segundos</h3>
+            <h3 class="dialog-count center" v-if="countdown >= 1">El link directo para descargar el curso estara listo en {{ countdown }} segundos</h3>
             <div class="center">
-                <a :href="post.link" v-if="showDownload" target="_blank" class="dialog-download">Ir a la descarga</a>
+                <a :href="post.link" v-if="showDownload" target="_blank" class="dialog-download">! Descarga directa ¡</a>
             </div>
-            <div id="adsgoeshere2" style="width: 50%; height: 30%;" v-html="adsenseContent"></div>
-            <div id="adsgoeshere4" style="width: 50%; height: 30%;" v-html="adsenseContent"></div>
+            <div id="adsgoeshere2" style="text-align: center;" v-html="adsenseContent"></div>
+            <div id="adsgoeshere4" style="text-align: center;" v-html="adsenseContent"></div>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">Cerrar</el-button>
             </span>
@@ -103,9 +106,38 @@ export default {
 <style lang="scss">
 @import '@/assets/style/index';
 .dialog {
+    background:$c-dark;
     &-download {
         position: relative;
         cursor: pointer;
+        font-size: 1.6rem;
+        background: $c-secondary;
+        color: white;
+        padding: 0.7rem 1rem;
+        border-radius: 1.2rem;
+        transition: all .5s ease;
+        box-shadow: -4px 7px 21px 1px rgba(82,81,82,0.47);
+        &:hover {
+            background: $c-negative;
+            font-size: 1.7rem;
+        }
+    }
+    &-title-1 {
+        font-size: 2rem;
+        color: $c-primary;
+    }
+    &-title-2{
+        font-size: 2rem;
+        color: $c-secondary-alt;
+    }
+    &-link-down {
+        font-size: 1.8rem;
+        color: $c-primary;
+        //text-transform: uppercase;
+        font-weight: 700;
+    }
+    &-count {
+        font-size: 1.8rem;
     }
     &-footer {
         position: relative;
