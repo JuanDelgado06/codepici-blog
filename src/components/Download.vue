@@ -12,16 +12,16 @@
             <h3 class="dialog-title-2 center">{{post.title}}</h3>
             <p class="dialog-link-down center"> 👻 Link abajo 👻</p>
             <div class="grid-2">
-                <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
-                <div id="adsgoeshere3" style="text-align: center;" v-html="adsenseContent"></div>
+                <div id="adsenseinstance" style="display: block, text-align: center;" v-html="adsenseFeedContent"></div>
+                <div id="adsgoeshere3" style="display: block, text-align: center;" v-html="adsenseContent"></div>
             </div>
 
             <h3 class="dialog-count center" v-if="countdown >= 1">El link directo para descargar el curso estara listo en {{ countdown }} segundos</h3>
             <div class="center">
                 <a :href="post.link" v-if="showDownload" target="_blank" class="dialog-download">! Descarga directa ¡</a>
             </div>
-            <div id="adsgoeshere2" style="text-align: center;" v-html="adsenseContent"></div>
-            <div id="adsgoeshere4" style="text-align: center;" v-html="adsenseContent"></div>
+            <div id="adsenseinstance" style="display: block, text-align: center;" v-html="adsenseFeedContent"></div>
+            <div id="adsgoeshere4" style="display: block, text-align: center;" v-html="adsenseContent"></div>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">Cerrar</el-button>
             </span>
@@ -37,7 +37,8 @@ export default {
             dialogVisible: true,
             showDownload: false,
             countdown: 15,
-            adsenseContent: ''
+            adsenseContent: '',
+            adsenseFeedContent: ''
         }
     },
     props: ['post'],
@@ -49,10 +50,9 @@ export default {
             ]
         }
     },
-    created() {
-        this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
-    },
     mounted() {
+        this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
+        this.adsenseFeedContent = document.getElementById('adsensefeed').innerHTML
         setTimeout(() => {
             this.countdown--
             setTimeout(() => {

@@ -25,7 +25,7 @@
       </div>
 
       <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
-      <div id="adsgoeshere" style="text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere" style="display: block, text-align: center;" v-html="adsenseContent"></div>
 
       <div class="MyContainer ">    
           <div class="title-init">
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Publidad -->
-      <div id="adsgoeshere" class="money" style="text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsenseinstance" style="display: block, text-align: center;" v-html="adsenseFeedContent"></div>
 
       <div class="MyContainer">
         <FormNetlify id="contact"/>
@@ -91,11 +91,13 @@ export default {
   data() {
     return {
       img : 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/4f403379780121.5db47ac9a167b.jpg',
-      adsenseContent: ''      
+      adsenseContent: '',
+      adsenseFeedContent: ''
     }
   },
   mounted() {
     this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
+    this.adsenseFeedContent = document.getElementById('adsensefeed').innerHTML
   },
   metaInfo () {
     return {
