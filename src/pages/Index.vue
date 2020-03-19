@@ -25,7 +25,7 @@
       </div>
 
       <!-- <Adsense data-ad-client="ca-pub-3575861396081873" class="adsense"></Adsense> -->
-      <div id="adsgoeshere" style="display: block, text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere" style="display: block; text-align: center;" v-html="adsenseContent"></div>
 
       <div class="MyContainer ">    
           <div class="title-init">
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Publidad -->
-      <div id="adsenseinstance" style="display: block, text-align: center;" v-html="adsenseFeedContent"></div>
+      <div id="adsenseinstance" style="display: block; text-align: center;" v-html="adsenseFeedContent"></div>
 
       <div class="MyContainer">
         <FormNetlify id="contact"/>

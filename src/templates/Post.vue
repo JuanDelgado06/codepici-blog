@@ -22,14 +22,14 @@
         </div>
 
         <!-- Publicidad -->
-        <div id="adsgoeshere" style="display: block, text-align: center;" v-html="adsenseContent"></div>
+        <div id="adsgoeshere" style="display: block; text-align: center;" v-html="adsenseContent"></div>
 
         <div class="MyContainer">
             <div class="post-content" v-html="$page.post.content"/>
         </div>
 
       <!-- Publicidad -->
-      <div id="adsgoeshere2" style="display: block, text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere2" style="display: block; text-align: center;" v-html="adsenseContent"></div>
 
         <div class="MyContainer">
           <div class="post-footer" >
@@ -87,9 +87,9 @@
         
         <Download  :post="$page.post"  v-if="showDownload"/>
         <!-- Publicidad -->
-      <div id="adsenseinstance" style="display: block, text-align: center;" v-html="adsenseFeedContent"></div>
+      <div id="adsenseinstance" style="display: block; text-align: center;" v-html="adsenseFeedContent"></div>
       
-      <div id="adsgoeshere3" style="display: block, text-align: center;" v-html="adsenseContent"></div>
+      <div id="adsgoeshere3" style="display: block; text-align: center;" v-html="adsenseContent"></div>
 
 
         <div class="MyContainer">
