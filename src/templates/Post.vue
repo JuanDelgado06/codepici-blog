@@ -87,7 +87,7 @@
         
         <Download  :post="$page.post"  v-if="showDownload"/>
         <!-- Publicidad -->
-      <div id="adsenseinstance" style="display: block; text-align: center;" v-html="adsenseFeedContent"></div>
+      <div id="adsenseinstance" style="display: block; text-align: center; height: 300px;" v-html="adsenseFeedContent"></div>
       
       <div id="adsgoeshere3" style="display: block; text-align: center;" v-html="adsenseContent"></div>
 
@@ -156,7 +156,6 @@ export default {
       ],
        script: [
         { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async:true, defer:true },
-        { src: '//d2lp70uu6oz7vk.cloudfront.net/?uupld=844969', defer:true },
       ]
     }
   },
