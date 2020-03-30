@@ -2,6 +2,7 @@
   <Layout :showFooter="true">
     <div class="MyContainer header-content blog"  >
       <h2 class="blog-subtitle"> Publicaciones en total: {{totalPost}}</h2>
+      <input type = "hidden" name = "IL_IN_ARTICLE">
       <transition name="fade" appear>
         <div class="blog-posts" >
             <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />

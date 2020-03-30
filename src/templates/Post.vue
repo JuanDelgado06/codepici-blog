@@ -29,7 +29,7 @@
         </div>
 
       <!-- Publicidad -->
-      <div id="adsgoeshere2" style="display: block; text-align: center;" v-html="adsenseContent"></div>
+      <input type = "hidden" name = "IL_IN_ARTICLE">
 
         <div class="MyContainer">
           <div class="post-footer" >
@@ -97,7 +97,7 @@
             <Vssue title="CodePici" />
           </div>
         </div>  <!--MyContainer FIn-->
-            
+        <input type = "hidden" name = "IL_IN_ARTICLE">
           <!-- <DonationAlert v-if="$page.post.link"/> -->
           <btnTop :offset="300"/>
       </ClientOnly>

@@ -42,6 +42,7 @@
       <div class="MyContainer">
         <FormNetlify id="contact"/>
       </div>
+      <input type = "hidden" name = "IL_IN_ARTICLE">
       
       <btnTop :offset="800"/>
     </ClientOnly>
